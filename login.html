@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Login - Libman School</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style-login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <nav> 
+      <div class="logo">
+      <img src="img/Logo.png" alt="">
+			<span class="logo">Libman School</span></div>
+      <input type="checkbox" id="click">
+      <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <ul>
+        <li><a href="#">Pelayanan Pelanggan</a></li>
+        <li><a href="#">Tentang Aplikasi</a></li>
+      </ul>
+      
+    </nav>
+    <div class="img"></div>
+    <div class="content">
+      <div class="title">SELAMAT DATANG</div>
+      <div class="title">APLIKASI MANAJEMEN PERPUSTAKAAN</div>
+      <div class="sub_title">SMP Negeri 1 Bangsalsari</div>
+    </div>
+    <section class="container forms">
+        <div class="form login">
+            <div class="form-content">
+                <header>Masuk</header>
+                <p>Masukan Username dan Password</p>
+                <p>untuk melanjutkan ke halaman berikutnya</p>
+                <form action="#">
+                    <h4>Username</h4>
+                    <div class="field input-field">
+                        <input type="username" placeholder="Username" class="input">
+                    </div>
+                </br>
+                    <h4>Password</h4>
+                    <div class="field input-field">
+                        <input type="password" placeholder="Password" class="password">
+                        <i class='bx bx-hide eye-icon'></i>
+                    </div>
+                    <div class="field button-field">
+                        <button>Masuk</button>
+                    </div>
+                </form>
+        </div>
+    </section>
+    <script src="script-login.js"></script>
+  </body>
+</html>
