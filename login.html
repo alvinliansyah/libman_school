@@ -24,34 +24,69 @@
       
     </nav>
     <div class="img"></div>
-    <div class="content">
-      <div class="title">SELAMAT DATANG</div>
-      <div class="title">APLIKASI MANAJEMEN PERPUSTAKAAN</div>
-      <div class="sub_title">SMP Negeri 1 Bangsalsari</div>
-    </div>
-    <section class="container forms">
-        <div class="form login">
-            <div class="form-content">
-                <header>Masuk</header>
+    <div class="menu">
+        <div class="container">
+            <input type="checkbox" id="flip">
+            <div class="cover">
+              <div class="front">
+                <img src="img/wander-fleur-1lmGTHdQdjM-unsplash.jpg" alt="">
+                <div class="text">
+                  <span class="text-1">APLIKASI MANAJEMEN PERPUSTAKAAN</span>
+                  <span class="text-2">SMP Negeri 1 Bangsalsari</span>
+                </div>
+              </div>
+              <div class="back">
+                <img class="backImg" src="img/wander-fleur-1lmGTHdQdjM-unsplash.jpg" alt="">
+                <div class="text">
+                  <span class="text-1">APLIKASI MANAJEMEN PERPUSTAKAAN</span>
+                  <span class="text-2">SMP Negeri 1 Bangsalsari</span>
+                </div>
+              </div>
+            </div>
+            <div class="forms">
+                <div class="form-content">
+                  <div class="login-form">
+                    <header>Masuk</header>
                 <p>Masukan Username dan Password</p>
                 <p>untuk melanjutkan ke halaman berikutnya</p>
+                  <form action="#">
+                    <div class="input-boxes">
+                      <div class="field input-field">
+                        <input type="text" placeholder="Username" required>
+                      </div>
+                      <div class="field input-field">
+                        <input type="password" placeholder="Password" required>
+                      </div>
+                      <div class="text"><label for="flip">Lupa Password?</label></div>
+                      <div class="button input-box">
+                        <input type="submit" value="Masuk">
+                      </div>
+                    </div>
+                    </form>
+                  </div>
+                  <div class="forgetPassword-form">
+                    <header>Lupa Password</header>
+                    <p>Silahkan masukkan Password baru anda</p>
                 <form action="#">
-                    <h4>Username</h4>
-                    <div class="field input-field">
-                        <input type="username" placeholder="Username" class="input">
+                    <div class="input-boxes">
+                      <div class="field input-field">
+                        <input type="text" placeholder="Username" required>
+                      </div>
+                      <div class="field input-field">
+                        <input type="password" placeholder="Password" required>
+                      </div>
+                      <div class="field input-field">
+                        <input type="password" placeholder="Konfirmasi password" required>
+                      </div>
+                      <div class="button input-box">
+                        <input type="submit" value="Simpan">
+                      </div>
+                      <div class="text forgetPassword-text"><label for="flip">Kembali ke masuk</label></div>
                     </div>
-                </br>
-                    <h4>Password</h4>
-                    <div class="field input-field">
-                        <input type="password" placeholder="Password" class="password">
-                        <i class='bx bx-hide eye-icon'></i>
-                    </div>
-                    <div class="field button-field">
-                        <button>Masuk</button>
-                    </div>
-                </form>
-        </div>
-    </section>
+              </form>
+            </div>
+            </div>
+            </div>
     <script src="script-login.js"></script>
   </body>
 </html>
