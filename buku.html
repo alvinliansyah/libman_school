@@ -75,7 +75,8 @@
 						<div class="menu">
 							<i class='bx bx-dots-horizontal-rounded icon'></i>
 							<ul class="menu-link">
-								<li><a href="#">Tambah Data</a></li>
+								<li><a href="#" data-bs-toggle="modal" data-bs-target="#modalTambahData">Tambah Data</a>
+								</li>
 								<li><a href="#">Refresh</a></li>
 							</ul>
 						</div>
@@ -85,65 +86,137 @@
 							<thead>
 								<tr>
 									<th>NO</th>
-									<th>ID</th>
-									<th>JUDUL</th>
+									<th>KODE BUKU</th>
+									<th>TINGKATAN</th>
 									<th>SEMESTER</th>
-									<th>KELAS</th>
+									<th>JUDUL BUKU</th>
 									<th>DIPINJAM</th>
 									<th>TERSEDIA</th>
 									<th>JUMLAH</th>
+									<th>FOTO COVER BUKU</th>
 									<th>AKSI</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
 									<td>1</td>
-									<td>002</td>
+									<td>bk001</td>
+									<td>VII</td>
+									<td>Ganjil</td>
 									<td>Olahraga</td>
-									<td>II</td>
-									<td>Kelas VII</td>
-									<td>1200</td>
-									<td>200</td>
-									<td>1400</td>
+									<td>295</td>
+									<td>5</td>
+									<td>300</td>
+									<td>image1.jpg</td>
 									<td></td>
 								</tr>
 								<tr>
 									<td>2</td>
-									<td>201</td>
-									<td>Seni Budaya</td>
-									<td>I</td>
-									<td>KELAS VII</td>
-									<td>1380</td>
-									<td>120</td>
-									<td>1500</td>
+									<td>bk002</td>
+									<td>VII</td>
+									<td>Ganjil</td>
+									<td>Agama</td>
+									<td>295</td>
+									<td>5</td>
+									<td>300</td>
+									<td>image2.jpg</td>
 									<td></td>
 								</tr>
 								<tr>
 									<td>3</td>
-									<td>173</td>
+									<td>bk003</td>
+									<td>VII</td>
+									<td>Ganjil</td>
 									<td>Matematika</td>
-									<td>I dan II</td>
-									<td>KELAS VII</td>
-									<td>1320</td>
-									<td>320</td>
-									<td>1640</td>
+									<td>295</td>
+									<td>5</td>
+									<td>300</td>
+									<td>image3.jpg</td>
 									<td></td>
-									</tr>
 							</tbody>
 							<tfoot>
 								<tr>
 									<th>NO</th>
-									<th>ID</th>
-									<th>JUDUL</th>
+									<th>KODE BUKU</th>
+									<th>TINGKATAN</th>
 									<th>SEMESTER</th>
-									<th>KELAS</th>
+									<th>JUDUL BUKU</th>
 									<th>DIPINJAM</th>
 									<th>TERSEDIA</th>
 									<th>JUMLAH</th>
+									<th>FOTO COVER BUKU</th>
 									<th>AKSI</th>
 								</tr>
 							</tfoot>
 						</table>
+						<!-- Awal Modal -->
+						<div class="modal fade" id="modalTambahData" data-bs-backdrop="static" data-bs-keyboard="false"
+							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Data Buku</h1>
+										<button type="button" class="btn-close" data-bs-dismiss="modal"
+											aria-label="Close"></button>
+									</div>
+									<form method="POST" action="#"></form>
+									<div class="modal-body">
+										<div class="mb-3">
+											<label class="form-label">Kode Buku</label>
+											<input type="text" class="form-control" name="text-kodebuku"
+												placeholder="Kode Admin" required>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Tingkatan</label>
+											<select class="form-select" name="text-tingkatan">
+												<option></option>
+												<option value="VII">VII</option>
+												<option value="VII">VIII</option>
+											</select>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Semester</label>
+											<select class="form-select" name="text-semester">
+												<option></option>
+												<option value="Ganjil">Ganjil</option>
+												<option value="Genap">Genap</option>
+											</select>
+										</div>
+											<div class="mb-3">
+												<label class="form-label">Judul Buku</label>
+												<input type="text" class="form-control" name="text-judulbuku"
+													placeholder="Judul Buku" required>
+											</div>
+										<div class="mb-3">
+											<label class="form-label">Dipinjam</label>
+											<input type="number" class="form-control" name="number-dipinjam"
+												placeholder="Dipinjam" required>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Tersedia</label>
+											<input type="number" class="form-control" name="number-tersedia"
+												placeholder="Tersedia" required>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Jumlah</label>
+											<input type="number" class="form-control" name="number-jumlah"
+												placeholder="Jumlah" required>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Foto Cover Buku</label>
+											<input type="file" class="form-control" name="file-fotocoverbuku" required>
+										</div>
+
+									</div>
+									<div class="modal-footer">
+										<button type="submit" class="btn btn-primary" name="button-simpan">Simpan</button>
+										<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Keluar</button>
+									</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<!-- Akhir Modal -->
 					</div>
 				</div>
 		</div>	

@@ -129,7 +129,7 @@ body {
     justify-content: space-between;
   }
   .form-content .login-form,
-  .form-content .signup-form{
+  .form-content .forgetPassword-form{
     width: calc(100% / 2 - 25px);
   }
  
@@ -180,7 +180,7 @@ body {
     text-decoration: none;
   }
   .forms .form-content .text a:hover{
-    text-decoration: underline;
+    text-decoration: none;
   }
   .forms .form-content .button{
     color: #fff;
@@ -202,7 +202,7 @@ body {
     cursor: pointer;
   }
   .forms .form-content label:hover{
-    text-decoration: underline;
+    text-decoration: none;
   }
   .forms .form-content .login-text,
   .forms .form-content .forgetPassword-text{

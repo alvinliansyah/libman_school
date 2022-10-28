@@ -75,11 +75,12 @@
 			<div class="data">
 					<div class="content-data">
 						<div class="head">
-							<h3>Data Kelas</h3>
+							<h3>Data Siswa</h3>
 							<div class="menu">
 								<i class='bx bx-dots-horizontal-rounded icon'></i>
 								<ul class="menu-link">
-									<li><a href="#">Tambah Data</a></li>
+									<li><a href="#" data-bs-toggle="modal" data-bs-target="#modalTambahData">Tambah Data</a>
+									</li>
 									<li><a href="#">Refresh</a></li>
 								</ul>
 							</div>
@@ -90,35 +91,39 @@
 									<tr>
 										<th>NO</th>
 										<th>KELAS</th>
-										<th>KODE KELAS</th>
-										<th>WALI KELAS</th>
-										<th>JUMLAH SISWA</th>
+										<th>NAMA LENGKAP SISWA</th>
+										<th>NISN</th>
+										<th>USERNAME</th>
+										<th>PASSWORD</th>
 										<th>AKSI</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
 										<td>1</td>
-										<td>KELAS VII</td>
-										<td>A</td>
+										<td>KELAS VII A</td>
 										<td>Budi Saputra</td>
-										<td>30</td>
+										<td>123456789</td>
+										<td>budisaputra</td>
+										<td>*****</td>
 										<td></td>
 									</tr>
 									<tr>
 										<td>2</td>
-										<td>KELAS VII</td>
-										<td>B</td>
+										<td>KELAS VII A</td>
 										<td>Yulianto</td>
-										<td>28</td>
+										<td>123456790</td>
+										<td>yulianto</td>
+										<td>*****</td>
 										<td></td>
 									</tr>
 									<tr>
 										<td>3</td>
-										<td>KELAS VII</td>
-										<td>C</td>
+										<td>KELAS VII A</td>
 										<td>Andre Saputra</td>
-										<td>28</td>
+										<td>123456791</td>
+										<td>andresaputra</td>
+										<td>*****</td>
 										<td></td>
 									</tr>
 								</tbody>
@@ -126,13 +131,67 @@
 									<tr>
 										<th>NO</th>
 										<th>KELAS</th>
-										<th>KODE KELAS</th>
-										<th>WALI KELAS</th>
-										<th>JUMLAH SISWA</th>
+										<th>NAMA LENGKAP SISWA</th>
+										<th>NISN</th>
+										<th>USERNAME</th>
+										<th>PASSWORD</th>
 										<th>AKSI</th>
 									</tr>
 								</tfoot>
 							</table>
+							<!-- Awal Modal -->
+						<div class="modal fade" id="modalTambahData" data-bs-backdrop="static" data-bs-keyboard="false"
+						tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Data Siswa</h1>
+									<button type="button" class="btn-close" data-bs-dismiss="modal"
+										aria-label="Close"></button>
+								</div>
+								<form method="POST" action="#"></form>
+								<div class="modal-body">
+
+									<div class="mb-3">
+										<label class="form-label">Kelas</label>
+										<select class="form-select" name="text-kelas">
+											<option></option>
+											<option value="KELAS VII A">KELAS VII A</option>
+											<option value="KELAS VII B">KELAS VII B</option>
+											<option value="KELAS VII C">KELAS VII C</option>
+										</select>
+									</div>
+									<div class="mb-3">
+										<label class="form-label">Nama Lengkap Siswa</label>
+										<input type="text" class="form-control" name="text-namalengkapsiswa"
+											placeholder="Nama Lengkap Siswa" required>
+									</div>
+									<div class="mb-3">
+										<label class="form-label">NISN</label>
+										<input type="number" class="form-control" name="number-nisn"
+											placeholder="NISN" required>
+									</div>
+									<div class="mb-3">
+										<label class="form-label">Username</label>
+										<input type="text" class="form-control" name="text-username"
+											placeholder="Username" required>
+									</div>
+									<div class="mb-3">
+										<label class="form-label">Password</label>
+										<input type="password" class="form-control" name="password"
+											placeholder="Password" required>
+									</div>
+
+								</div>
+								<div class="modal-footer">
+									<button type="submit" class="btn btn-primary" name="button-simpan">Simpan</button>
+									<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Keluar</button>
+								</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- Akhir Modal -->
 						</div>
 					</div>
 			</div>

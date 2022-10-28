@@ -5,6 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="DataTables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css">
+	<link rel="stylesheet" type="text/css" href="DataTables/Buttons-2.2.3/css/buttons.bootstrap5.min.css">
 	<title>Riwayat - Libman School</title>
 </head>
 <body>
@@ -72,18 +75,95 @@
 						<div class="menu">
 							<i class='bx bx-dots-horizontal-rounded icon'></i>
 							<ul class="menu-link">
-								<li><a href="#">Edit</a></li>
-								<li><a href="#">Save</a></li>
-								<li><a href="#">Remove</a></li>
+								<li><a href="#">Refresh</a></li>
 							</ul>
 						</div>
 					</div>
-			</div>
+					<div class="container">
+						<table id="example" class="table table-striped" style="width:100%">
+							<thead>
+								<tr>
+									<th>NO</th>
+									<th>NAMA LENGKAP SISWA</th>
+									<th>NISN</th>
+									<th>JUDUL BUKU</th>
+									<th>TGL PEMINJAMAN</th>
+									<th>TGL PENGEMBALIAN</th>
+									<th>NAMA LENGKAP ADMIN</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>Budi Saputra</td>
+									<td>123456789</td>
+									<td>Agama</td>
+									<td>20/10/2022</td>
+									<td>27/10/2022</td>
+									<td>Megawati</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>Yulianto</td>
+									<td>123456790</td>
+									<td>Agama</td>
+									<td>20/10/2022</td>
+									<td>27/10/2022</td>
+									<td>Megawati</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>Andre Saputra</td>
+									<td>123456791</td>
+									<td>Agama</td>
+									<td>20/10/2022</td>
+									<td>27/10/2022</td>
+									<td>Megawati</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<th>NO</th>
+									<th>NAMA LENGKAP SISWA</th>
+									<th>NISN</th>
+									<th>JUDUL BUKU</th>
+									<th>TGL PEMINJAMAN</th>
+									<th>TGL PENGEMBALIAN</th>
+									<th>NAMA LENGKAP ADMIN</th>
+								</tr>
+							</tfoot>
+						</table>
+					
+					</div>
+				</div>
+		</div>
 		</main>
 		<!-- MAIN -->
 	</section>
 	<!-- NAVBAR -->
 
 	<script src="script.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="DataTables/DataTables-1.12.1/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="DataTables/DataTables-1.12.1/js/dataTables.bootstrap5.min.js"></script>
+	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/buttons.bootstrap5.min.js"></script>
+	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/buttons.bootstrap5.min.js"></script>
+	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/buttons.html5.min.js"></script>
+	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/buttons.print.min.js"></script>
+	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/buttons.colVis.min.js"></script>
+	<script>
+	$(document).ready(function() {
+    var table = $('#example').DataTable( {
+        lengthChange: false,
+        buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
+    } );
+ 
+    table.buttons().container()
+        .appendTo( '#example_wrapper .col-md-6:eq(0)' );
+	} );
+	</script>
 </body>
+
 </html>
