@@ -48,7 +48,7 @@
 				
 			</form>
 			<div class="profile">
-				<img src="../coba/img/default-avatar.png" alt="">
+				<img src="../libman_school/img/default-avatar.png" alt="">
 				<ul class="profile-link">
 					<li><a href="profile.html"><i class='bx bx-user icon'></i> Profile</a></li>
 				</ul>
@@ -111,7 +111,7 @@
 					<div class="head">
 						<h3>Chart Buku</h3>
 						<div class="menu">
-							<i class='bx bx-dots-horizontal-rounded icon'></i>
+							<i class='bx bx-dots-horizontal-rounded icon bx-sm'></i>
 							<ul class="menu-link">
 								<li><a href="#">Refresh</a></li>\
 							</ul>
@@ -126,7 +126,7 @@
 					<div class="head">
 						<h3>Memerlukan Tindakan</h3>
 						<div class="menu">
-							<i class='bx bx-dots-horizontal-rounded icon'></i>
+							<i class='bx bx-dots-horizontal-rounded icon bx-sm'></i>
 							<ul class="menu-link">
 								<li><a href="#">Refresh</a></li>
 							</ul>
