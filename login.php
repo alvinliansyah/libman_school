@@ -1,3 +1,13 @@
+<?php 
+if(isset($_GET['pesan'])){
+    if($_GET['pesan'] == "gagal"){
+        echo "<script>alert('Login gagal! username dan password salah!')</script>";
+        }
+        else if($_GET['pesan'] == "logout"){
+          echo "<script>alert('Anda telah berhasil logout')</script>";
+        }
+      }
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -21,7 +31,6 @@
         <li><a href="#">Pelayanan Pelanggan</a></li>
         <li><a href="#">Tentang Aplikasi</a></li>
       </ul>
-      
     </nav>
     <div class="img"></div>
     <div class="menu">
@@ -49,13 +58,13 @@
                     <header>Masuk</header>
                 <p>Masukan Username dan Password</p>
                 <p>untuk melanjutkan ke halaman berikutnya</p>
-                  <form action="#">
+                  <form method="post" action="cek_login.php">
                     <div class="input-boxes">
                       <div class="field input-field">
-                        <input type="text" placeholder="Username" required>
+                        <input type="text" placeholder="Username" name = "user" required>
                       </div>
                       <div class="field input-field">
-                        <input type="password" placeholder="Password" required>
+                        <input type="password" placeholder="Password" name = "pass" required>
                       </div>
                       <div class="text"><label for="flip">Lupa Password?</label></div>
                       <div class="button input-box">
