@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
 	<title>Profile - Libman School</title>
 </head>
@@ -36,7 +36,6 @@
 					<ul class="side-dropdown">
 						<li><a href="pelayananPelanggan.html">Pelayanan Pelanggan</a></li>
 						<li><a href="tentangAplikasi.html">Tentang Aplikasi</a></li>
-						<li><a href="pengaturanAkun.html">Pengaturan Akun</a></li>
 					</ul>
 				</li>
 				<li><a href="#"><i class='bx bx-log-out-circle icon'></i>Keluar</a></li>
@@ -74,8 +73,10 @@
 					<div class="head">
 						<h3>Profile</h3>
 						<div class="menu">
-							<i class='bx bx-dots-horizontal-rounded icon'></i>
+							<i class='bx bx-cog icon'></i>
 							<ul class="menu-link">
+								<li><a href="#" data-bs-toggle="modal" data-bs-target="#modalEditAkun">Edit Akun</a></li>
+								<li><a href="#">Hapus Akun</a></li>
 								<li><a href="#">Refresh</a></li>
 							</ul>
 						</div>
@@ -108,6 +109,53 @@
 							</br>
 							</div>
 						</form>
+						<!-- Awal Modal -->
+						<div class="modal fade" id="modalEditAkun" data-bs-backdrop="static" data-bs-keyboard="false"
+							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Akun</h1>
+										<button type="button" class="btn-close" data-bs-dismiss="modal"
+											aria-label="Close"></button>
+									</div>
+									<form method="POST" action="#"></form>
+									<div class="modal-body">
+										<div class="mb-3">
+											<label class="form-label">Kode Admin</label>
+											<input type="text" class="form-control" name="text-kodeadmin"
+												placeholder="Kode Admin" required>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Nama Lengkap Admin</label>
+											<input type="text" class="form-control" name="text-namalengkapadmin"
+												placeholder="Nama Lengkap Admin" required>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Username</label>
+											<input type="text" class="form-control" name="text-username"
+												placeholder="Username" required>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Password</label>
+											<input type="password" class="form-control" name="password"
+												placeholder="Password" required>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Foto Profile</label>
+											<input type="file" class="form-control" name="file-fotoprofile" required>
+										</div>
+
+									</div>
+									<div class="modal-footer">
+										<button type="submit" class="btn btn-primary" name="button-simpan">Simpan</button>
+										<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Keluar</button>
+									</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<!-- Akhir Modal -->
 					</div>
 				</div>
 			</div>
@@ -120,6 +168,7 @@
 	<!-- NAVBAR -->
 
 	<script src="script.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </body>
 
 </html>
