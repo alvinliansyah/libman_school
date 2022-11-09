@@ -32,7 +32,6 @@
 				<ul class="side-dropdown">
 					<li><a href="pelayananPelanggan.html">Pelayanan Pelanggan</a></li>
 					<li><a href="tentangAplikasi.html">Tentang Aplikasi</a></li>
-					<li><a href="pengaturanAkun.html">Pengaturan Akun</a></li>
 				</ul>
 			</li>
             <li><a href="logout.php"><i class='bx bx-log-out-circle icon'></i>Keluar</a></li>
@@ -49,7 +48,7 @@
 				
 			</form>
 			<div class="profile">
-				<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+				<img src="../coba/img/default-avatar.png" alt="">
 				<ul class="profile-link">
 					<li><a href="profile.html"><i class='bx bx-user icon'></i> Profile</a></li>
 				</ul>
@@ -114,9 +113,7 @@
 						<div class="menu">
 							<i class='bx bx-dots-horizontal-rounded icon'></i>
 							<ul class="menu-link">
-								<li><a href="#">Edit</a></li>
-								<li><a href="#">Save</a></li>
-								<li><a href="#">Remove</a></li>
+								<li><a href="#">Refresh</a></li>\
 							</ul>
 						</div>
 					</div>
@@ -131,9 +128,7 @@
 						<div class="menu">
 							<i class='bx bx-dots-horizontal-rounded icon'></i>
 							<ul class="menu-link">
-								<li><a href="#">Edit</a></li>
-								<li><a href="#">Save</a></li>
-								<li><a href="#">Remove</a></li>
+								<li><a href="#">Refresh</a></li>
 							</ul>
 						</div>
 					</div>
