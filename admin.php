@@ -1,3 +1,21 @@
+<?php
+require_once 'admin.php';
+require_once 'koneksi.php';
+
+session_start();
+
+if (isset($_POST['button-simpan'])) {
+$id = $_POST['text-kodeadmin'];
+$nama = $_POST['text-namalengkapadmin'];
+$password = $_POST['password'];
+$image = $_POST['file-fotoprofile'];
+    mysqli_query($koneksi,"INSERT INTO data_admin VALUES ('$id','$nama','$password','$image')");
+    header('location:admin.php'); 
+   
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,7 +95,7 @@
 						<div class="menu">
 							<i class='bx bx-dots-horizontal-rounded icon bx-sm'></i>
 							<ul class="menu-link">
-								<li><a href="#" data-bs-toggle="modal" data-bs-target="#modalTambahData">Tambah Data</a>
+								<li><a href="tambah_admin.php" data-bs-toggle="modal" data-bs-target="#modalTambahData">Tambah Data</a>
 								</li>
 								<li><a href="#">Refresh</a></li>
 							</ul>
@@ -89,60 +107,33 @@
 								<tr>
 									<th>NO</th>
 									<th>KODE ADMIN</th>
-									<th>NAMA LENGKAP ADMIN</th>
-									<th>USERNAME</th>
+									<th>NAMA ADMIN</th>
 									<th>PASSWORD</th>
 									<th>FOTO PROFILE</th>
 								</tr>
 							</thead>
 							<tbody>
+								<?php
+								include 'koneksi.php';
+
+								$dataAdmin = mysqli_query($koneksi, "select * from data_admin");
+								$i=1;
+								while ($row = mysqli_fetch_array($dataAdmin, MYSQLI_ASSOC)) {
+								?>
 								<tr>
-									<td></td>
-									<td>adm001</td>
-									<td>Habieb Rizieq</td>
-									<td>habiebrizieq</td>
-									<td>*****</td>
-									<td>image1.jpg</td>
+									<td><?php echo $i++?></td>
+									<td><?php echo $row['id_admin']; ?></td>
+									<td><?php echo $row['nama_admin']; ?></td>
+									<td><?php echo $row['password']; ?></td>
+									<td><?php echo $row['gambar']; ?></td>
 								</tr>
-								<tr>
-									<td>2</td>
-									<td>adm002</td>
-									<td>Suharto</td>
-									<td>suharto</td>
-									<td>*****</td>
-									<td>image2.jpg</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>adm003</td>
-									<td>Vladimir Putin</td>
-									<td>vladimirputin</td>
-									<td>*****</td>
-									<td>image3.jpg</td>
-								</tr>
-								<tr>
-									<td>4</td>
-									<td>adm004</td>
-									<td>Adolf Hitler</td>
-									<td>adolfhitler</td>
-									<td>*****</td>
-									<td>image4.jpg</td>
-								</tr>
-								<tr>
-									<td>5</td>
-									<td>adm005</td>
-									<td>Megawati</td>
-									<td>megawati</td>
-									<td>*****</td>
-									<td>image5.jpg</td>
-								</tr>
+								<?php } ?>
 							</tbody>
 							<tfoot>
 								<tr>
 									<th>NO</th>
 									<th>KODE ADMIN</th>
-									<th>NAMA LENGKAP ADMIN</th>
-									<th>USERNAME</th>
+									<th>NAMA ADMIN</th>
 									<th>PASSWORD</th>
 									<th>FOTO PROFILE</th>
 								</tr>
@@ -158,7 +149,7 @@
 										<button type="button" class="btn-close" data-bs-dismiss="modal"
 											aria-label="Close"></button>
 									</div>
-									<form method="POST" action="#"></form>
+									<form method="POST" action="admin.php?menu=admin&act=admin">
 									<div class="modal-body">
 										<div class="mb-3">
 											<label class="form-label">Kode Admin</label>
@@ -166,14 +157,9 @@
 												placeholder="Kode Admin" required>
 										</div>
 										<div class="mb-3">
-											<label class="form-label">Nama Lengkap Admin</label>
+											<label class="form-label">Nama Admin</label>
 											<input type="text" class="form-control" name="text-namalengkapadmin"
-												placeholder="Nama Lengkap Admin" required>
-										</div>
-										<div class="mb-3">
-											<label class="form-label">Username</label>
-											<input type="text" class="form-control" name="text-username"
-												placeholder="Username" required>
+												placeholder="Nama Admin" required>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Password</label>
