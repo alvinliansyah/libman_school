@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="DataTables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css">
 	<link rel="stylesheet" type="text/css" href="DataTables/Buttons-2.2.3/css/buttons.bootstrap5.min.css">
-	<title>Buku - Libman School</title>
+	<title>Riwayat - Libman School</title>
 </head>
 <body>
 	
@@ -22,19 +22,20 @@
 			<li><a href="dashboard.php"><i class='bx bx-home icon'></i> Dashboard</a></li>
 			
 			<li class="divider" data-text="data master">Data Master</li>
-			<li><a href="siswa.html"><i class='bx bx-group icon'></i>Siswa</a></li>
-			<li><a href="admin.html"><i class='bx bx-user icon'></i>Admin</a></li>
-			<li><a href="#" class="active"><i class='bx bx-book icon'></i>Buku</a></li>
+			<li><a href="siswa.php"><i class='bx bx-group icon'></i>Siswa</a></li>
+			<li><a href="admin.php"><i class='bx bx-user icon'></i>Admin</a></li>
+			<li><a href="buku.php"><i class='bx bx-book icon'></i>Buku</a></li>
 			<li class="divider" data-text="transaksi">Transaksi</li>
-			<li><a href="peminjaman.html" ><i class='bx bx-arrow-from-bottom icon'></i>Peminjaman</a></li>
-			<li><a href="pengembalian.html"><i class='bx bx-arrow-to-bottom icon'></i>Pengembalian</a></li>
-			<li><a href="riwayat.html"><i class='bx bx-history icon'></i>Riwayat</a></li>
+			<li><a href="peminjaman.php"><i class='bx bx-arrow-from-bottom icon'></i>Peminjaman</a></li>
+			<li><a href="pengembalian.php" ><i class='bx bx-arrow-to-bottom icon'></i>Pengembalian</a></li>
+			<li><a href="#" class="active"><i class='bx bx-history icon'></i>Riwayat</a></li>
         <ul class="buttom-side-menu">
             <li>
 				<a href="#"><i class='bx bx-cog icon' ></i> Pengaturan <i class='bx bx-chevron-right icon-right' ></i></a>
 				<ul class="side-dropdown">
-					<li><a href="pelayananPelanggan.html">Pelayanan Pelanggan</a></li>
-					<li><a href="tentangAplikasi.html">Tentang Aplikasi</a></li>
+					<li><a href="pelayananPelanggan.php">Pelayanan Pelanggan</a></li>
+					<li><a href="tentangAplikasi.php">Tentang Aplikasi</a></li>
+					<li><a href="pengaturanAkun.php">Pengaturan Akun</a></li>
 				</ul>
 			</li>
             <li><a href="logout.php"><i class='bx bx-log-out-circle icon'></i>Keluar</a></li>
@@ -53,7 +54,7 @@
 			<div class="profile">
 				<img src="../libman_school/img/default-avatar.png" alt="">
 				<ul class="profile-link">
-					<li><a href="profile.html"><i class='bx bx-user icon'></i> Profile</a></li>
+					<li><a href="profile.php"><i class='bx bx-user icon'></i> Profile</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -61,21 +62,19 @@
 
 		<!-- MAIN -->
 		<main>
-			<h1 class="title">Buku</h1>
+			<h1 class="title">Riwayat</h1>
 			<ul class="breadcrumbs">
-				<li><a href="dashboard.html">Home</a></li>
+				<li><a href="dashboard.php">Home</a></li>
 				<li class="divider">/</li>
-				<li><a href="#" class="active">Buku</a></li>
+				<li><a href="#" class="active">Riwayat</a></li>
 			</ul>
 			<div class="data">
 				<div class="content-data">
 					<div class="head">
-						<h3>Data Jenis Buku</h3>
+						<h3>Riwayat Transaksi</h3>
 						<div class="menu">
 							<i class='bx bx-dots-horizontal-rounded icon bx-sm'></i>
 							<ul class="menu-link">
-								<li><a href="#" data-bs-toggle="modal" data-bs-target="#modalTambahData">Tambah Data</a>
-								</li>
 								<li><a href="#">Refresh</a></li>
 							</ul>
 						</div>
@@ -85,81 +84,64 @@
 							<thead>
 								<tr>
 									<th>NO</th>
-									<th>JENIS BUKU</th>
-									<th>JUMLAH</th>
-									<th>AKSI</th>
+									<th>NAMA LENGKAP SISWA</th>
+									<th>NISN</th>
+									<th>JUDUL BUKU</th>
+									<th>TGL PEMINJAMAN</th>
+									<th>TGL PENGEMBALIAN</th>
+									<th>NAMA LENGKAP ADMIN</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
 									<td>1</td>
-									<td>Buku Paket</td>
-									<td>75</td>
-									<td></td>
+									<td>Budi Saputra</td>
+									<td>123456789</td>
+									<td>Agama</td>
+									<td>20/10/2022</td>
+									<td>27/10/2022</td>
+									<td>Megawati</td>
 								</tr>
 								<tr>
 									<td>2</td>
-									<td>Karya Sastra</td>
-									<td>21</td>
-									<td></td>
+									<td>Yulianto</td>
+									<td>123456790</td>
+									<td>Agama</td>
+									<td>20/10/2022</td>
+									<td>27/10/2022</td>
+									<td>Megawati</td>
 								</tr>
 								<tr>
 									<td>3</td>
-									<td>Kamus</td>
-									<td>11</td>
-									<td></td>
+									<td>Andre Saputra</td>
+									<td>123456791</td>
+									<td>Agama</td>
+									<td>20/10/2022</td>
+									<td>27/10/2022</td>
+									<td>Megawati</td>
+								</tr>
 							</tbody>
 							<tfoot>
 								<tr>
 									<th>NO</th>
-									<th>JENIS BUKU</th>
-									<th>JUMLAH</th>
-									<th>AKSI</th>
+									<th>NAMA LENGKAP SISWA</th>
+									<th>NISN</th>
+									<th>JUDUL BUKU</th>
+									<th>TGL PEMINJAMAN</th>
+									<th>TGL PENGEMBALIAN</th>
+									<th>NAMA LENGKAP ADMIN</th>
 								</tr>
 							</tfoot>
 						</table>
-						<!-- Awal Modal -->
-						<div class="modal fade" id="modalTambahData" data-bs-backdrop="static" data-bs-keyboard="false"
-							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Data Buku</h1>
-										<button type="button" class="btn-close" data-bs-dismiss="modal"
-											aria-label="Close"></button>
-									</div>
-									<form method="POST" action="#"></form>
-									<div class="modal-body">
-										<div class="mb-3">
-											<label class="form-label">Jenis Buku</label>
-											<input type="text" class="form-control" name="text-jenisbuku"
-												placeholder="Jenis Buku" required>
-										</div>
-										<div class="mb-3">
-											<label class="form-label">Jumlah</label>
-											<input type="number" class="form-control" name="number-jumlah"
-												placeholder="Jumlah" required>
-										</div>
-
-									</div>
-									<div class="modal-footer">
-										<button type="submit" class="btn btn-primary" name="button-simpan">Simpan</button>
-										<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Keluar</button>
-									</div>
-									</form>
-								</div>
-							</div>
-						</div>
-						<!-- Akhir Modal -->
+					
 					</div>
 				</div>
-		</div>	
+		</div>
 		</main>
 		<!-- MAIN -->
 	</section>
 	<!-- NAVBAR -->
 
-	
 	<script src="script.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
@@ -185,4 +167,5 @@
 	} );
 	</script>
 </body>
+
 </html>

@@ -25,19 +25,19 @@
 
 			<li class="divider" data-text="data master">Data Master</li>
 			<li><a href="#" class="active"><i class='bx bx-group icon'></i>Siswa</a></li>
-			<li><a href="admin.html"><i class='bx bx-user icon'></i>Admin</a></li>
-			<li><a href="buku.html"><i class='bx bx-book icon'></i>Buku</a></li>
+			<li><a href="admin.php"><i class='bx bx-user icon'></i>Admin</a></li>
+			<li><a href="buku.php"><i class='bx bx-book icon'></i>Buku</a></li>
 			<li class="divider" data-text="transaksi">Transaksi</li>
-			<li><a href="peminjaman.html"><i class='bx bx-arrow-from-bottom icon'></i>Peminjaman</a></li>
-			<li><a href="pengembalian.html"><i class='bx bx-arrow-to-bottom icon'></i>Pengembalian</a></li>
-			<li><a href="riwayat.html"><i class='bx bx-history icon'></i>Riwayat</a></li>
+			<li><a href="peminjaman.php"><i class='bx bx-arrow-from-bottom icon'></i>Peminjaman</a></li>
+			<li><a href="pengembalian.php"><i class='bx bx-arrow-to-bottom icon'></i>Pengembalian</a></li>
+			<li><a href="riwayat.php"><i class='bx bx-history icon'></i>Riwayat</a></li>
 			<ul class="buttom-side-menu">
 				<li>
 					<a href="#"><i class='bx bx-cog icon'></i> Pengaturan <i
 							class='bx bx-chevron-right icon-right'></i></a>
 					<ul class="side-dropdown">
-						<li><a href="pelayananPelanggan.html">Pelayanan Pelanggan</a></li>
-						<li><a href="tentangAplikasi.html">Tentang Aplikasi</a></li>
+						<li><a href="pelayananPelanggan.php">Pelayanan Pelanggan</a></li>
+						<li><a href="tentangAplikasi.php">Tentang Aplikasi</a></li>
 					</ul>
 				</li>
 				<li><a href="logout.php"><i class='bx bx-log-out-circle icon'></i>Keluar</a></li>
@@ -56,7 +56,7 @@
 			<div class="profile">
 				<img src="../libman_school/img/default-avatar.png" alt="">
 				<ul class="profile-link">
-					<li><a href="profile.html"><i class='bx bx-user icon'></i> Profile</a></li>
+					<li><a href="profile.php"><i class='bx bx-user icon'></i> Profile</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -66,7 +66,7 @@
 		<main>
 			<h1 class="title">Siswa</h1>
 			<ul class="breadcrumbs">
-				<li><a href="dashboard.html">Home</a></li>
+				<li><a href="dashboard.php">Home</a></li>
 				<li class="divider">/</li>
 				<li><a href="#" class="active">Siswa</a></li>
 			</ul>
@@ -88,6 +88,7 @@
 								<thead>
 									<tr>
 										<th>NO</th>
+										<th>TINGKATAN</th>
 										<th>KELAS</th>
 										<th>JUMLAH SISWA</th>
 										<th>AKSI</th>
@@ -96,33 +97,27 @@
 								<tbody>
 									<tr>
 										<td>1</td>
-										<td>VII A</td>
+										<td>VII</td>
+										<td>A</td>
 										<td>30</td>
-										<td></td>
+										<td>
+											<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</button>
+											<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapus">Hapus</button>
+										</td>
 									</tr>
-									<tr>
-										<td>2</td>
-										<td>VII B</td>
-										<td>29</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>3</td>
-										<td>VII C</td>
-										<td>28</td>
-										<td></td>
-									</tr>
+									
 								</tbody>
 								<tfoot>
 									<tr>
 										<th>NO</th>
+										<th>TINGKATAN</th>
 										<th>KELAS</th>
 										<th>JUMLAH SISWA</th>
 										<th>AKSI</th>
 									</tr>
 								</tfoot>
 							</table>
-							<!-- Awal Modal -->
+							<!-- Awal Modal Tambah -->
 						<div class="modal fade" id="modalTambahData" data-bs-backdrop="static" data-bs-keyboard="false"
 						tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 						<div class="modal-dialog">
@@ -134,14 +129,22 @@
 								</div>
 								<form method="POST" action="#"></form>
 								<div class="modal-body">
-
+									<div class="mb-3">
+										<label class="form-label">Tingkatan</label>
+										<select class="form-select" name="text-Tingkatan">
+											<option></option>
+											<option value="VII">VII</option>
+											<option value="VIII">VIII</option>
+											<option value="IX">IX</option>
+										</select>
+									</div>
 									<div class="mb-3">
 										<label class="form-label">Kelas</label>
 										<select class="form-select" name="text-kelas">
 											<option></option>
-											<option value="VII A">VII A</option>
-											<option value="VII B">VII B</option>
-											<option value="VII C">VII C</option>
+											<option value="A">A</option>
+											<option value="B">B</option>
+											<option value="C">C</option>
 										</select>
 									</div>
 									<div class="mb-3">
@@ -152,14 +155,80 @@
 
 								</div>
 								<div class="modal-footer">
-									<button type="submit" class="btn btn-primary" name="button-simpan">Simpan</button>
-									<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Keluar</button>
+									<button type="submit" class="btn btn-primary" name="button-submittambahdata">Simpan</button>
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
 								</div>
 								</form>
 							</div>
 						</div>
 					</div>
 					<!-- Akhir Modal -->
+					<!-- Awal Modal Edit Data -->
+					<div class="modal fade" id="modalEdit" data-bs-backdrop="static" data-bs-keyboard="false"
+					tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Data Kelas</h1>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<form method="POST" action="#"></form>
+								<div class="modal-body">
+									<div class="mb-3">
+										<label class="form-label">Tingkatan</label>
+										<select class="form-select" name="text-Tingkatan">
+											<option></option>
+											<option value="VII">VII</option>
+											<option value="VIII">VIII</option>
+											<option value="IX">IX</option>
+										</select>
+									</div>
+									<div class="mb-3">
+										<label class="form-label">Kelas</label>
+										<select class="form-select" name="text-kelas">
+											<option></option>
+											<option value="A">A</option>
+											<option value="B">B</option>
+											<option value="C">C</option>
+										</select>
+									</div>
+									<div class="mb-3">
+										<label class="form-label">Jumlah Siswa</label>
+										<input type="number" class="form-control" name="number-jumlahsiswa"
+											placeholder="Jumlah Siswa" required>
+									</div>
+
+								</div>
+								<div class="modal-footer">
+									<button type="submit" class="btn btn-primary" name="button-submiteditdata">Simpan</button>
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
+								</div>
+								</form>
+						</div>
+					</div>
+				</div>
+				<!-- Akhir Modal -->
+				<!-- Awal Modal Hapus Data -->
+				<div class="modal fade" id="modalHapus" data-bs-backdrop="static" data-bs-keyboard="false"
+					tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h1 class="modal-title fs-5" id="staticBackdropLabel">Hapus Data?</h1>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<form method="POST" action="#"></form>
+							<div class="modal-body">Apakah anda yakin ingin menghapus data?</div>
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-danger" name="button-submithapusdata">Hapus</button>
+							</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<!-- Akhir Modal -->
 						</div>
 					</div>
 			</div>

@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="DataTables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css">
 	<link rel="stylesheet" type="text/css" href="DataTables/Buttons-2.2.3/css/buttons.bootstrap5.min.css">
-	<title>Pengembalian - Libman School</title>
+	<title>Peminjaman - Libman School</title>
 </head>
 <body>
 	
@@ -22,19 +22,19 @@
 			<li><a href="dashboard.php"><i class='bx bx-home icon'></i> Dashboard</a></li>
 			
 			<li class="divider" data-text="data master">Data Master</li>
-			<li><a href="siswa.html" ><i class='bx bx-group icon'></i>Siswa</a></li>
-			<li><a href="admin.html"><i class='bx bx-user icon'></i>Admin</a></li>
-			<li><a href="buku.html"><i class='bx bx-book icon'></i>Buku</a></li>
+			<li><a href="siswa.php" ><i class='bx bx-group icon'></i>Siswa</a></li>
+			<li><a href="admin.php"><i class='bx bx-user icon'></i>Admin</a></li>
+			<li><a href="buku.php"><i class='bx bx-book icon'></i>Buku</a></li>
 			<li class="divider" data-text="transaksi">Transaksi</li>
-			<li><a href="peminjaman.html"><i class='bx bx-arrow-from-bottom icon'></i>Peminjaman</a></li>
-			<li><a href="#" class="active"><i class='bx bx-arrow-to-bottom icon'></i>Pengembalian</a></li>
-			<li><a href="riwayat.html"><i class='bx bx-history icon'></i>Riwayat</a></li>
+			<li><a href="#" class="active"><i class='bx bx-arrow-from-bottom icon'></i>Peminjaman</a></li>
+			<li><a href="pengembalian.php"><i class='bx bx-arrow-to-bottom icon'></i>Pengembalian</a></li>
+			<li><a href="riwayat.php"><i class='bx bx-history icon'></i>Riwayat</a></li>
         <ul class="buttom-side-menu">
             <li>
 				<a href="#"><i class='bx bx-cog icon' ></i> Pengaturan <i class='bx bx-chevron-right icon-right' ></i></a>
 				<ul class="side-dropdown">
-					<li><a href="pelayananPelanggan.html">Pelayanan Pelanggan</a></li>
-					<li><a href="tentangAplikasi.html">Tentang Aplikasi</a></li>
+					<li><a href="pelayananPelanggan.php">Pelayanan Pelanggan</a></li>
+					<li><a href="tentangAplikasi.php">Tentang Aplikasi</a></li>
 				</ul>
 			</li>
             <li><a href="logout.php"><i class='bx bx-log-out-circle icon'></i>Keluar</a></li>
@@ -53,7 +53,7 @@
 			<div class="profile">
 				<img src="../libman_school/img/default-avatar.png" alt="">
 				<ul class="profile-link">
-					<li><a href="profile.html"><i class='bx bx-user icon'></i> Profile</a></li>
+					<li><a href="profile.php"><i class='bx bx-user icon'></i> Profile</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -61,16 +61,16 @@
 
 		<!-- MAIN -->
 		<main>
-			<h1 class="title">Pengembalian</h1>
+			<h1 class="title">Peminjaman</h1>
 			<ul class="breadcrumbs">
-				<li><a href="dashboard.html">Home</a></li>
+				<li><a href="dashboard.php">Home</a></li>
 				<li class="divider">/</li>
-				<li><a href="#" class="active">Pengembalian</a></li>
+				<li><a href="#" class="active">Peminjaman</a></li>
 			</ul>
 			<div class="data">
 				<div class="content-data">
 					<div class="head">
-						<h3>Transaksi Pengembalian</h3>
+						<h3>Transaksi Peminjaman</h3>
 						<div class="menu">
 							<i class='bx bx-dots-horizontal-rounded icon bx-sm'></i>
 							<ul class="menu-link">
@@ -85,12 +85,12 @@
 							<thead>
 								<tr>
 									<th>NO</th>
-									<th>KODE PENGEMBALIAN</th>
 									<th>KODE PEMINJAMAN</th>
 									<th>NAMA LENGKAP SISWA</th>
 									<th>NISN</th>
 									<th>JUDUL BUKU</th>
 									<th>TGL PEMINJAMAN</th>
+									<th>TGL PENGEMBALIAN</th>
 									<th>NAMA LENGKAP ADMIN</th>
 									<th>AKSI</th>
 								</tr>
@@ -98,34 +98,34 @@
 							<tbody>
 								<tr>
 									<td>1</td>
-									<td>pgb001</td>
 									<td>pmj001</td>
 									<td>Budi Saputra</td>
 									<td>123456789</td>
 									<td>Agama</td>
 									<td>20/10/2022</td>
+									<td>27/10/2022</td>
 									<td>Megawati</td>
 									<td></td>
 								</tr>
 								<tr>
 									<td>2</td>
-									<td>pgb002</td>
 									<td>pmj002</td>
 									<td>Yulianto</td>
 									<td>123456790</td>
 									<td>Agama</td>
 									<td>20/10/2022</td>
+									<td>27/10/2022</td>
 									<td>Megawati</td>
 									<td></td>
 								</tr>
 								<tr>
 									<td>3</td>
-									<td>pgb003</td>
 									<td>pmj003</td>
 									<td>Andre Saputra</td>
 									<td>123456791</td>
 									<td>Agama</td>
 									<td>20/10/2022</td>
+									<td>27/10/2022</td>
 									<td>Megawati</td>
 									<td></td>
 								</tr>
@@ -133,12 +133,12 @@
 							<tfoot>
 								<tr>
 									<th>NO</th>
-									<th>KODE PENGEMBALIAN</th>
 									<th>KODE PEMINJAMAN</th>
 									<th>NAMA LENGKAP SISWA</th>
 									<th>NISN</th>
 									<th>JUDUL BUKU</th>
 									<th>TGL PEMINJAMAN</th>
+									<th>TGL PENGEMBALIAN</th>
 									<th>NAMA LENGKAP ADMIN</th>
 									<th>AKSI</th>
 								</tr>
@@ -150,17 +150,12 @@
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Transaksi Pengembalian</h1>
+								<h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Transaksi Peminjaman</h1>
 								<button type="button" class="btn-close" data-bs-dismiss="modal"
 									aria-label="Close"></button>
 							</div>
 							<form method="POST" action="#"></form>
 							<div class="modal-body">
-								<div class="mb-3">
-									<label class="form-label">Kode Pengembalian</label>
-									<input type="text" class="form-control" name="text-kodepengembalian"
-										placeholder="Kode Pemngembalian" required>
-								</div>
 								<div class="mb-3">
 									<label class="form-label">Kode Peminjaman</label>
 									<input type="text" class="form-control" name="text-kodepeminjaman"
@@ -186,6 +181,10 @@
 									<input type="date" class="form-control" name="dt-peminjaman" required>
 								</div>
 								<div class="mb-3">
+									<label class="form-label">TGL Pengembalian</label>
+									<input type="date" class="form-control" name="dt-pengembalian" required>
+								</div>
+								<div class="mb-3">
 									<label class="form-label">Nama Lengkap Admin</label>
 									<input type="text" class="form-control" name="text-namalengkapadmin"
 										placeholder="Nama Lengkap Admin" required>
@@ -209,6 +208,7 @@
 	</section>
 	<!-- NAVBAR -->
 
+	
 	<script src="script.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
