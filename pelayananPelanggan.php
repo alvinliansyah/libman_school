@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
 	<title>Pelayanan Pelanggan - Libman School</title>
 </head>
@@ -66,17 +67,13 @@
                 <li class="divider">/</li>
 				<li><a href="#" class="active">Pelayanan Pelanggan</a></li>
 			</ul>
-			<div class="data">
-				<div class="content-data">
-					<div class="head">
-						<h3>Pelayanan Pelanggan</h3>
-						<div class="menu">
-							<i class='bx bx-dots-horizontal-rounded icon bx-sm'></i>
-							<ul class="menu-link">
-								<li><a href="#">Refresh</a></li>
-							</ul>
+			<div class="card">
+					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Pelayanan Pelanggan
+					</center></h4>
+						<div class="card-body">
+						
 						</div>
-					</div>
+						</div>
 			</div>
 		</main>
 		<!-- MAIN -->

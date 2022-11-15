@@ -55,6 +55,8 @@
 				<img src="../libman_school/img/default-avatar.png" alt="">
 				<ul class="profile-link">
 					<li><a href="#" class="active"><i class='bx bx-user icon'></i> Profile</a></li>
+					<li><a href="#" data-bs-toggle="modal" data-bs-target="#modalEditAkun"><i class='bx bx-edit icon'></i>Edit Akun</a></li>
+					<li><a href="#" data-bs-toggle="modal" data-bs-target="#modalHapusAkun"><i class='bx bx-trash'></i>Hapus Akun</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -68,21 +70,11 @@
 				<li class="divider">/</li>
 				<li><a href="#" class="active">Profile</a></li>
 			</ul>
-			<div class="data">
-				<div class="content-data">
-					<div class="head">
-						<h3>Profile</h3>
-						<div class="menu">
-							<i class='bx bx-cog icon bx-sm'></i>
-							<ul class="menu-link">
-								<li><a href="#" data-bs-toggle="modal" data-bs-target="#modalEditAkun">Edit Akun</a></li>
-								<li><a href="#">Hapus Akun</a></li>
-								<li><a href="#">Refresh</a></li>
-							</ul>
-						</div>
-						
-					</div>
-					<div class="profile-form">
+			<div class="card">
+					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Profile
+					</center></h4>
+						<div class="card-body">
+						<div class="profile-form">
 						<form action="#">
 							<center><div><img src="../libman_school/img/default-avatar.png" alt="" class="img-profile"></div></center>
 							<div class="input-boxes">
@@ -114,7 +106,7 @@
 							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
-									<div class="modal-header">
+									<div class="modal-header text-bg-primary mb-3">
 										<h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Akun</h1>
 										<button type="button" class="btn-close" data-bs-dismiss="modal"
 											aria-label="Close"></button>
@@ -149,7 +141,27 @@
 									</div>
 									<div class="modal-footer">
 										<button type="submit" class="btn btn-primary" name="button-simpan">Simpan</button>
-										<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Keluar</button>
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
+									</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<!-- Akhir Modal -->
+						<!-- Awal Modal Hapus Data -->
+						<div class="modal fade" id="modalHapusAkun" data-bs-backdrop="static" data-bs-keyboard="false"
+							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header text-bg-primary mb-3">
+										<h1 class="modal-title fs-5" id="staticBackdropLabel">Hapus Akun?</h1>
+										<button type="button" class="btn-close" data-bs-dismiss="modal"
+											aria-label="Close"></button>
+									</div>
+									<form method="POST" action="#"></form>
+									<div class="modal-body">Apakah anda yakin ingin menghapus Akun?</div>
+									<div class="modal-footer">
+										<button type="submit" class="btn btn-danger" name="button-submithapusdata">Hapus</button>
 									</div>
 									</form>
 								</div>
@@ -158,9 +170,8 @@
 						<!-- Akhir Modal -->
 					</div>
 				</div>
-			</div>
-			</div>
-			</div>
+						</div>
+						</div>
 			</div>
 		</main>
 		<!-- MAIN -->

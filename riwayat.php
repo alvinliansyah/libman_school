@@ -35,7 +35,6 @@
 				<ul class="side-dropdown">
 					<li><a href="pelayananPelanggan.php">Pelayanan Pelanggan</a></li>
 					<li><a href="tentangAplikasi.php">Tentang Aplikasi</a></li>
-					<li><a href="pengaturanAkun.php">Pengaturan Akun</a></li>
 				</ul>
 			</li>
             <li><a href="logout.php"><i class='bx bx-log-out-circle icon'></i>Keluar</a></li>
@@ -68,18 +67,15 @@
 				<li class="divider">/</li>
 				<li><a href="#" class="active">Riwayat</a></li>
 			</ul>
-			<div class="data">
-				<div class="content-data">
-					<div class="head">
-						<h3>Riwayat Transaksi</h3>
-						<div class="menu">
-							<i class='bx bx-dots-horizontal-rounded icon bx-sm'></i>
-							<ul class="menu-link">
-								<li><a href="#">Refresh</a></li>
-							</ul>
-						</div>
+					
 					</div>
-					<div class="container">
+				</div>
+		</div>
+		<div class="card">
+					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Riwayat Transaksi
+					</center></h4>
+						<div class="card-body">
+						<div class="container">
 						<table id="example" class="table table-striped table-hover" style="width:100%">
 							<thead>
 								<tr>
@@ -133,10 +129,9 @@
 								</tr>
 							</tfoot>
 						</table>
-					
-					</div>
-				</div>
-		</div>
+						</div>
+						</div>
+			</div>
 		</main>
 		<!-- MAIN -->
 	</section>

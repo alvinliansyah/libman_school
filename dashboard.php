@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
 	<title>Dashboard - Libman School</title>
 </head>
@@ -106,37 +107,34 @@
 					<span class="label">tahun</span>
 				</div>
 			</div>
-			<div class="data">
-				<div class="content-data">
-					<div class="head">
-						<h3>Chart Buku</h3>
-						<div class="menu">
-							<i class='bx bx-dots-horizontal-rounded icon bx-sm'></i>
-							<ul class="menu-link">
-								<li><a href="#">Refresh</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="charts">
+	</br>
+	<div class="row">
+  <div class="col-sm-6">
+				<div class="card">
+					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Chart Buku
+					</center></h4>
+						<div class="card-body">
+						<div class="charts">
 						<div id="chart" id="doughnut"></div>
 						<canvas id="doughnut"></canvas>
 					</div>
-				</div>
-				<div class="content-data">
-					<div class="head">
-						<h3>Memerlukan Tindakan</h3>
-						<div class="menu">
-							<i class='bx bx-dots-horizontal-rounded icon bx-sm'></i>
-							<ul class="menu-link">
-								<li><a href="#">Refresh</a></li>
-							</ul>
 						</div>
-					</div>
-					
-				</div>
+						</div>
 			</div>
-			
-			
+			<div class="col-sm-6">
+			<div class="card">
+					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Memerlukan Tindakan
+					</center></h4>
+						<div class="card-body">
+						
+						</div>
+						</div>
+			</div>
+				
+</div>
+</div>
+				</div>
+			</div>		
 		</main>
 		<!-- MAIN -->
 	</section>

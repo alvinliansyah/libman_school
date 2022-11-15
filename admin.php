@@ -88,20 +88,13 @@ $image = $_POST['file-fotoprofile'];
 				<li class="divider">/</li>
 				<li><a href="#" class="active">Admin</a></li>
 			</ul>
-			<div class="data">
-				<div class="content-data">
-					<div class="head">
-						<h3>Data Admin</h3>
-						<div class="menu">
-							<i class='bx bx-dots-horizontal-rounded icon bx-sm'></i>
-							<ul class="menu-link">
-								<li><a href="tambah_admin.php" data-bs-toggle="modal" data-bs-target="#modalTambahData">Tambah Data</a>
-								</li>
-								<li><a href="#">Refresh</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="container">
+			
+			<div class="card">
+					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Data Admin
+						<strong><button type="button" class="btn btn-outline-light btn-sm float-end" ><a href="#" data-bs-toggle="modal" data-bs-target="#modalTambahData" style= "color:white; text-decoration: none; font-weight: normal;">Tambah Data</a></strong></button>
+					</center></h4>
+						<div class="card-body">
+						<div class="container">
 						<table id="example" class="table table-striped table-hover" style="width:100%">
 							<thead>
 								<tr>
@@ -144,7 +137,7 @@ $image = $_POST['file-fotoprofile'];
 							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
-									<div class="modal-header">
+									<div class="modal-header text-bg-primary mb-3">
 										<h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Data Admin</h1>
 										<button type="button" class="btn-close" data-bs-dismiss="modal"
 											aria-label="Close"></button>
@@ -174,15 +167,15 @@ $image = $_POST['file-fotoprofile'];
 									</div>
 									<div class="modal-footer">
 										<button type="submit" class="btn btn-primary" name="button-simpan">Simpan</button>
-										<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Keluar</button>
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
 									</div>
 									</form>
 								</div>
 							</div>
 						</div>
 						<!-- Akhir Modal -->
-					</div>
-				</div>
+						</div>
+						</div>
 			</div>
 		</main>
 		<!-- MAIN -->

@@ -39,6 +39,7 @@ if(isset($_GET['pesan'])){
             <div class="cover">
               <div class="front">
                 <img src="img/wander-fleur-1lmGTHdQdjM-unsplash.jpg" alt="">
+                
                 <div class="text">
                   <span class="text-1">APLIKASI MANAJEMEN PERPUSTAKAAN</span>
                   <span class="text-2">SMP Negeri 1 Bangsalsari</span>

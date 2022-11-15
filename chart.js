@@ -5,7 +5,7 @@ const myChart = new Chart(ctx, {
         labels: ['Jumlah Buku Di Perpustakaan', 'Jumlah Buku Tersedia Di Perpustakaan', 'Jumlah Buku Sedang Proses Peminjaman'],
         datasets: [{
             label: 'Chart Buku',
-            data: [1500, 234, 465],
+            data: [234, 465],
             backgroundColor: [
                 'rgba(41, 155, 99, 1)',
                 'rgba(54, 162, 235, 1)',

@@ -64,25 +64,18 @@
 
 		<!-- MAIN -->
 		<main>
-			<h1 class="title">Siswa</h1>
+			<h1 class="title ">Siswa</h1>
 			<ul class="breadcrumbs">
 				<li><a href="dashboard.php">Home</a></li>
 				<li class="divider">/</li>
 				<li><a href="#" class="active">Siswa</a></li>
 			</ul>
-			<div class="data">
-					<div class="content-data">
-						<div class="head">
-							<h3>Data Kelas</h3>
-							<div class="menu">
-								<i class='bx bx-dots-horizontal-rounded icon bx-sm'></i>
-								<ul class="menu-link">
-									<li><a href="#" data-bs-toggle="modal" data-bs-target="#modalTambahData">Tambah Data</a>
-									</li>
-									<li><a href="#">Refresh</a></li>
-								</ul>
-							</div>
-						</div>
+			
+					<div class="card">
+					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Data Kelas
+						<strong><button type="button" class="btn btn-outline-light btn-sm float-end" ><a href="#" data-bs-toggle="modal" data-bs-target="#modalTambahData" style= "color:white; text-decoration: none; font-weight: normal;">Tambah Data</a></strong></button>
+					</center></h4>
+						<div class="card-body">
 						<div class="container">
 							<table id="example" class="table table-striped table-hover" style="width:100%">
 								<thead>
@@ -98,11 +91,11 @@
 									<tr>
 										<td>1</td>
 										<td>VII</td>
-										<td>A</td>
+										<td><strong><a href="detailSiswa.php" style= "color:black; text-decoration: none; font-weight: normal;">A</a></strong></td>
 										<td>30</td>
 										<td>
-											<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</button>
-											<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapus">Hapus</button>
+											<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditData"><i class='bx bx-edit icon bx-xs'></i></button>
+											<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusData"><i class='bx bx-trash icon bx-xs'></i></button>
 										</td>
 									</tr>
 									
@@ -122,7 +115,7 @@
 						tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 						<div class="modal-dialog">
 							<div class="modal-content">
-								<div class="modal-header">
+								<div class="modal-header text-bg-primary mb-3">
 									<h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Data Kelas</h1>
 									<button type="button" class="btn-close" data-bs-dismiss="modal"
 										aria-label="Close"></button>
@@ -164,11 +157,11 @@
 					</div>
 					<!-- Akhir Modal -->
 					<!-- Awal Modal Edit Data -->
-					<div class="modal fade" id="modalEdit" data-bs-backdrop="static" data-bs-keyboard="false"
+					<div class="modal fade" id="modalEditData" data-bs-backdrop="static" data-bs-keyboard="false"
 					tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
-							<div class="modal-header">
+							<div class="modal-header text-bg-primary mb-3">
 								<h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Data Kelas</h1>
 								<button type="button" class="btn-close" data-bs-dismiss="modal"
 									aria-label="Close"></button>
@@ -210,11 +203,11 @@
 				</div>
 				<!-- Akhir Modal -->
 				<!-- Awal Modal Hapus Data -->
-				<div class="modal fade" id="modalHapus" data-bs-backdrop="static" data-bs-keyboard="false"
+				<div class="modal fade" id="modalHapusData" data-bs-backdrop="static" data-bs-keyboard="false"
 					tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
-							<div class="modal-header">
+							<div class="modal-header text-bg-primary mb-3">
 								<h1 class="modal-title fs-5" id="staticBackdropLabel">Hapus Data?</h1>
 								<button type="button" class="btn-close" data-bs-dismiss="modal"
 									aria-label="Close"></button>
@@ -231,6 +224,8 @@
 				<!-- Akhir Modal -->
 						</div>
 					</div>
+						</div>
+						</div>
 			</div>
 		</main>
 		<!-- MAIN -->
