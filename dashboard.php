@@ -79,7 +79,7 @@
 				<div class="card">
 					<div class="head">
 						<div>
-							<h2>234</h2>
+							<h2>600</h2>
 							<p>Jumlah Buku Tersedia Di Perpustakaan</p>
 						</div>
 					</div>
@@ -89,7 +89,7 @@
 				<div class="card">
 					<div class="head">
 						<div>
-							<h2>465</h2>
+							<h2>900</h2>
 							<p>Jumlah Buku Sedang Proses Peminjaman</p>
 						</div>
 					</div>

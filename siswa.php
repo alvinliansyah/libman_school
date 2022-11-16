@@ -91,9 +91,10 @@
 									<tr>
 										<td>1</td>
 										<td>VII</td>
-										<td><strong><a href="detailSiswa.php" style= "color:black; text-decoration: none; font-weight: normal;">A</a></strong></td>
+										<td>A</td>
 										<td>30</td>
 										<td>
+										<strong><button type="button" class="btn btn-primary" ><a href="detailSiswa.php" style= "color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-show-alt icon'></i></a></strong></button>
 											<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditData"><i class='bx bx-edit icon bx-xs'></i></button>
 											<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusData"><i class='bx bx-trash icon bx-xs'></i></button>
 										</td>

@@ -24,9 +24,9 @@
 			<li><a href="dashboard.php"><i class='bx bx-home icon'></i> Dashboard</a></li>
 
 			<li class="divider" data-text="data master">Data Master</li>
-			<li><a href="siswa.php"><i class='bx bx-group icon'></i>Siswa</a></li>
+			<li><a href="#" class="active"><i class='bx bx-group icon'></i>Siswa</a></li>
 			<li><a href="admin.php"><i class='bx bx-user icon'></i>Admin</a></li>
-			<li><a href="#" class="active"><i class='bx bx-book icon'></i>Buku</a></li>
+			<li><a href="buku.php" ><i class='bx bx-book icon'></i>Buku</a></li>
 			<li class="divider" data-text="transaksi">Transaksi</li>
 			<li><a href="peminjaman.php"><i class='bx bx-arrow-from-bottom icon'></i>Peminjaman</a></li>
 			<li><a href="pengembalian.php"><i class='bx bx-arrow-to-bottom icon'></i>Pengembalian</a></li>
@@ -66,11 +66,14 @@
 		<main>
 			<h1 class="title">Siswa</h1>
 			<ul class="breadcrumbs">
-				<li><a href="siswa.php">< Kembali</a>
-				</li>
+				<li><a href="dashboard.php">Home</a></li>
+				<li class="divider">/</li>
+				<li><a href="#" class="active">Siswa</a></li>
 			</ul>
 			<div class="card">
-					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Data Siswa
+					<h4 class="card-header text-bg-primary mb-3 fw-semibold">
+					<center><strong><button type="button" class="btn btn-outline-light btn-sm float-start" ><a href="siswa.php"style= "color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-chevron-left icon bx-sm'></i></a></strong></button>
+						Data Siswa
 						<strong><button type="button" class="btn btn-outline-light btn-sm float-end" ><a href="#" data-bs-toggle="modal" data-bs-target="#modalTambahData" style= "color:white; text-decoration: none; font-weight: normal;">Tambah Data</a></strong></button>
 					</center></h4>
 						<div class="card-body">

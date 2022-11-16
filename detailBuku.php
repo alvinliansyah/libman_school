@@ -66,11 +66,14 @@
 		<main>
 			<h1 class="title">Buku</h1>
 			<ul class="breadcrumbs">
-				<li><a href="buku.php">< Kembali</a>
-				</li>
+				<li><a href="dashboard.php">Home</a></li>
+				<li class="divider">/</li>
+				<li><a href="#" class="active">Buku</a></li>
 			</ul>
 			<div class="card">
-					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Data Buku
+			<h4 class="card-header text-bg-primary mb-3 fw-semibold">
+					<center><strong><button type="button" class="btn btn-outline-light btn-sm float-start" ><a href="buku.php"style= "color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-chevron-left icon bx-sm'></i></a></strong></button>
+						Data Buku
 						<strong><button type="button" class="btn btn-outline-light btn-sm float-end" ><a href="#" data-bs-toggle="modal" data-bs-target="#modalTambahData" style= "color:white; text-decoration: none; font-weight: normal;">Tambah Data</a></strong></button>
 					</center></h4>
 						<div class="card-body">

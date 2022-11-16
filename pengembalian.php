@@ -69,7 +69,6 @@
 			</ul>
 		<div class="card">
 					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Transaksi Pengembalian
-						<strong><button type="button" class="btn btn-outline-light btn-sm float-end" ><a href="#" data-bs-toggle="modal" data-bs-target="#modalTambahTransaksi" style= "color:white; text-decoration: none; font-weight: normal;">Tambah Transaksi</a></strong></button>
 					</center></h4>
 						<div class="card-body">
 						<div class="container">
@@ -98,9 +97,8 @@
 									<td>20/10/2022</td>
 									<td>Megawati</td>
 									<td>
-											<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditData"><i class='bx bx-edit icon bx-xs'></i></button>
-											<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusData"><i class='bx bx-trash icon bx-xs'></i></button>
-										</td>
+											<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalSelesaiData"><i class='bx bx-check-square icon bx-xs'></i></button>	
+									</td>
 								</tr>
 							</tbody>
 							<tfoot>
@@ -117,70 +115,13 @@
 								</tr>
 							</tfoot>
 						</table>
-						<!-- Awal Modal -->
-					<div class="modal fade" id="modalTambahTransaksi" data-bs-backdrop="static" data-bs-keyboard="false"
-					tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header text-bg-primary">
-								<h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Transaksi Pengembalian</h1>
-								<button type="button" class="btn-close" data-bs-dismiss="modal"
-									aria-label="Close"></button>
-							</div>
-							<form method="POST" action="#"></form>
-							<div class="modal-body">
-								<div class="mb-3">
-									<label class="form-label">Kode Pengembalian</label>
-									<input type="text" class="form-control" name="text-kodepengembalian"
-										placeholder="Kode Pemngembalian" required>
-								</div>
-								<div class="mb-3">
-									<label class="form-label">Kode Peminjaman</label>
-									<input type="text" class="form-control" name="text-kodepeminjaman"
-										placeholder="Kode Peminjaman" required>
-								</div>
-								<div class="mb-3">
-									<label class="form-label">Nama Lengkap Siswa</label>
-									<input type="text" class="form-control" name="text-namalengkapsiswa"
-										placeholder="Nama Lengkap Siswa" required>
-								</div>
-								<div class="mb-3">
-									<label class="form-label">NISN</label>
-									<input type="number" class="form-control" name="number-nisn"
-										placeholder="NISN" required>
-								</div>
-								<div class="mb-3">
-									<label class="form-label">Judul Buku</label>
-									<input type="text" class="form-control" name="text-judulbuku"
-										placeholder="Judul Buku" required>
-								</div>
-								<div class="mb-3">
-									<label class="form-label">TGL Peminjaman</label>
-									<input type="date" class="form-control" name="dt-peminjaman" required>
-								</div>
-								<div class="mb-3">
-									<label class="form-label">Nama Lengkap Admin</label>
-									<input type="text" class="form-control" name="text-namalengkapadmin"
-										placeholder="Nama Lengkap Admin" required>
-								</div>
-
-							</div>
-							<div class="modal-footer">
-								<button type="submit" class="btn btn-primary" name="button-simpan">Simpan</button>
-								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
-							</div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<!-- Akhir Modal -->
 				<!-- Awal Modal Edit Data -->
-				<div class="modal fade" id="modalEditData" data-bs-backdrop="static" data-bs-keyboard="false"
+				<div class="modal fade" id="modalSelesaiData" data-bs-backdrop="static" data-bs-keyboard="false"
 							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
 									<div class="modal-header text-bg-primary mb-3">
-										<h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Transaksi Pengembalian</h1>
+										<h1 class="modal-title fs-5" id="staticBackdropLabel">Selesai Transaksi Pengembalian</h1>
 										<button type="button" class="btn-close" data-bs-dismiss="modal"
 											aria-label="Close"></button>
 									</div>
@@ -223,29 +164,9 @@
 
 							</div>
 							<div class="modal-footer">
-								<button type="submit" class="btn btn-primary" name="button-simpan">Simpan</button>
+								<button type="submit" class="btn btn-success" name="button-selesai">Selesai</button>
 								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
 							</div>
-									</form>
-								</div>
-							</div>
-						</div>
-						<!-- Akhir Modal -->
-						<!-- Awal Modal Hapus Data -->
-						<div class="modal fade" id="modalHapusData" data-bs-backdrop="static" data-bs-keyboard="false"
-							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header text-bg-primary mb-3">
-										<h1 class="modal-title fs-5" id="staticBackdropLabel">Hapus Data?</h1>
-										<button type="button" class="btn-close" data-bs-dismiss="modal"
-											aria-label="Close"></button>
-									</div>
-									<form method="POST" action="#"></form>
-									<div class="modal-body">Apakah anda yakin ingin menghapus data?</div>
-									<div class="modal-footer">
-										<button type="submit" class="btn btn-danger" name="button-submithapusdata">Hapus</button>
-									</div>
 									</form>
 								</div>
 							</div>
