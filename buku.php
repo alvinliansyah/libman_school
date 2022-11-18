@@ -77,6 +77,7 @@
 							<thead>
 								<tr>
 									<th>NO</th>
+									<th>KODE BUKU</th>
 									<th>JENIS BUKU</th>
 									<th>JUMLAH</th>
 									<th>AKSI</th>
@@ -84,19 +85,29 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td>1</td>
-									<td>Buku Paket</td>
-									<td>75</td>
+									<?php
+									include 'koneksi.php';
+
+									$dataBuku = mysqli_query($koneksi, "SELECT DISTINCT data_buku.kd_buku ,data_buku.jenis_buku, COUNT(buku_paket.kd_paket) as total FROM data_buku JOIN buku_paket WHERE data_buku.kd_buku = buku_paket.kd_buku;");
+									$i=1;
+									while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
+									?>
+									<td><?php echo $i++?></td>
+									<td><?php echo $row['kd_buku']; ?></td>
+									<td><?php echo $row['jenis_buku']; ?></td>
+									<td><?php echo $row['total']; ?></td>
 									<td>
-											<strong><button type="button" class="btn btn-primary" ><a href="detailBuku.php" style= "color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-show-alt icon'></i></a></strong></button>
+											<strong><button type="button" class="btn btn-primary" ><a href="detailBuku.php?id=<?=$row['kd_buku'];?>" style= "color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-show-alt icon'></i></a></strong></button>
 											<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditData"><i class='bx bx-edit icon bx-xs'></i></button>
 											<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusData"><i class='bx bx-trash icon bx-xs'></i></button>
 										</td>
 								</tr>
+								<?php } ?>
 							</tbody>
 							<tfoot>
 								<tr>
 									<th>NO</th>
+									<th>KODE BUKU</th>
 									<th>JENIS BUKU</th>
 									<th>JUMLAH</th>
 									<th>AKSI</th>

@@ -84,27 +84,41 @@
 									<th>NO</th>
 									<th>NIS</th>
 									<th>NAMA SISWA</th>
+									<th>PASSWORD</th>
 									<th>NO TELEPHONE</th>
 									<th>AKSI</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>1</td>
-									<td>00000000000</td>
-									<td>Asep</td>
-									<td>00000000000</td>
+								<?php
+								include 'koneksi.php';
+
+								$kelass = $_GET['kelas'];
+								$tingkatann = $_GET['tingkatan'];
+
+								$dataAdmin = mysqli_query($koneksi, "select * from data_siswa where tingkatan = '$tingkatann' and kelas ='$kelass'");
+								$i=1;
+								while ($row = mysqli_fetch_array($dataAdmin, MYSQLI_ASSOC)) {
+								?>
+								<td><?php echo $i++?></td>
+								<td><?php echo $row['NIS']; ?></td>
+								<td><?php echo $row['nama_siswa']; ?></td>
+								<td><?php echo $row['password'];?></td>
+								<td><?php echo $row['notelp']; ?></td>
 									<td>
 											<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditData"><i class='bx bx-edit icon bx-xs'></i></button>
 											<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusData"><i class='bx bx-trash icon bx-xs'></i></button>
 										</td>
 								</tr>
+								<?php } ?>
 							</tbody>
 							<tfoot>
 								<tr>
                                     <th>NO</th>
 									<th>NIS</th>
 									<th>NAMA SISWA</th>
+									<th>PASSWORD</th>
 									<th>NO TELEPHONE</th>
 									<th>AKSI</th>
 								</tr>

@@ -89,16 +89,24 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>1</td>
-										<td>VII</td>
-										<td>A</td>
-										<td>30</td>
+								<?php
+								include 'koneksi.php';
+
+								$dataAdmin = mysqli_query($koneksi, "SELECT DISTINCT kelas, tingkatan, COUNT(nama_siswa) AS total FROM data_siswa GROUP BY kelas, tingkatan;");
+								$i=1;
+								while ($row = mysqli_fetch_array($dataAdmin, MYSQLI_ASSOC)) {
+								?>
+								<td><?php echo $i++?></td>
+								<td><?php echo $row['tingkatan']; ?></td>
+								<td><?php echo $row['kelas']; ?></td>
+								<td><?php echo $row['total'];?></td>
 										<td>
-										<strong><button type="button" class="btn btn-primary" ><a href="detailSiswa.php" style= "color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-show-alt icon'></i></a></strong></button>
+										<strong><button type="button" class="btn btn-primary" ><a href="detailSiswa.php?kelas=<?=$row['kelas'];?> && tingkatan=<?=$row['tingkatan']?>" style= "color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-show-alt icon'></i></a></strong></button>
 											<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditData"><i class='bx bx-edit icon bx-xs'></i></button>
 											<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusData"><i class='bx bx-trash icon bx-xs'></i></button>
 										</td>
 									</tr>
+									<?php } ?>
 									
 								</tbody>
 								<tfoot>

@@ -87,30 +87,32 @@
 									<th>FOTO COVER BUKU</th>
 									<th>SEMESTER</th>
 									<th>TINGKATAN</th>
-									<th>KELAS</th>
-									<th>DIPINJAM</th>
-									<th>TERSEDIA</th>
-									<th>JUMLAH</th>
 									<th>AKSI</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>1</td>
-									<td>bk001</td>
-									<td>Matematika</td>
-									<td>img0001.jpg</td>
-									<td>Semester Ganjil</td>
-									<td>VII</td>
-									<td>A</td>
-									<td>15</td>
-									<td>15</td>
-									<td>30</td>
+								<?php
+								include 'koneksi.php';
+
+								$kd = $_GET['id'];
+
+								$dataBuku = mysqli_query($koneksi, "SELECT buku_paket.kd_paket, buku_paket.nama_mapel, buku_paket.foto_cover, buku_paket.semester, buku_paket.tingkatan FROM buku_paket WHERE kd_buku = $kd");
+								$i=1;
+								while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
+								?>
+									<td><?php echo $i++?></td>
+									<td><?php echo $row['kd_paket']; ?></td>
+									<td><?php echo $row['nama_mapel']; ?></td>
+									<td><?php echo $row['foto_cover'];?></td>
+									<td><?php echo $row['semester']; ?></td>
+									<td><?php echo $row['tingkatan']; ?></td>
 									<td>
 											<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditData"><i class='bx bx-edit icon bx-xs'></i></button>
 											<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusData"><i class='bx bx-trash icon bx-xs'></i></button>
 										</td>
 								</tr>
+								<?php } ?>
 							</tbody>
 							<tfoot>
 								<tr>
@@ -120,10 +122,6 @@
 									<th>FOTO COVER BUKU</th>
 									<th>SEMESTER</th>
 									<th>TINGKATAN</th>
-									<th>KELAS</th>
-									<th>DIPINJAM</th>
-									<th>TERSEDIA</th>
-									<th>JUMLAH</th>
 									<th>AKSI</th>
 								</tr>
 							</tfoot>
