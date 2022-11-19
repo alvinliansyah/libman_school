@@ -41,6 +41,7 @@ body {
     padding: 40px 30px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.2);
     perspective: 2700px;
+    border-radius: 15px 15px 15px 15px;
   }
   .container .cover{
     position: absolute;
@@ -52,6 +53,7 @@ body {
     transition: all 1s ease;
     transform-origin: left;
     transform-style: preserve-3d;
+    border-radius: 15px 15px 15px 15px;
   }
   .container #flip:checked ~ .cover{
     transform: rotateY(-180deg);
@@ -77,10 +79,10 @@ body {
     content: '';
     position: absolute;
     height: 100%;
-    width: 100%;
-    background: rgba(0, 65, 196, 1);
-    opacity: 0.1;
-    z-index: 12;
+    width: 50%;
+    background: url('../libman_school/img/wander-fleur-1lmGTHdQdjM-unsplash.jpg');
+    opacity: 100%;
+    z-index: 11.5;
     
   }
   .container .cover::after{
@@ -95,6 +97,7 @@ body {
     width: 100%;
     object-fit: cover;
     z-index: 10;
+    border-radius: 15px 15px 15px 15px;
   }
   .container .cover .text{
     position: absolute;

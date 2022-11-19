@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="DataTables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css">
 	<link rel="stylesheet" type="text/css" href="DataTables/Buttons-2.2.3/css/buttons.bootstrap5.min.css">
+	<link rel="website icon" type="png" href="../libman_school/img/Logo.png">
 	<title>Peminjaman - Libman School</title>
 </head>
 <body>
@@ -31,7 +32,7 @@
 			<li><a href="riwayat.php"><i class='bx bx-history icon'></i>Riwayat</a></li>
         <ul class="buttom-side-menu">
             <li>
-				<a href="#"><i class='bx bx-cog icon' ></i> Pengaturan <i class='bx bx-chevron-right icon-right' ></i></a>
+			<a href="#"><i class='bx bx-help-circle icon'></i> Bantuan <i class='bx bx-chevron-right icon-right' ></i></a>
 				<ul class="side-dropdown">
 					<li><a href="pelayananPelanggan.php">Pelayanan Pelanggan</a></li>
 					<li><a href="tentangAplikasi.php">Tentang Aplikasi</a></li>
@@ -51,6 +52,10 @@
 				
 			</form>
 			<div class="profile">
+			<div id="MyClockDisplay" class="clock float-start" style="line-height: 35px; color: white; font-weight: 600; font-size: 15px; font-family: 'Open Sans', sans-serif; letter-spacing: 3px;" onload="showTime()"></div>
+			&nbsp
+			<a style="color:white; text-decoration: none; font-weight: 600; font-size: 18px;">|</a>
+			&nbsp
 				<img src="../libman_school/img/default-avatar.png" alt="">
 				<ul class="profile-link">
 					<li><a href="profile.php"><i class='bx bx-user icon'></i> Profile</a></li>
@@ -67,7 +72,7 @@
 				<li class="divider">/</li>
 				<li><a href="#" class="active">Peminjaman</a></li>
 			</ul>
-		<div class="card">
+		<div class="card shadow">
 					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Transaksi Peminjaman
 						<strong><button type="button" class="btn btn-outline-light btn-sm float-end" ><a href="#" data-bs-toggle="modal" data-bs-target="#modalTambahTransaksi" style= "color:white; text-decoration: none; font-weight: normal;">Tambah Transaksi</a></strong></button>
 					</center></h4>
@@ -78,12 +83,12 @@
 								<tr>
 									<th>NO</th>
 									<th>KODE PEMINJAMAN</th>
-									<th>NAMA LENGKAP SISWA</th>
-									<th>NISN</th>
+									<th>NAMA SISWA</th>
+									<th>NIS</th>
 									<th>JUDUL BUKU</th>
 									<th>TGL PEMINJAMAN</th>
 									<th>TGL PENGEMBALIAN</th>
-									<th>NAMA LENGKAP ADMIN</th>
+									<th>NAMA ADMIN</th>
 									<th>AKSI</th>
 								</tr>
 							</thead>
@@ -98,23 +103,14 @@
 									<td>27/10/2022</td>
 									<td>Megawati</td>
 									<td>
-											<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditData"><i class='bx bx-edit icon bx-xs'></i></button>
+									<div class="btn-group" role="group" aria-label="Basic mixed styles example">
+									<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditData"><i class='bx bx-edit icon bx-xs'></i></button>
 											<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusData"><i class='bx bx-trash icon bx-xs'></i></button>
+									</div>
 										</td>
 								</tr>
 							</tbody>
 							<tfoot>
-								<tr>
-									<th>NO</th>
-									<th>KODE PEMINJAMAN</th>
-									<th>NAMA LENGKAP SISWA</th>
-									<th>NISN</th>
-									<th>JUDUL BUKU</th>
-									<th>TGL PEMINJAMAN</th>
-									<th>TGL PENGEMBALIAN</th>
-									<th>NAMA LENGKAP ADMIN</th>
-									<th>AKSI</th>
-								</tr>
 							</tfoot>
 						</table>
 						<!-- Awal Modal -->
@@ -124,7 +120,7 @@
 						<div class="modal-content">
 							<div class="modal-header  text-bg-primary">
 								<h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Transaksi Peminjaman</h1>
-								<button type="button" class="btn-close" data-bs-dismiss="modal"
+								<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
 									aria-label="Close"></button>
 							</div>
 							<form method="POST" action="#"></form>
@@ -136,13 +132,13 @@
 								</div>
 								<div class="mb-3">
 									<label class="form-label">Nama Lengkap Siswa</label>
-									<input type="text" class="form-control" name="text-namalengkapsiswa"
-										placeholder="Nama Lengkap Siswa" required>
+									<input type="text" class="form-control" name="text-namasiswa"
+										placeholder="Nama Siswa" required>
 								</div>
 								<div class="mb-3">
-									<label class="form-label">NISN</label>
-									<input type="number" class="form-control" name="number-nisn"
-										placeholder="NISN" required>
+									<label class="form-label">NIS</label>
+									<input type="number" class="form-control" name="number-nis"
+										placeholder="NIS" required>
 								</div>
 								<div class="mb-3">
 									<label class="form-label">Judul Buku</label>
@@ -158,9 +154,9 @@
 									<input type="date" class="form-control" name="dt-pengembalian" required>
 								</div>
 								<div class="mb-3">
-									<label class="form-label">Nama Lengkap Admin</label>
+									<label class="form-label">Nama Admin</label>
 									<input type="text" class="form-control" name="text-namalengkapadmin"
-										placeholder="Nama Lengkap Admin" required>
+										placeholder="Nama Admin" required>
 								</div>
 
 							</div>
@@ -180,7 +176,7 @@
 								<div class="modal-content">
 									<div class="modal-header text-bg-primary mb-3">
 										<h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Transaksi Peminjaman</h1>
-										<button type="button" class="btn-close" data-bs-dismiss="modal"
+										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
 											aria-label="Close"></button>
 									</div>
 									<form method="POST" action="#"></form>
@@ -191,14 +187,14 @@
 										placeholder="Kode Peminjaman" required>
 								</div>
 								<div class="mb-3">
-									<label class="form-label">Nama Lengkap Siswa</label>
+									<label class="form-label">Nama Siswa</label>
 									<input type="text" class="form-control" name="text-namalengkapsiswa"
-										placeholder="Nama Lengkap Siswa" required>
+										placeholder="Nama Siswa" required>
 								</div>
 								<div class="mb-3">
-									<label class="form-label">NISN</label>
-									<input type="number" class="form-control" name="number-nisn"
-										placeholder="NISN" required>
+									<label class="form-label">NIS</label>
+									<input type="number" class="form-control" name="number-nis"
+										placeholder="NIS" required>
 								</div>
 								<div class="mb-3">
 									<label class="form-label">Judul Buku</label>
@@ -214,9 +210,9 @@
 									<input type="date" class="form-control" name="dt-pengembalian" required>
 								</div>
 								<div class="mb-3">
-									<label class="form-label">Nama Lengkap Admin</label>
+									<label class="form-label">Nama Admin</label>
 									<input type="text" class="form-control" name="text-namalengkapadmin"
-										placeholder="Nama Lengkap Admin" required>
+										placeholder="Nama Admin" required>
 								</div>
 
 							</div>
@@ -236,7 +232,7 @@
 								<div class="modal-content">
 									<div class="modal-header text-bg-primary mb-3">
 										<h1 class="modal-title fs-5" id="staticBackdropLabel">Hapus Data?</h1>
-										<button type="button" class="btn-close" data-bs-dismiss="modal"
+										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
 											aria-label="Close"></button>
 									</div>
 									<form method="POST" action="#"></form>
@@ -273,15 +269,50 @@
 	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/buttons.colVis.min.js"></script>
 	<script>
 	$(document).ready(function() {
-    var table = $('#example').DataTable( {
+		var table = $('#example').DataTable( {
+		scrollY: 285,
+        scrollX: true,
         lengthChange: false,
         buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
+		
+		
     } );
  
     table.buttons().container()
         .appendTo( '#example_wrapper .col-md-6:eq(0)' );
 	} );
 	</script>
+	<script>
+				function showTime(){
+                var date = new Date();
+                var h = date.getHours(); // 0 - 23
+                var m = date.getMinutes(); // 0 - 59
+                var s = date.getSeconds(); // 0 - 59
+                var session = "AM";
+                
+                if(h == 0){
+                    h = 12;
+                }
+                
+                if(h > 12){
+                    h = h - 12;
+                    session = "PM";
+                }
+                
+                h = (h < 10) ? "0" + h : h;
+                m = (m < 10) ? "0" + m : m;
+                s = (s < 10) ? "0" + s : s;
+                
+                var time = h + ":" + m + ":" + s + " " + session;
+                document.getElementById("MyClockDisplay").innerText = time;
+                document.getElementById("MyClockDisplay").textContent = time;
+                
+                setTimeout(showTime, 1000);
+                
+            }
+
+            showTime();
+			</script>
 </body>
 
 </html>
