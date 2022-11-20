@@ -77,7 +77,7 @@ if(isset($_GET['pesan'])){
             <div class="cover" >
               <div class="front">
                 <img src="img/wander-fleur-1lmGTHdQdjM-unsplash.jpg"  alt="">
-                
+                <img src="../libman_school/img/logosmp1bangsal.png" style= "width: 90px; height: 90px; position: absolute; top: 140px; right: 160px; padding: none; border-radius: 1px;" alt="">
                 <div class="text">
                   <span class="text-1">APLIKASI MANAJEMEN PERPUSTAKAAN</span>
                   <span class="text-2">SMP Negeri 1 Bangsalsari</span>
@@ -85,6 +85,7 @@ if(isset($_GET['pesan'])){
               </div>
               <div class="back">
                 <img class="backImg" src="img/wander-fleur-1lmGTHdQdjM-unsplash.jpg" alt="">
+                <img src="../libman_school/img/logosmp1bangsal.png" style= "width: 90px; height: 90px; position: absolute; top: 140px; right: 160px; padding: none; border-radius: 1px;" alt="">
                 <div class="text">
                   <span class="text-1">APLIKASI MANAJEMEN PERPUSTAKAAN</span>
                   <span class="text-2">SMP Negeri 1 Bangsalsari</span>

@@ -108,7 +108,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+    top: 40px;
   }
   .cover .text .text-1,
   .cover .text .text-2{
@@ -116,7 +116,7 @@ body {
     font-weight: 1000;
     color: #fff;
     text-align: center;
-    
+
   }
   .cover .text .text-2{
     font-size: 20px;

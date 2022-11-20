@@ -51,11 +51,11 @@
 			<form action="#">
 				
 			</form>
+			<div id="MyClockDisplay" class="clock float-start" style="line-height: 35px; color: white; font-weight: 600; font-size: 15px; font-family: 'Open Sans', sans-serif; letter-spacing: 3px; position: absolute; top: 15px; right: 80px;" onload="showTime()"></div>
+			&nbsp
+			<a style="color:white; text-decoration: none; font-weight: 600; font-size: 18px; position: absolute; top: 18px; right: 65px;">|</a>
+			&nbsp
 			<div class="profile">
-			<div id="MyClockDisplay" class="clock float-start" style="line-height: 35px; color: white; font-weight: 600; font-size: 15px; font-family: 'Open Sans', sans-serif; letter-spacing: 3px;" onload="showTime()"></div>
-			&nbsp
-			<a style="color:white; text-decoration: none; font-weight: 600; font-size: 18px;">|</a>
-			&nbsp
 				<img src="../libman_school/img/default-avatar.png" alt="">
 				<ul class="profile-link">
 					<li><a href="profile.php"><i class='bx bx-user icon'></i> Profile</a></li>
