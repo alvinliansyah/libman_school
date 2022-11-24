@@ -1,3 +1,9 @@
+<?php
+include 'koneksi.php';
+
+$kelass = $_GET['kelas'];
+$tingkatann = $_GET['tingkatan'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,7 +77,7 @@
 			<div class="card float-end shadow" style="height: 3.5rem; width: 8.5rem; top: 10px;">
 			<div class="card-header text-bg-primary" style="padding: 4px"></div>
 			<div class="card-body">
-			<center><p class="card-title" style="font-family: 'Open Sans', sans-serif; font-weight: 1000; font-size: 17px; line-height: 14px;">VII<strong><a class="divider" style= "color:black; text-decoration: none; font-weight: 600; font-size: 18px; line-height: 10px;">&nbsp | &nbsp</a></strong>A</p></center>
+			<center><p class="card-title" style="font-family: 'Open Sans', sans-serif; font-weight: 1000; font-size: 17px; line-height: 14px;"><?php echo $tingkatann ?><strong><a class="divider" style= "color:black; text-decoration: none; font-weight: 600; font-size: 18px; line-height: 10px;">&nbsp | &nbsp</a></strong><?php echo $kelass ?></p></center>
 			</div>
 			</div>
 			</h1>
@@ -101,11 +107,6 @@
 							<tbody>
 								<tr>
 								<?php
-								include 'koneksi.php';
-
-								$kelass = $_GET['kelas'];
-								$tingkatann = $_GET['tingkatan'];
-
 								$dataAdmin = mysqli_query($koneksi, "select * from data_siswa where tingkatan = '$tingkatann' and kelas ='$kelass'");
 								$i=1;
 								while ($row = mysqli_fetch_array($dataAdmin, MYSQLI_ASSOC)) {

@@ -1,3 +1,14 @@
+<?php
+include 'koneksi.php';
+include 'tambahBuku.php';
+
+$kd = $_GET['id'];
+$dataBuku = mysqli_query($koneksi, "SELECT * FROM data_buku WHERE kd_buku = $kd");
+$i=1;
+while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
+	$jenisbuku = $row['jenis_buku'];
+};
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,7 +83,7 @@
 			<div class="card float-end shadow" style="height: 3.5rem; width: auto; top: 10px;">
 			<div class="card-header text-bg-primary" style="padding: 4px"></div>
 			<div class="card-body">
-				<center><p class="card-title" style="font-family: 'Open Sans', sans-serif; font-weight: 1000; font-size: 17px; line-height: 14px;">Buku Paket</p></center>
+				<center><p class="card-title" style="font-family: 'Open Sans', sans-serif; font-weight: 1000; font-size: 17px; line-height: 14px;"><?php echo $jenisbuku?></p></center>
 			</div>
 			</div>
 			</h1>
@@ -85,7 +96,7 @@
 			<h4 class="card-header text-bg-primary mb-3 fw-semibold">
 					<center><strong><button type="button" class="btn btn-outline-light btn-sm float-start" ><a href="buku.php"style= "color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-chevron-left icon bx-sm'></i></a></strong></button>
 						Data Buku
-						<strong><button type="button" class="btn btn-outline-light btn-sm float-end" ><a href="#" data-bs-toggle="modal" data-bs-target="#modalTambahData" style= "color:white; text-decoration: none; font-weight: normal;">Tambah Data</a></strong></button>
+						<strong><button type="button" class="btn btn-outline-light btn-sm float-end" ><a href="tambahBuku.php" data-bs-toggle="modal" data-bs-target="#modalTambahData" style= "color:white; text-decoration: none; font-weight: normal;">Tambah Data</a></strong></button>
 					</center></h4>
 						<div class="card-body">
 						<div class="container">
@@ -103,11 +114,7 @@
 							</thead>
 							<tbody>
 								<tr>
-								<?php
-								include 'koneksi.php';
-
-								$kd = $_GET['id'];
-
+								<?php						
 								$dataBuku = mysqli_query($koneksi, "SELECT buku_paket.kd_paket, buku_paket.nama_mapel, buku_paket.foto_cover, buku_paket.semester, buku_paket.tingkatan FROM buku_paket WHERE kd_buku = $kd");
 								$i=1;
 								while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
@@ -140,7 +147,7 @@
 										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
 											aria-label="Close"></button>
 									</div>
-									<form method="POST" action="#"></form>
+									<form method="POST" action="tambahBuku.php"></form>
 									<div class="modal-body">
 										<div class="mb-3">
 											<label class="form-label">Kode Buku</label>
@@ -160,8 +167,8 @@
 											<label class="form-label">Semester</label>
 											<select class="form-select" name="text-semester">
 												<option></option>
-												<option value="Semester Ganjil">Semester Ganjil</option>
-												<option value="Semester Genap">Semester Genap</option>
+												<option value="Semester Ganjil">1</option>
+												<option value="Semester Genap">2</option>
 											</select>
 										</div>
 										<div class="mb-3">
@@ -177,9 +184,9 @@
 											<label class="form-label">Kelas</label>
 											<select class="form-select" name="text-kelas">
 												<option></option>
-												<option value="A">A</option>
-												<option value="B">B</option>
-												<option value="C">C</option>
+												<option value="A">1</option>
+												<option value="B">2</option>
+												<option value="C">3</option>
 											</select>
 										</div>
 										<div class="mb-3">

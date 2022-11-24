@@ -1,5 +1,4 @@
 <?php
-require_once 'admin.php';
 require_once 'koneksi.php';
 
 session_start();
@@ -10,7 +9,7 @@ $nama = $_POST['text-namalengkapadmin'];
 $password = $_POST['password'];
 $image = $_POST['file-fotoprofile'];
     mysqli_query($koneksi,"INSERT INTO data_admin VALUES ('$id','$nama','$password','$image')");
-    header('location:admin.php'); 
+    header('location:admin.php');
    
 }
 
@@ -138,7 +137,7 @@ $image = $_POST['file-fotoprofile'];
 										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
 											aria-label="Close"></button>
 									</div>
-									<form method="POST" action="admin.php?menu=admin&act=admin">
+									<form method="POST" action="admin.php">
 									<div class="modal-body">
 										<div class="mb-3">
 											<label class="form-label">Kode Admin</label>
