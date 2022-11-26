@@ -76,11 +76,45 @@
 					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Pelayanan Pelanggan
 					</center></h4>
 						<div class="card-body">
-						
+						<center>
+							<img src="../libman_school/img/Logo2.png" style="width: 250px;" alt="">
+						</center>
+						<br/>
+						<div class="text">
+						<center>
+      					<div class="topic">Jika mengalami kendala selama penggunaan aplikasi, anda dapat menghubungi beberapa Pelayanan Pelanggan berikut :</div>
+    					</div>
+						</center>
+						<br/>
+						<center>
+						<table class="table2">
+						<thead>
+							<th><i class='bx bx-globe icon'></i>&nbsp;&nbsp;Website</th>
+							<th><i class='bx bx-phone icon'></i>&nbsp;&nbsp;Telephone</th>
+							<th><i class='bx bx-envelope icon'></i>&nbsp;&nbsp;Email</th>
+						</thead>
+						<tbody>
+						<tr>
+							<td>www.libmanschool.com</td>
+							<td>+62 877 7243 3591</td>
+							<td>libmanschool@gmail.com</td>
+						</tr>
+						</table>
+					</tbody>
+					</center>	
+					<br/>
 						</div>
 						</div>
 			</div>
-			
+			<br/>
+			<footer>
+			<center>
+			<div class="text">
+				<span>Created By <a href="#">Libman School</a> | &#169; 2022 All Rights Reserved</span>
+			</div>
+			</center>
+			</footer>
+			<br/>	
 		</main>
 		<!-- MAIN -->
 	</section>

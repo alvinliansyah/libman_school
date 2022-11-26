@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="DataTables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css">
 	<link rel="stylesheet" type="text/css" href="DataTables/Buttons-2.2.3/css/buttons.bootstrap5.min.css">
 	<link rel="website icon" type="png" href="../libman_school/img/Logo.png">
@@ -74,6 +74,15 @@
 			</ul>
 		<div class="card shadow">
 					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Transaksi Pengembalian
+					<div class="dropdown float-end">
+						<button class="btn btn-outline-light btn-sm float-end dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<i class='bx bx-dots-vertical-rounded bx-sm icon'></i>
+						</button>
+						<ul class="dropdown-menu">
+						<li><a class="dropdown-item"  href="#">Export Excel</a></li>
+						<li><a class="dropdown-item" href="#">Export PDF</a></li>
+						</ul>
+					</div>
 					</center></h4>
 						<div class="card-body">
 						<div class="container">
@@ -102,7 +111,7 @@
 									<td>20/10/2022</td>
 									<td>Megawati</td>
 									<td>
-											<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalSelesaiData"><i class='bx bx-check-square icon bx-xs'></i></button>	
+											<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalSelesaiData"><i class='bx bx-check-square icon bx-xs'>&nbsp;Selesai</i></button>	
 									</td>
 								</tr>
 							</tbody>
@@ -169,13 +178,22 @@
 						</div>
 						</div>
 			</div>
+			<br/>
+			<footer>
+			<center>
+			<div class="text">
+				<span>Created By <a href="#">Libman School</a> | &#169; 2022 All Rights Reserved</span>
+			</div>
+			</center>
+			</footer>
+			<br/>
 		</main>
 		<!-- MAIN -->
 	</section>
 	<!-- NAVBAR -->
 
 	<script src="script.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="DataTables/DataTables-1.12.1/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="DataTables/DataTables-1.12.1/js/dataTables.bootstrap5.min.js"></script>
@@ -193,7 +211,7 @@
 		scrollY: 285,
         scrollX: true,
         lengthChange: false,
-        buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
+        buttons: ['colvis' ]
 		
 		
     } );

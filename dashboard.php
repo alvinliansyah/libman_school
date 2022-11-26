@@ -138,7 +138,16 @@
 </div>
 </div>
 				</div>
-			</div>		
+			</div>
+			<br/>
+			<footer>
+			<center>
+			<div class="text">
+				<span>Created By <a href="#">Libman School</a> | &#169; 2022 All Rights Reserved</span>
+			</div>
+			</center>
+			</footer>
+			<br/>		
 		</main>
 		<!-- MAIN -->
 	</section>

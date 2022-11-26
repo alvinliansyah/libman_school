@@ -1,27 +1,31 @@
-const forms = document.querySelector(".forms"),
-pwShowHide = document.querySelectorAll(".eye-icon"),
-links = document.querySelectorAll(".link");
 
-pwShowHide.forEach(eyeIcon => {
-eyeIcon.addEventListener("click", () => {
-  let pwFields = eyeIcon.parentElement.parentElement.querySelectorAll(".password");
-  
-  pwFields.forEach(password => {
-      if(password.type === "password"){
-          password.type = "text";
-          eyeIcon.classList.replace("bx-hide", "bx-show");
-          return;
-      }
-      password.type = "password";
-      eyeIcon.classList.replace("bx-show", "bx-hide");
-  })
-  
-})
-})      
 
-links.forEach(link => {
-link.addEventListener("click", e => {
- e.preventDefault(); //preventing form submit
- forms.classList.toggle("show-signup");
-})
-})
+// Side NavIgation Menu JS Code
+let body = document.querySelector("body");
+let navBar = document.querySelector(".navbar");
+let menuBtn = document.querySelector(".menu-btn");
+let cancelBtn = document.querySelector(".cancel-btn");
+menuBtn.onclick = function(){
+  navBar.classList.add("active");
+  menuBtn.style.opacity = "0";
+  menuBtn.style.pointerEvents = "none";
+  body.style.overflow = "hidden";
+  scrollBtn.style.pointerEvents = "none";
+}
+cancelBtn.onclick = function(){
+  navBar.classList.remove("active");
+  menuBtn.style.opacity = "1";
+  menuBtn.style.pointerEvents = "auto";
+  body.style.overflow = "auto";
+  scrollBtn.style.pointerEvents = "auto";
+}
+
+// Side Navigation Bar Close While We Click On Navigation Links
+let navLinks = document.querySelectorAll(".menu li a");
+for (var i = 0; i < navLinks.length; i++) {
+  navLinks[i].addEventListener("click" , function() {
+    navBar.classList.remove("active");
+    menuBtn.style.opacity = "1";
+    menuBtn.style.pointerEvents = "auto";
+  });
+}

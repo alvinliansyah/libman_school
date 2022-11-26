@@ -12,7 +12,7 @@ $tingkatann = $_GET['tingkatan'];
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="DataTables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css">
 	<link rel="stylesheet" type="text/css" href="DataTables/Buttons-2.2.3/css/buttons.bootstrap5.min.css">
 	<link rel="website icon" type="png" href="../libman_school/img/Logo.png">
@@ -88,20 +88,35 @@ $tingkatann = $_GET['tingkatan'];
 			</li>
 			</ul>
 			<div class="card shadow">
-					<h4 class="card-header text-bg-primary mb-3 fw-semibold">
+					<h4 class="card-header text-bg-primary mb-3 fw-semibold" >
 					<center><strong><button type="button" class="btn btn-outline-light btn-sm float-start" ><a href="siswa.php"style= "color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-chevron-left icon bx-sm'></i></a></strong></button>
 						Data Siswa
-					</center></h4>
+						<strong><button type="button" class="btn btn-outline-light btn-sm float-end" style="position: absolute; top: 10px; right: 85px;"><a href="#" data-bs-toggle="modal" data-bs-target="#modalTambahData" style= "font-size: 17px; color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-add-to-queue icon'></i>&nbsp;Tambah Data</a></strong></button>
+						<a style="color:white; text-decoration: none; font-weight: 600; font-size: 25px; position: absolute; top: 10px; right: 65px;">|</a>
+						<div class="dropdown float-end">
+						<button class="btn btn-outline-light btn-sm float-end dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<i class='bx bx-dots-vertical-rounded bx-sm icon '></i>
+						</button>
+						<ul class="dropdown-menu">
+						<li><a class="dropdown-item"  href="#">Import Excel</a></li>
+						<li><a class="dropdown-item"  href="#">Export Excel</a></li>
+						<li><a class="dropdown-item" href="#">Export PDF</a></li>
+						</ul>
+					</div>
+					</center>
+				</h4>
 						<div class="card-body">
 						<div class="container">
 						<table id="example" class="table table-striped table-hover" style="width:100%">
 							<thead>
 								<tr>
+									<th width="150px" ><center><button type="submit" name="stud_delete_multiple_btn" class="btn btn-danger btn-sm" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" data-bs-toggle="modal" data-bs-target="#modalHapusData"><i class='bx bx-trash icon bx-xs'>&nbsp;Hapus Semua</button></center></th>
 									<th>NO</th>
 									<th>NIS</th>
 									<th>NAMA SISWA</th>
 									<th>PASSWORD</th>
 									<th>NO TELEPHONE</th>
+									<th>AKSI</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -111,21 +126,147 @@ $tingkatann = $_GET['tingkatan'];
 								$i=1;
 								while ($row = mysqli_fetch_array($dataAdmin, MYSQLI_ASSOC)) {
 								?>
+								<td style="width: 10px;px; text-align: center;"><input type="checkbox" name="stud_delete_id[]" value="<?php echo $i++?>"></td>
 								<td><?php echo $i++?></td>
 								<td><?php echo $row['NIS']; ?></td>
 								<td><?php echo $row['nama_siswa']; ?></td>
 								<td><?php echo $row['password'];?></td>
 								<td><?php echo $row['notelp']; ?></td>
-									
+								<td>
+								<div class="d-grid gap-2 d-md-flex justify-content-md">
+											<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditData"><i class='bx bx-edit icon bx-xs'></i>&nbsp;Edit</button>
+											<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusData"><i class='bx bx-trash icon bx-xs'></i>&nbsp;Hapus</button>
+								</div>
+										</td>	
 								</tr>
 								<?php } ?>
 							</tbody>
 							<tfoot>
 							</tfoot>
 						</table>
+						<!-- Awal Modal Tambah Data -->
+						<div class="modal fade" id="modalTambahData" data-bs-backdrop="static" data-bs-keyboard="false"
+							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header text-bg-primary mb-3">
+										<h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Data Siswa</h1>
+										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+											aria-label="Close"></button>
+									</div>
+									<form method="POST" action="tambahBuku.php"></form>
+									<div class="modal-body">
+										<div class="mb-3">
+											<label class="form-label">NIS</label>
+											<input type="number" class="form-control" name="number-nis"
+												placeholder="NIS" required>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Nama Siswa</label>
+											<input type="text" class="form-control" name="text-namasiswa"
+												placeholder="Nama Siswa" required>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Password</label>
+											<input type="password" class="form-control" name="password"
+												placeholder="Password" required>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">No Telepon</label>
+											<input type="number" class="form-control" name="number-noteltepon"
+												placeholder="No Telepon" required>
+										</div>
+
+									</div>
+									<div class="modal-footer">
+										<button type="submit" class="btn btn-primary"
+											name="button-submittambahdata">Simpan</button>
+										<button type="button" class="btn btn-secondary"
+											data-bs-dismiss="modal">Keluar</button>
+									</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<!-- Akhir Modal -->
+						<!-- Awal Modal Edit Data -->
+						<div class="modal fade" id="modalEditData" data-bs-backdrop="static" data-bs-keyboard="false"
+							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header text-bg-primary mb-3">
+										<h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Data Siswa</h1>
+										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+											aria-label="Close"></button>
+									</div>
+									<form method="POST" action="#"></form>
+									<div class="modal-body">
+										<div class="mb-3">
+											<label class="form-label">NIS</label>
+											<input type="number" class="form-control" name="number-nis"
+												placeholder="NIS" required>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Nama Siswa</label>
+											<input type="text" class="form-control" name="text-namasiswa"
+												placeholder="Nama Siswa" required>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Password</label>
+											<input type="password" class="form-control" name="password"
+												placeholder="Password" required>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">No Telepon</label>
+											<input type="number" class="form-control" name="number-noteltepon"
+												placeholder="No Telepon" required>
+										</div>
+
+									</div>
+									<div class="modal-footer">
+										<button type="submit" class="btn btn-primary"
+											name="button-submittambahdata">Simpan</button>
+										<button type="button" class="btn btn-secondary"
+											data-bs-dismiss="modal">Keluar</button>
+									</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<!-- Akhir Modal -->
+						<!-- Awal Modal Hapus Data -->
+						<div class="modal fade" id="modalHapusData" data-bs-backdrop="static" data-bs-keyboard="false"
+							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header text-bg-primary mb-3">
+										<h1 class="modal-title fs-5" id="staticBackdropLabel">Hapus Data?</h1>
+										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+											aria-label="Close"></button>
+									</div>
+									<form method="POST" action="#"></form>
+									<div class="modal-body">Apakah anda yakin ingin menghapus data?</div>
+									<div class="modal-footer">
+										<button type="submit" class="btn btn-danger"
+											name="button-submithapusdata">Hapus</button>
+									</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<!-- Akhir Modal -->
 						</div>
 						</div>
 			</div>
+			<br/>
+			<footer>
+			<center>
+			<div class="text">
+				<span>Created By <a href="#">Libman School</a> | &#169; 2022 All Rights Reserved</span>
+			</div>
+			</center>
+			</footer>
+			<br/>
 		</main>
 		<!-- MAIN -->
 	</section>
@@ -133,7 +274,7 @@ $tingkatann = $_GET['tingkatan'];
 
 
 	<script src="script.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="DataTables/DataTables-1.12.1/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="DataTables/DataTables-1.12.1/js/dataTables.bootstrap5.min.js"></script>
@@ -151,7 +292,7 @@ $tingkatann = $_GET['tingkatan'];
 		scrollY: 330,
         scrollX: true,
         lengthChange: false,
-        buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
+        buttons: ['colvis' ]
 		
 		
     } );

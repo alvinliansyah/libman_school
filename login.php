@@ -1,82 +1,41 @@
-<?php 
-if(isset($_GET['pesan'])){
-    if($_GET['pesan'] == "gagal"){
-        echo "<script>alert('Login gagal! username dan password salah!')</script>";
-        }
-        else if($_GET['pesan'] == "logout"){
-          echo "<script>alert('Anda telah berhasil logout')</script>";
-        }
-      }
-?>
 <!DOCTYPE html>
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
 <html lang="en" dir="ltr">
   <head>
+    <meta charset="UTF-8">
     <title>Login - Libman School</title>
-    <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="style-login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="website icon" type="png" href="../libman_school/img/Logo.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body>
-    <nav> 
-      <div class="logo">
-        <img src="../libman_school/img/Logo.png" alt="">
-			<span class="logo">Libman School</span></div>
-      <input type="checkbox" id="click">
-      <label for="click" class="menu-btn">
-        <i class="fas fa-bars"></i>
-      </label>
-      <ul>
-        <li><strong><a href="#" data-bs-toggle="modal" data-bs-target="#modalPelayananPelanggan" >Pelayanan Pelanggan</a></strong></li>
-        <li><strong><a href="#" data-bs-toggle="modal" data-bs-target="#modalTentangAplikasi" >Tentang Aplikasi</a></strong></li>
-      </ul>
-      <!-- Buka Modal Pelayanan Pelanggan -->
-<div class="modal fade" id="modalPelayananPelanggan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Pelayanan Pelanggan</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Tutup Modal Pelayanan Pelanggan -->
-<!-- Buka Modal Tentang Aplikasi -->
-<div class="modal fade" id="modalTentangAplikasi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Tentang Aplikasi</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Tutup Modal Tentang Aplikasi -->
-    </nav>
-    <div class="img"></div>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+<nav> 
+  <div class="logo">
+    <img src="../libman_school/img/Logo.png" alt="">
+  <span class="logo">Libman School</span></div>
+  <input type="checkbox" id="click" style="display: none;">
+  <label for="click" class="menu-btn">
+    <i class="fas fa-bars"></i>
+  </label>
+  <ul class="menu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#tentang_aplikasi">Tentang Aplikasi</a></li>
+    <li><a href="#pelayanan_pelanggan">Pelayanan Pelanggan</a></li>
+  </ul>
+</nav>
+<!-- -->
+<!-- Home Section Start -->
+ <section class="home" id="home">
+   <div class="home-content">
     <div class="menu">
-        <div class="container" >
+        <div class="container">
             <input type="checkbox" id="flip">
             <div class="cover" >
               <div class="front">
-                <img src="img/wander-fleur-1lmGTHdQdjM-unsplash.jpg"  alt="">
+                <img src="../libman_school/img/wander-fleur-1lmGTHdQdjM-unsplash.jpg"  alt="">
                 <img src="../libman_school/img/logosmp1bangsal.png" style= "width: 90px; height: 90px; position: absolute; top: 140px; right: 160px; padding: none; border-radius: 1px;" alt="">
                 <div class="text">
                   <span class="text-1">APLIKASI MANAJEMEN PERPUSTAKAAN</span>
@@ -84,7 +43,7 @@ if(isset($_GET['pesan'])){
                 </div>
               </div>
               <div class="back">
-                <img class="backImg" src="img/wander-fleur-1lmGTHdQdjM-unsplash.jpg" alt="">
+                <img class="backImg" src="../libman_school/img/wander-fleur-1lmGTHdQdjM-unsplash.jpg" alt="">
                 <img src="../libman_school/img/logosmp1bangsal.png" style= "width: 90px; height: 90px; position: absolute; top: 140px; right: 160px; padding: none; border-radius: 1px;" alt="">
                 <div class="text">
                   <span class="text-1">APLIKASI MANAJEMEN PERPUSTAKAAN</span>
@@ -136,7 +95,59 @@ if(isset($_GET['pesan'])){
             </div>
             </div>
             </div>
-    <script src="script-login.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  </body>
+   </div>
+ </section>
+
+<!-- About Section Start -->
+<section class="tentang_aplikasi" id="tentang_aplikasi">
+  <div class="content">
+    <div class="title"><span>Tentang Aplikasi</span></div>
+    
+  <div class="tentang_aplikasi-details">
+    <div class="text">
+      <p style="text-indent: 45px;">Libman School merupakan sebuah aplikasi manajemen perpustakaan yang berfungsi untuk memudahkan penggunanya untuk mengatur segala aktivitas di dalam perpustakaan secara cepat dan efisien. Libman School berasal dari pengertian dari keseluruhan fungsi aplikasi ini, Kata awal “Lib” kami ambil dari kata “Library” yang berarti perpustakaan dan “Man” kami ambildari kata “Management” yang berarti pengelolaan. </p>
+      <p style="text-indent: 45px;">Aplikasi ini kami rancang dengan dua jenis versi yaitu mobile dan website, Keduanya memiliki fungsi berbeda namun saling melengkapi. Website digunakan oleh admin untuk melakukan manajemen dan mengolah data dalam perpustakaan, sedangkan Mobile diperuntukan untuk pengguna kalangan umum untuk melakukan transasksi peminjaman dan pengembalian buku.</p>
+      <p style="text-indent: 45px;">Selain fitur utama dalam website yang disebutkan di atas, kami juga menyediakan bebagai fitur yang dapat memudahkan dan mempercepat kineja admin dalam mengelola data seperti eksport dan import dari file PDF, Excel, Scan Barcode cerdas menggunakan kartu perpustakaan dalam melakukan Transaksi, Selain itu admin juga dapat mengedit database secara real time dengan mudah dan cepat.</p>
+      <p style="text-indent: 45px;">Dalam versi mobile juga memiliki berbagai fitur yang menarik dan mudah digunakan oleh pengguna, seperti fitur pemberithuan memerlukan tindakan yang berfungsi untuk memperlihatkan pengguna mengenai status batas waktu peminjaman agar pengguna tidak melewati batas peminjaman buku. Selain itu juga ada fitur tambah favorite yang berfungsi untuk menambahkan buku ke daftar favorite sebagai pengingat buku yang akan dipinjam di kemudian hari tanpa harus mencarinya kembali.</p>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- Contact Me section Start -->
+<section class="pelayanan_pelanggan" id="pelayanan_pelanggan">
+  <div class="content">
+    <div class="title"><span>Pelayanan Pelanggan</span></div>
+    <div class="text">
+      <div class="topic">Jika mengalami kendala selama penggunaan aplikasi, anda dapat menghubungi beberapa Pelayanan Pelanggan berikut :</div>
+    </div>
+    <br/>
+    <center>
+      <table class="table">
+      <thead>
+        <th><i class='bx bx-globe icon'></i>&nbsp;&nbsp;Website</th>
+        <th><i class='bx bx-phone icon'></i>&nbsp;&nbsp;Telephone</th>
+        <th><i class='bx bx-envelope icon'></i>&nbsp;&nbsp;Email</th>
+      </thead>
+      <tbody>
+      <tr>
+        <td>www.libmanschool.com</td>
+        <td>+62 877 7243 3591</td>
+        <td>libmanschool@gmail.com</td>
+      </tr>
+    </table>
+  </tbody>
+</center>	
+  </div>
+</section>
+
+<!-- Footer Section Start -->
+<footer>
+  <div class="text">
+    <span>Created By <a href="#">Libman School</a> | &#169; 2022 All Rights Reserved</span>
+  </div>
+</footer>
+
+  <script src="script-login.js"></script>
+</body>
 </html>
