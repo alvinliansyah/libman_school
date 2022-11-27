@@ -75,8 +75,8 @@
 		<div class="card shadow">
 					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Transaksi Pengembalian
 					<div class="dropdown float-end">
-						<button class="btn btn-outline-light btn-sm float-end dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-						<i class='bx bx-dots-vertical-rounded bx-sm icon'></i>
+						<button class="btn dropdown border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="left: 20px; color: white; top: -3px;">
+						<i class='bx bx-dots-vertical-rounded icon' style="font-size: 30px;"></i>
 						</button>
 						<ul class="dropdown-menu">
 						<li><a class="dropdown-item"  href="#">Export Excel</a></li>
@@ -111,7 +111,7 @@
 									<td>20/10/2022</td>
 									<td>Megawati</td>
 									<td>
-											<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalSelesaiData"><i class='bx bx-check-square icon bx-xs'>&nbsp;Selesai</i></button>	
+											<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalSelesaiData" style= "color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-check-square icon bx-xs'>&nbsp;Selesai</i></button>	
 									</td>
 								</tr>
 							</tbody>

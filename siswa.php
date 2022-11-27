@@ -77,8 +77,8 @@
 					<div class="card shadow">
 					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Data Kelas
 					<div class="dropdown float-end">
-						<button class="btn btn-outline-light btn-sm float-end dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-						<i class='bx bx-dots-vertical-rounded bx-sm icon'></i>
+						<button class="btn dropdown border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="left: 20px; color: white; top: -3px;">
+						<i class='bx bx-dots-vertical-rounded icon' style="font-size: 30px;"></i>
 						</button>
 						<ul class="dropdown-menu">
 						<li><a class="dropdown-item"  href="#">Import Excel</a></li>
@@ -86,8 +86,7 @@
 						<li><a class="dropdown-item" href="#">Export PDF</a></li>
 						</ul>
 					</div>
-					</center>
-					</h4>
+					</center></h4>
 						<div class="card-body">
 						<div class="container">
 							<table id="example" class="table table-striped table-hover" style="width:100%">

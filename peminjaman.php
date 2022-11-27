@@ -74,11 +74,11 @@
 			</ul>
 		<div class="card shadow">
 					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Transaksi Peminjaman
-					<strong><button type="button" class="btn btn-outline-light btn-sm float-start" style="position: absolute; top: 10px; right: 85px;"><a href="#" data-bs-toggle="modal" data-bs-target="#modalTambahTransaksi" style= "font-size: 17px; color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-add-to-queue icon'></i>&nbsp;Tambah Transaksi</a></strong></button>
-						<a style="color:white; text-decoration: none; font-weight: 600; font-size: 25px; position: absolute; top: 10px; right: 65px;">|</a>
+					<strong><button type="button" class="btn btn-outline-light btn-sm float-end"  style=" position: relative; top: 1.5px; left: -45px;"><a href="#" data-bs-toggle="modal" data-bs-target="#modalTambahTransaksi" style= "font-size: 14.5px; color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-add-to-queue icon'></i>&nbsp;Tambah Transaksi</a></strong></button>
+						<a class="float-end" style="font-size: 28px; color:white; text-decoration: none; font-weight: normal; color: white; position: relative; top: -2px; left: 140px;">|</a>
 						<div class="dropdown float-end">
-						<button class="btn btn-outline-light btn-sm float-end dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-						<i class='bx bx-dots-vertical-rounded bx-sm icon'></i>
+						<button class="btn dropdown border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="left: 195px; color: white; top: -3px;">
+						<i class='bx bx-dots-vertical-rounded icon' style="font-size: 30px;"></i>
 						</button>
 						<ul class="dropdown-menu">
 						<li><a class="dropdown-item"  href="#">Export Excel</a></li>
@@ -292,7 +292,7 @@
 		scrollY: 285,
         scrollX: true,
         lengthChange: false,
-        buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
+        buttons: ['colvis' ]
 		
 		
     } );

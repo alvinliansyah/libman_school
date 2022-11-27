@@ -75,7 +75,7 @@
 			<div class="card shadow">
 					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Profile
 					<div class="dropdown float-end">
-						<button class="btn btn-outline-light btn-sm float-end dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<button class="btn float-end dropdown border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="left: 10px; color: white; top: -3px;">
 						<i class='bx bx-cog bx-sm icon' ></i>
 						</button>
 						<ul class="dropdown-menu">

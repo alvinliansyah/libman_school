@@ -77,7 +77,7 @@ $tingkatann = $_GET['tingkatan'];
 			<div class="card float-end shadow" style="height: 3.5rem; width: 8.5rem; top: 10px;">
 			<div class="card-header text-bg-primary" style="padding: 4px"></div>
 			<div class="card-body">
-			<center><p class="card-title" style="font-family: 'Open Sans', sans-serif; font-weight: 1000; font-size: 17px; line-height: 14px;"><?php echo $tingkatann ?><strong><a class="divider" style= "color:black; text-decoration: none; font-weight: 600; font-size: 18px; line-height: 10px;">&nbsp | &nbsp</a></strong><?php echo $kelass ?></p></center>
+			<center><p class="card-title" style="font-family: 'Open Sans', sans-serif; font-weight: 1000; font-size: 17px; line-height: 14px;"><?php echo $tingkatann ?><strong><a class="divider" style= "color:black; text-decoration: none; font-weight: 600; font-size: 18px; line-height: 10px;">&nbsp / &nbsp</a></strong><?php echo $kelass ?></p></center>
 			</div>
 			</div>
 			</h1>
@@ -88,14 +88,13 @@ $tingkatann = $_GET['tingkatan'];
 			</li>
 			</ul>
 			<div class="card shadow">
-					<h4 class="card-header text-bg-primary mb-3 fw-semibold" >
-					<center><strong><button type="button" class="btn btn-outline-light btn-sm float-start" ><a href="siswa.php"style= "color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-chevron-left icon bx-sm'></i></a></strong></button>
-						Data Siswa
-						<strong><button type="button" class="btn btn-outline-light btn-sm float-end" style="position: absolute; top: 10px; right: 85px;"><a href="#" data-bs-toggle="modal" data-bs-target="#modalTambahData" style= "font-size: 17px; color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-add-to-queue icon'></i>&nbsp;Tambah Data</a></strong></button>
-						<a style="color:white; text-decoration: none; font-weight: 600; font-size: 25px; position: absolute; top: 10px; right: 65px;">|</a>
+			<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center><strong><button type="button" class="btn dropdown border-0 float-start" style="position: relative; top: -3px; left: -15px;"><a href="siswa.php"style= "color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-chevron-left icon bx-md'></i></a></strong></button>
+			Data Siswa&nbsp; &nbsp; &nbsp; &nbsp;
+					<strong><button type="button" class="btn btn-outline-light btn-sm float-end"  style=" position: relative; top: 1.5px; left: -42px;"><a href="#" data-bs-toggle="modal" data-bs-target="#modalTambahData" style= "font-size: 14.5px; color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-add-to-queue icon'></i>&nbsp;Tambah Data</a></strong></button>
+						<a class="float-end" style="font-size: 28px; color:white; text-decoration: none; font-weight: normal; color: white; position: relative; top: -2px; left: 111px;">|</a>
 						<div class="dropdown float-end">
-						<button class="btn btn-outline-light btn-sm float-end dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-						<i class='bx bx-dots-vertical-rounded bx-sm icon '></i>
+						<button class="btn dropdown border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="left: 165px; color: white; top: -3px;">
+						<i class='bx bx-dots-vertical-rounded icon' style="font-size: 30px;"></i>
 						</button>
 						<ul class="dropdown-menu">
 						<li><a class="dropdown-item"  href="#">Import Excel</a></li>
@@ -103,8 +102,7 @@ $tingkatann = $_GET['tingkatan'];
 						<li><a class="dropdown-item" href="#">Export PDF</a></li>
 						</ul>
 					</div>
-					</center>
-				</h4>
+					</center></h4>
 						<div class="card-body">
 						<div class="container">
 						<table id="example" class="table table-striped table-hover" style="width:100%">
