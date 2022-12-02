@@ -5,11 +5,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-	<link rel="stylesheet" href="style.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="DataTables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css">
 	<link rel="stylesheet" type="text/css" href="DataTables/Buttons-2.2.3/css/buttons.bootstrap5.min.css">
-	<link rel="website icon" type="png" href="../libman_school/img/Logo.png">
+	<link rel="website icon" type="png" href="img/Logo.png">
+	<link rel="stylesheet" href="style.css">
 	<title>Siswa - Libman School</title>
 </head>
 
@@ -48,7 +48,7 @@
 	<section id="content">
 		<!-- NAVBAR -->
 		<nav>
-			<i class='bx bx-menu toggle-sidebar'></i>
+		<i class='bx bx-menu toggle-sidebar bx-sm' ></i>
 			<form action="#">
 
 			</form>
@@ -57,7 +57,7 @@
 			<a style="color:white; text-decoration: none; font-weight: 600; font-size: 18px; position: absolute; top: 18px; right: 65px;">|</a>
 			&nbsp
 			<div class="profile">
-				<img src="../libman_school/img/default-avatar.png" alt="">
+				<img src="img/default-avatar.png" alt="">
 				<ul class="profile-link">
 					<li><a href="profile.php"><i class='bx bx-user icon'></i> Profile</a></li>
 				</ul>
@@ -113,7 +113,7 @@
 								<td><?php echo $row['kelas']; ?></td>
 								<td><?php echo $row['total'];?></td>
 										<td>
-										<strong><button type="button" class="btn btn-primary" ><a href="detailSiswa.php?kelas=<?=$row['kelas'];?> && tingkatan=<?=$row['tingkatan']?>" style= "color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-show-alt icon'></i>&nbsp;Lihat</a></strong></button>
+										<strong><button type="button" class="btn btn-primary" ><a href="detailSiswa.php?kelas=<?=$row['kelas'];?>&tingkatan=<?=$row['tingkatan']?>" style= "color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-show-alt icon'></i>&nbsp;Lihat</a></strong></button>
 										</td>
 									</tr>
 									<?php } ?>
@@ -131,7 +131,7 @@
 			<footer>
 			<center>
 			<div class="text">
-				<span>Created By <a href="#">Libman School</a> | &#169; 2022 All Rights Reserved</span>
+			<span>Dibuat Oleh <a href="#">Libman School</a> | &#169; 2022 Semua Hak Dilindungi Undang-Undang</span>
 			</div>
 			</center>
 			</footer>
@@ -158,7 +158,7 @@
 	<script>
 	$(document).ready(function() {
 		var table = $('#example').DataTable( {
-		scrollY: 330,
+		scrollY: 310,
         scrollX: true,
         lengthChange: false,
         buttons: [ 'colvis' ]
@@ -170,37 +170,6 @@
         .appendTo( '#example_wrapper .col-md-6:eq(0)' );
 	} );
 	</script>
-	<script>
-				function showTime(){
-                var date = new Date();
-                var h = date.getHours(); // 0 - 23
-                var m = date.getMinutes(); // 0 - 59
-                var s = date.getSeconds(); // 0 - 59
-                var session = "AM";
-                
-                if(h == 0){
-                    h = 12;
-                }
-                
-                if(h > 12){
-                    h = h - 12;
-                    session = "PM";
-                }
-                
-                h = (h < 10) ? "0" + h : h;
-                m = (m < 10) ? "0" + m : m;
-                s = (s < 10) ? "0" + s : s;
-                
-                var time = h + ":" + m + ":" + s + " " + session;
-                document.getElementById("MyClockDisplay").innerText = time;
-                document.getElementById("MyClockDisplay").textContent = time;
-                
-                setTimeout(showTime, 1000);
-                
-            }
-
-            showTime();
-			</script>
 </body>
 
 </html>

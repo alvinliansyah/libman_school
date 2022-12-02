@@ -5,8 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="website icon" type="png" href="img/Logo.png">
 	<link rel="stylesheet" href="style.css">
-	<link rel="website icon" type="png" href="../libman_school/img/Logo.png">
 	<title>Dashboard - Libman School</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
 	<!-- SIDEBAR -->
 	<section id="sidebar">
 		<a href="#" class="brand">
-			<img src="../libman_school/img/Logo.png" alt="">
+			<img src="img/Logo.png" alt="">
 			<span class="brand">Libman School</span>
 		</a>
 		<ul class="side-menu">
@@ -45,7 +45,7 @@
 	<section id="content">
 		<!-- NAVBAR -->
 		<nav >
-			<i class='bx bx-menu toggle-sidebar' ></i>
+			<i class='bx bx-menu toggle-sidebar bx-sm' ></i>
 			<form action="#">
 			</form>
 			<div id="MyClockDisplay" class="clock float-start" style="line-height: 35px; color: white; font-weight: 600; font-size: 15px; font-family: 'Open Sans', sans-serif; letter-spacing: 3px; position: absolute; top: 15px; right: 80px;" onload="showTime()"></div>
@@ -53,7 +53,7 @@
 			<a style="color:white; text-decoration: none; font-weight: 600; font-size: 18px; position: absolute; top: 18px; right: 65px;">|</a>
 			&nbsp
 			<div class="profile">
-				<img src="../libman_school/img/default-avatar.png" alt="">
+				<img src="img/default-avatar.png" alt="">
 				<ul class="profile-link">
 					<li><a href="profile.php"><i class='bx bx-user icon'></i> Profile</a></li>
 				</ul>
@@ -114,7 +114,7 @@
 	</br>
 	<div class="row">
   <div class="col-sm-6">
-				<div class="card shadow">
+				<div class="card shadow" style="height: 650px;">
 					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Chart Buku
 					</center></h4>
 						<div class="card-body">
@@ -126,24 +126,78 @@
 						</div>
 			</div>
 			<div class="col-sm-6">
-			<div class="card shadow">
+			<div class="card shadow" style="height: 650px;">
 					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Memerlukan Tindakan
 					</center></h4>
 						<div class="card-body">
-						
-						</div>
-						</div>
+						<div class="table-wrapper-scroll-y my-custom-scrollbar">
+						<table class="table table-bordered table-striped mb-0">
+						<tbody>
+							<tr>
+							<td>
+							<span style="color:black; text-decoration: none; font-weight: 600; font-size: 16px;">Rudi<br/><span class="badge text-bg-danger p-3 bg-opacity-25 text-body" style="text-decoration: none; font-weight: 300; font-size: 14px;">Status : Harus dikembalikan sebelum (02/12/2022)</span></span>
+							</td>
+							</tr>
+							<tr>
+							<td>
+							<span style="color:black; text-decoration: none; font-weight: 600; font-size: 16px;">Agus<br/><span class="badge text-bg-danger p-3 bg-opacity-25 text-body" style="text-decoration: none; font-weight: 300; font-size: 14px;">Status : Harus dikembalikan sebelum (02/12/2022)</span></span>
+							</td>
+							</tr>
+							<tr>
+							<td>
+							<span style="color:black; text-decoration: none; font-weight: 600; font-size: 16px;">Kemal<br/><span class="badge text-bg-danger p-3 bg-opacity-25 text-body" style="text-decoration: none; font-weight: 300; font-size: 14px;">Status : Harus dikembalikan sebelum (02/12/2022)</span></span>
+							</td>
+							</tr>
+							<tr>
+							<td>
+							<span style="color:black; text-decoration: none; font-weight: 600; font-size: 16px;">Rani<br/><span class="badge text-bg-warning p-3 bg-opacity-25 text-body" style="text-decoration: none; font-weight: 300; font-size: 14px;">Status : Harus dikembalikan sebelum (10/12/2022)</span></span>
+							</td>
+							</tr>
+							<tr>
+							<td>
+							<span style="color:black; text-decoration: none; font-weight: 600; font-size: 16px;">Agil<br/><span class="badge text-bg-warning p-3 bg-opacity-25 text-body" style="text-decoration: none; font-weight: 300; font-size: 14px;">Status : Harus dikembalikan sebelum (10/12/2022)</span></span>
+							</td>
+							</tr>
+							<tr>
+							<td>
+							<span style="color:black; text-decoration: none; font-weight: 600; font-size: 16px;">Ali<br/><span class="badge text-bg-warning p-3 bg-opacity-25 text-body" style="text-decoration: none; font-weight: 300; font-size: 14px;">Status : Harus dikembalikan sebelum (10/12/2022)</span></span>
+							</td>
+							</tr>
+							<tr>
+							<td>
+							<span style="color:black; text-decoration: none; font-weight: 600; font-size: 16px;">Raka<br/><span class="badge text-bg-success p-3 bg-opacity-25 text-body" style="text-decoration: none; font-weight: 300; font-size: 14px;">Status : Harus dikembalikan sebelum (23/12/2022)</span></span>
+							</td>
+							</tr>
+							<tr>
+							<td>
+							<span style="color:black; text-decoration: none; font-weight: 600; font-size: 16px;">Raihan<br/><span class="badge text-bg-success p-3 bg-opacity-25 text-body" style="text-decoration: none; font-weight: 300; font-size: 14px;">Status : Harus dikembalikan sebelum (23/12/2022)</span></span>
+							</td>
+							</tr>
+							<tr>
+							<td>
+							<span style="color:black; text-decoration: none; font-weight: 600; font-size: 16px;">Tama<br/><span class="badge text-bg-success p-3 bg-opacity-25 text-body" style="text-decoration: none; font-weight: 300; font-size: 14px;">Status : Harus dikembalikan sebelum (23/12/2022)</span></span>
+							</td>
+							</tr>
+							
+
+						</tbody>
+						</table>
+
+					</div>
+					<br/>
+					</div>
+					</div>
+					</div>
+							
 			</div>
-				
-</div>
-</div>
+			</div>
 				</div>
 			</div>
 			<br/>
 			<footer>
 			<center>
 			<div class="text">
-				<span>Created By <a href="#">Libman School</a> | &#169; 2022 All Rights Reserved</span>
+			<span>Dibuat Oleh <a href="#">Libman School</a> | &#169; 2022 Semua Hak Dilindungi Undang-Undang</span>
 			</div>
 			</center>
 			</footer>
@@ -155,37 +209,30 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 	<script src="script.js"></script>
-	<script src="chart.js"></script>
 	<script>
-				function showTime(){
-                var date = new Date();
-                var h = date.getHours(); // 0 - 23
-                var m = date.getMinutes(); // 0 - 59
-                var s = date.getSeconds(); // 0 - 59
-                var session = "AM";
-                
-                if(h == 0){
-                    h = 12;
-                }
-                
-                if(h > 12){
-                    h = h - 12;
-                    session = "PM";
-                }
-                
-                h = (h < 10) ? "0" + h : h;
-                m = (m < 10) ? "0" + m : m;
-                s = (s < 10) ? "0" + s : s;
-                
-                var time = h + ":" + m + ":" + s + " " + session;
-                document.getElementById("MyClockDisplay").innerText = time;
-                document.getElementById("MyClockDisplay").textContent = time;
-                
-                setTimeout(showTime, 1000);
-                
-            }
-
-            showTime();
-			</script>
+		const ctx = document.getElementById('doughnut').getContext('2d');
+		const myChart = new Chart(ctx, {
+			type: 'doughnut',
+			data: {
+				labels: ['Jumlah Buku Tersedia Di Perpustakaan', 'Jumlah Buku Sedang Proses Peminjaman'],
+				datasets: [{
+					label: 'Chart Buku',
+					data: [600, 900],
+					backgroundColor: [
+						'rgba(255, 139, 3, 1)',
+						'rgba(255, 76, 29, 1)'
+					],
+					borderColor: [
+						'rgba(255, 139, 3, 1)',
+						'rgba(255, 76, 29, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				responsive: true
+			}
+		});
+	</script>
 </body>
 </html>

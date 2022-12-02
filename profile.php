@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-	<link rel="website icon" type="png" href="../libman_school/img/Logo.png">
+	<link rel="website icon" type="png" href="img/Logo.png">
 	<link rel="stylesheet" href="style.css">
 	<title>Profile - Libman School</title>
 </head>
@@ -16,7 +16,7 @@
 	<!-- SIDEBAR -->
 	<section id="sidebar">
 		<a href="#" class="brand">
-			<img src="../libman_school/img/Logo.png" alt="">
+			<img src="img/Logo.png" alt="">
 			<span class="brand">Libman School</span>
 		</a>
 		<ul class="side-menu">
@@ -47,7 +47,7 @@
 	<section id="content">
 		<!-- NAVBAR -->
 		<nav>
-			<i class='bx bx-menu toggle-sidebar'></i>
+		<i class='bx bx-menu toggle-sidebar bx-sm' ></i>
 			<form action="#">
 
 			</form>
@@ -56,7 +56,7 @@
 			<a style="color:white; text-decoration: none; font-weight: 600; font-size: 18px; position: absolute; top: 18px; right: 65px;">|</a>
 			&nbsp
 			<div class="profile">
-				<img src="../libman_school/img/default-avatar.png" alt="">
+				<img src="img/default-avatar.png" alt="">
 				<ul class="profile-link">
 				<li><a href="#" class="active"><i class='bx bx-user icon'></i> Profile</a></li>
 				</ul>
@@ -87,31 +87,26 @@
 						<div class="card-body">
 						<div class="profile-form">
 						<form action="#">
-							<center><div><img src="../libman_school/img/default-avatar.png" alt="" class="img-profile"></div></center>
-							<div class="input-boxes">
-								<label class="form-label">Kode Admin</label>
-								<div class="field input-field">
-									<input type="text" class="tkodeadmin" placeholder="Kode Admin" required>
-								</div>
-							</br>
-								<label class="form-label">Nama Lengkap Admin</label>
-								<div class="field input-field">
-									<input type="text" class="tnamalengkapadmin" placeholder="Nama Lengkap Admin"
-										required>
-								</div>
-							</br>
-								<label class="form-label">Username</label>
-								<div class="field input-field">
-									<input type="text" class="tusername" placeholder="Username" required>
-								</div>
-							</br>
-								<label class="form-label">Password</label>
-								<div class="field input-field">
-									<input type="password" class="password" placeholder="Password" required>
-								</div>
-							</br>
-							</div>
-						</form>
+						<center><div><img src="img/default-avatar.png" alt="" class="img-profile"></div></center>
+						<br/>
+						<div>
+						<label class="form-label">Kode Admin</label>
+						<div class="field input-field">
+							<input type="text" class="form-control" style="height: 50px;" name = "kdadmin" placeholder="Kode Admin" required>
+						</div>
+						<label class="form-label">Nama Admin</label>
+						<div class="field input-field">
+							<input type="text" class="form-control" style="height: 50px;" name = "namaadmin" placeholder="Nama Admin" required>
+						</div>
+						<label class="form-label">Username</label>
+						<div class="field input-field">
+							<input type="text" class="form-control" style="height: 50px;" name = "user" placeholder="Username" required>
+						</div>
+						<label class="form-label">Password</label>
+						<div class="field input-field">
+							<input type="password" class="form-control" style="height: 50px;" name = "pass" placeholder="Password" required>
+						</div>
+             		 </form>
 						<!-- Awal Modal -->
 						<div class="modal fade" id="modalEditAkun" data-bs-backdrop="static" data-bs-keyboard="false"
 							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -188,7 +183,7 @@
 			<footer>
 			<center>
 			<div class="text">
-				<span>Created By <a href="#">Libman School</a> | &#169; 2022 All Rights Reserved</span>
+			<span>Dibuat Oleh <a href="#">Libman School</a> | &#169; 2022 Semua Hak Dilindungi Undang-Undang</span>
 			</div>
 			</center>
 			</footer>
@@ -200,37 +195,7 @@
 
 	<script src="script.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-	<script>
-				function showTime(){
-                var date = new Date();
-                var h = date.getHours(); // 0 - 23
-                var m = date.getMinutes(); // 0 - 59
-                var s = date.getSeconds(); // 0 - 59
-                var session = "AM";
-                
-                if(h == 0){
-                    h = 12;
-                }
-                
-                if(h > 12){
-                    h = h - 12;
-                    session = "PM";
-                }
-                
-                h = (h < 10) ? "0" + h : h;
-                m = (m < 10) ? "0" + m : m;
-                s = (s < 10) ? "0" + s : s;
-                
-                var time = h + ":" + m + ":" + s + " " + session;
-                document.getElementById("MyClockDisplay").innerText = time;
-                document.getElementById("MyClockDisplay").textContent = time;
-                
-                setTimeout(showTime, 1000);
-                
-            }
 
-            showTime();
-			</script>
 </body>
 
 </html>

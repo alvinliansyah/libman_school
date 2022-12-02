@@ -1,3 +1,13 @@
+<?php 
+if(isset($_GET['pesan'])){
+    if($_GET['pesan'] == "gagal"){
+        echo "<script>alert('Login gagal! username dan password salah!')</script>";
+        }
+        else if($_GET['pesan'] == "logout"){
+          echo "<script>alert('Anda telah berhasil logout')</script>";
+        }
+      }
+?>
 <!DOCTYPE html>
 <!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
 <html lang="en" dir="ltr">
@@ -8,13 +18,13 @@
     <link rel="stylesheet" href="style-login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="website icon" type="png" href="../libman_school/img/Logo.png">
+    <link rel="website icon" type="png" href="img/Logo.png">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
 <nav> 
   <div class="logo">
-    <img src="../libman_school/img/Logo.png" alt="">
+    <img src="img/Logo.png" alt="">
   <span class="logo">Libman School</span></div>
   <input type="checkbox" id="click" style="display: none;">
   <label for="click" class="menu-btn">
@@ -35,16 +45,16 @@
             <input type="checkbox" id="flip">
             <div class="cover" >
               <div class="front">
-                <img src="../libman_school/img/wander-fleur-1lmGTHdQdjM-unsplash.jpg"  alt="">
-                <img src="../libman_school/img/logosmp1bangsal.png" style= "width: 90px; height: 90px; position: absolute; top: 140px; right: 160px; padding: none; border-radius: 1px;" alt="">
+                <img src="img/wander-fleur-1lmGTHdQdjM-unsplash.jpg"  alt="">
+                <img src="img/logosmp1bangsal.png" style= "width: 90px; height: 90px; position: absolute; top: 140px; right: 160px; padding: none; border-radius: 1px;" alt="">
                 <div class="text">
                   <span class="text-1">APLIKASI MANAJEMEN PERPUSTAKAAN</span>
                   <span class="text-2">SMP Negeri 1 Bangsalsari</span>
                 </div>
               </div>
               <div class="back">
-                <img class="backImg" src="../libman_school/img/wander-fleur-1lmGTHdQdjM-unsplash.jpg" alt="">
-                <img src="../libman_school/img/logosmp1bangsal.png" style= "width: 90px; height: 90px; position: absolute; top: 140px; right: 160px; padding: none; border-radius: 1px;" alt="">
+                <img class="backImg" src="img/wander-fleur-1lmGTHdQdjM-unsplash.jpg" alt="">
+                <img src="img/logosmp1bangsal.png" style= "width: 90px; height: 90px; position: absolute; top: 140px; right: 160px; padding: none; border-radius: 1px;" alt="">
                 <div class="text">
                   <span class="text-1">APLIKASI MANAJEMEN PERPUSTAKAAN</span>
                   <span class="text-2">SMP Negeri 1 Bangsalsari</span>
@@ -59,11 +69,10 @@
                 <p style="line-height:1px;">Masukan Username dan Password</p>
                 <p>untuk melanjutkan ke halaman berikutnya</p>
                   <form method="post" action="cek_login.php">
-                      <div>
+                      <div  class="field input-field">
                         <input type="text" class="form-control" style="height: 50px;" placeholder="Username" name = "user" required>
                       </div>
-                      <br/>
-                      <div>
+                      <div  class="field input-field">
                         <input type="password" class="form-control" style="height: 50px;" placeholder="Password" name = "pass" required>
                       </div>
                       <div class="text"><label for="flip">Lupa Password?</label></div>
@@ -77,7 +86,7 @@
                     <br/>
                     <p>Silahkan masukkan Password baru anda</p>
                 <form action="#">
-                    <div>
+                    <div class="field input-field">
                         <input type="text" class="form-control" style="height: 50px;" placeholder="Username" required>
                       </div>
                       <div class="field input-field">
@@ -144,7 +153,7 @@
 <!-- Footer Section Start -->
 <footer>
   <div class="text">
-    <span>Created By <a href="#">Libman School</a> | &#169; 2022 All Rights Reserved</span>
+    <span>Dibuat Oleh <a href="#">Libman School</a> | &#169; 2022 Semua Hak Dilindungi Undang-Undang</span>
   </div>
 </footer>
 
