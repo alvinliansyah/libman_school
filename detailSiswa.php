@@ -152,7 +152,7 @@ $tingkatann = $_GET['tingkatan'];
 										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
 											aria-label="Close"></button>
 									</div>
-									<form method="POST" action="tambahBuku.php"></form>
+									<form method="POST" action="tambahSiswa.php"></form>
 									<div class="modal-body">
 										<div class="mb-3">
 											<label class="form-label">NIS</label>

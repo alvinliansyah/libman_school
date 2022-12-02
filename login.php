@@ -1,3 +1,13 @@
+<?php 
+if(isset($_GET['pesan'])){
+    if($_GET['pesan'] == "gagal"){
+        echo "<script>alert('Login gagal! username dan password salah!')</script>";
+        }
+        else if($_GET['pesan'] == "logout"){
+          echo "<script>alert('Anda telah berhasil logout')</script>";
+        }
+      }
+?>
 <!DOCTYPE html>
 <!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
 <html lang="en" dir="ltr">

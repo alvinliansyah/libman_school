@@ -113,7 +113,7 @@
 								<td><?php echo $row['kelas']; ?></td>
 								<td><?php echo $row['total'];?></td>
 										<td>
-										<strong><button type="button" class="btn btn-primary" ><a href="detailSiswa.php?kelas=<?=$row['kelas'];?> && tingkatan=<?=$row['tingkatan']?>" style= "color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-show-alt icon'></i>&nbsp;Lihat</a></strong></button>
+										<strong><button type="button" class="btn btn-primary" ><a href="detailSiswa.php?kelas=<?=$row['kelas'];?>&tingkatan=<?=$row['tingkatan']?>" style= "color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-show-alt icon'></i>&nbsp;Lihat</a></strong></button>
 										</td>
 									</tr>
 									<?php } ?>

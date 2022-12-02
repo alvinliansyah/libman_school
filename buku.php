@@ -104,7 +104,7 @@
 									<?php
 									include 'koneksi.php';
 
-									$dataBuku = mysqli_query($koneksi, "SELECT DISTINCT data_buku.kd_buku ,data_buku.jenis_buku, COUNT(buku_paket.kd_paket) as total FROM data_buku JOIN buku_paket WHERE data_buku.kd_buku = buku_paket.kd_buku;");
+									$dataBuku = mysqli_query($koneksi, "SELECT data_buku.kd_buku ,data_buku.jenis_buku, COUNT(buku_paket.kd_paket) as total FROM data_buku JOIN buku_paket ON data_buku.kd_buku = buku_paket.kd_buku GROUP BY data_buku.kd_buku;");
 									$i=1;
 									while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
 									?>
