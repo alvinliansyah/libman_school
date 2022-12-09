@@ -21,7 +21,6 @@
 		</a>
 		<ul class="side-menu">
 			<li><a href="dashboard.php"><i class='bx bx-home icon'></i> Dashboard</a></li>
-
 			<li class="divider" data-text="data master">Data Master</li>
 			<li><a href="siswa.php"><i class='bx bx-group icon'></i>Siswa</a></li>
 			<li><a href="admin.php"><i class='bx bx-user icon'></i>Admin</a></li>
@@ -75,7 +74,7 @@
 			<div class="card shadow">
 					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Profile
 					<div class="dropdown float-end">
-						<button class="btn float-end dropdown border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="left: 10px; color: white; top: -3px;">
+						<button class="btn btn-outline-light btn-sm float-end dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="left: 10px; color: white; top: -3px;">
 						<i class='bx bx-cog bx-sm icon' ></i>
 						</button>
 						<ul class="dropdown-menu">

@@ -92,11 +92,11 @@ $image = $_POST['file-fotoprofile'];
 			</ul>
 			
 			<div class="card shadow">
-			<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Data Admin
+			<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Data Admin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<strong><button type="button" class="btn btn-outline-light btn-sm float-end"  style=" position: relative; top: 1.5px; left: -42px;"><a href="#" data-bs-toggle="modal" data-bs-target="#modalTambahData" style= "font-size: 14.5px; color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-add-to-queue icon'></i>&nbsp;Tambah Data</a></strong></button>
 						<a class="float-end" style="font-size: 28px; color:white; text-decoration: none; font-weight: normal; color: white; position: relative; top: -2px; left: 111px;">|</a>
 						<div class="dropdown float-end">
-						<button class="btn dropdown border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="left: 165px; color: white; top: -3px;">
+						<button class="btn dropdown border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="position: absolute;left:110px; color: white; top: -3px;">
 						<i class='bx bx-dots-vertical-rounded icon' style="font-size: 30px;"></i>
 						</button>
 						<ul class="dropdown-menu">

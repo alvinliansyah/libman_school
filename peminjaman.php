@@ -91,7 +91,6 @@
 						<table id="example" class="table table-striped table-hover" style="width:100%">
 							<thead>
 								<tr>
-									<th>NO</th>
 									<th>KODE PEMINJAMAN</th>
 									<th>NAMA SISWA</th>
 									<th>NIS</th>
@@ -105,7 +104,6 @@
 							<tbody>
 								<tr>
 									<td>1</td>
-									<td>pmj001</td>
 									<td>Budi Saputra</td>
 									<td>123456789</td>
 									<td>Agama</td>
@@ -115,7 +113,6 @@
 									<td>
 									<div class="d-grid gap-2 d-md-flex justify-content-md">
 									<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditData"><i class='bx bx-edit icon bx-xs'>&nbsp;Edit</i></button>
-									<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusData"><i class='bx bx-trash icon bx-xs'>&nbsp;Hapus</i></button>
 									</div>
 									</td>
 								</tr>
@@ -235,26 +232,6 @@
 							</div>
 						</div>
 						<!-- Akhir Modal -->
-						<!-- Awal Modal Hapus Data -->
-						<div class="modal fade" id="modalHapusData" data-bs-backdrop="static" data-bs-keyboard="false"
-							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header text-bg-primary mb-3">
-										<h1 class="modal-title fs-5" id="staticBackdropLabel">Hapus Data?</h1>
-										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-											aria-label="Close"></button>
-									</div>
-									<form method="POST" action="#"></form>
-									<div class="modal-body">Apakah anda yakin ingin menghapus data?</div>
-									<div class="modal-footer">
-										<button type="submit" class="btn btn-danger" name="button-submithapusdata">Hapus</button>
-									</div>
-									</form>
-								</div>
-							</div>
-						</div>
-						<!-- Akhir Modal -->
 						</div>
 						</div>
 			</div>
@@ -289,7 +266,7 @@
 	<script>
 	$(document).ready(function() {
 		var table = $('#example').DataTable( {
-		scrollY: 280,
+		scrollY: 310,
         scrollX: true,
         lengthChange: false,
         buttons: ['colvis' ]

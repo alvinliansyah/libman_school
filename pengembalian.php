@@ -89,7 +89,6 @@
 						<table id="example" class="table table-striped table-hover" style="width:100%">
 							<thead>
 								<tr>
-									<th>NO</th>
 									<th>KODE PEMINJAMAN</th>
 									<th>NAMA SISWA</th>
 									<th>NIS</th>
@@ -102,7 +101,6 @@
 							<tbody>
 								<tr>
 									<td>1</td>
-									<td>pmj001</td>
 									<td>Budi Saputra</td>
 									<td>123456789</td>
 									<td>Agama</td>
