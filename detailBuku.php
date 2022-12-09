@@ -191,15 +191,6 @@ while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
 											</select>
 										</div>
 										<div class="mb-3">
-											<label class="form-label">Kelas</label>
-											<select class="form-select" name="text-kelas">
-												<option></option>
-												<option value="A">1</option>
-												<option value="B">2</option>
-												<option value="C">3</option>
-											</select>
-										</div>
-										<div class="mb-3">
 											<label class="form-label">Peminjaman</label>
 											<input type="number" class="form-control" name="number-peminjaman"
 												placeholder="Peminjaman" required>
@@ -268,15 +259,6 @@ while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
 												<option value="VII">VII</option>
 												<option value="VIII">VIII</option>
 												<option value="IX">IX</option>
-											</select>
-										</div>
-										<div class="mb-3">
-											<label class="form-label">Kelas</label>
-											<select class="form-select" name="text-kelas">
-												<option></option>
-												<option value="A">A</option>
-												<option value="B">B</option>
-												<option value="C">C</option>
 											</select>
 										</div>
 										<div class="mb-3">

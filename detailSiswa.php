@@ -116,6 +116,7 @@ $tingkatann = $_REQUEST['tingkatan'];
 									<th>NAMA SISWA</th>
 									<th>PASSWORD</th>
 									<th>NO TELEPHONE</th>
+									<th>JENIS KELAMIN</th>
 									<th>AKSI</th>
 								</tr>
 							</thead>
@@ -132,6 +133,7 @@ $tingkatann = $_REQUEST['tingkatan'];
 								<td><?php echo $row['nama_siswa']; ?></td>
 								<td><?php echo $row['password'];?></td>
 								<td><?php echo $row['notelp']; ?></td>
+								<td></td>
 								<td>
 								<div class="d-grid gap-2 d-md-flex justify-content-md">
 											<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditData"><i class='bx bx-edit icon bx-xs'></i>&nbsp;Edit</button>
@@ -175,6 +177,14 @@ $tingkatann = $_REQUEST['tingkatan'];
 											<label class="form-label">No Telepon</label>
 											<input type="number" class="form-control" name="number-noteltepon1"
 												placeholder="No Telepon" required>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Jenis Kelamin</label>
+											<select class="form-select" name="text-jekel">
+												<option></option>
+												<option value="L">L</option>
+												<option value="P">P</option>
+											</select>
 										</div>
 										<div class="mb-3">
 											<input type="hidden" class="form-control" name="kelas1"
@@ -229,7 +239,14 @@ $tingkatann = $_REQUEST['tingkatan'];
 											<input type="number" class="form-control" name="number-noteltepon"
 												placeholder="No Telepon" required>
 										</div>
-
+										<div class="mb-3">
+											<label class="form-label">Jenis Kelamin</label>
+											<select class="form-select" name="text-jekel">
+												<option></option>
+												<option value="L">L</option>
+												<option value="P">P</option>
+											</select>
+										</div>
 									</div>
 									<div class="modal-footer">
 										<button type="submit" class="btn btn-primary"

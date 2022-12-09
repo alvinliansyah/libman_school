@@ -111,7 +111,6 @@ $image = $_POST['file-fotoprofile'];
 						<table id="example" class="table table-striped table-hover" style="width:100%">
 							<thead>
 								<tr>
-									<th>NO</th>
 									<th>KODE ADMIN</th>
 									<th>NAMA ADMIN</th>
 									<th>PASSWORD</th>
@@ -127,7 +126,6 @@ $image = $_POST['file-fotoprofile'];
 								while ($row = mysqli_fetch_array($dataAdmin, MYSQLI_ASSOC)) {
 								?>
 								<tr>
-									<td><?php echo $i++?></td>
 									<td><?php echo $row['id_admin']; ?></td>
 									<td><?php echo $row['nama_admin']; ?></td>
 									<td><?php echo $row['password']; ?></td>
