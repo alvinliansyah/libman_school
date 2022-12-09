@@ -1,8 +1,10 @@
 <?php
-include 'koneksi.php';
+require_once 'koneksi.php';
 
-$kelass = $_GET['kelas'];
-$tingkatann = $_GET['tingkatan'];
+session_start();
+
+$kelass = $_REQUEST['kelas'];
+$tingkatann = $_REQUEST['tingkatan'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -120,11 +122,11 @@ $tingkatann = $_GET['tingkatan'];
 							<tbody>
 								<tr>
 								<?php
-								$dataAdmin = mysqli_query($koneksi, "select * from data_siswa where tingkatan = '$tingkatann' and kelas ='$kelass'");
+								$dataAdmin = mysqli_query($koneksi, "select * from data_siswa where tingkatan = '$tingkatann' and kelas ='$kelass' ORDER BY nama_siswa ASC");
 								$i=1;
 								while ($row = mysqli_fetch_array($dataAdmin, MYSQLI_ASSOC)) {
 								?>
-								<td style="width: 10px;px; text-align: center;"><input type="checkbox" name="stud_delete_id[]" value="<?php echo $i++?>"></td>
+								<td style="width: 10px;px; text-align: center;"><input type="checkbox" name="stud_delete_id[]" value="<?php echo $i?>"></td>
 								<td><?php echo $i++?></td>
 								<td><?php echo $row['NIS']; ?></td>
 								<td><?php echo $row['nama_siswa']; ?></td>
@@ -152,33 +154,41 @@ $tingkatann = $_GET['tingkatan'];
 										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
 											aria-label="Close"></button>
 									</div>
-									<form method="POST" action="tambahSiswa.php"></form>
+									<form method="POST" action="tambahSiswa.php">
 									<div class="modal-body">
 										<div class="mb-3">
 											<label class="form-label">NIS</label>
-											<input type="number" class="form-control" name="number-nis"
+											<input type="number" class="form-control" name="number-nis1"
 												placeholder="NIS" required>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Nama Siswa</label>
-											<input type="text" class="form-control" name="text-namasiswa"
+											<input type="text" class="form-control" name="text-namasiswa1"
 												placeholder="Nama Siswa" required>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Password</label>
-											<input type="password" class="form-control" name="password"
+											<input type="password" class="form-control" name="password1"
 												placeholder="Password" required>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">No Telepon</label>
-											<input type="number" class="form-control" name="number-noteltepon"
+											<input type="number" class="form-control" name="number-noteltepon1"
 												placeholder="No Telepon" required>
+										</div>
+										<div class="mb-3">
+											<input type="hidden" class="form-control" name="kelas1"
+												value="<?php echo $kelass?>">
+										</div>
+										<div class="mb-3">
+											<input type="hidden" class="form-control" name="tingkatan1"
+												value="<?php echo $tingkatann?>">
 										</div>
 
 									</div>
 									<div class="modal-footer">
 										<button type="submit" class="btn btn-primary"
-											name="button-submittambahdata">Simpan</button>
+											name="button-submittambahdata1">Simpan</button>
 										<button type="button" class="btn btn-secondary"
 											data-bs-dismiss="modal">Keluar</button>
 									</div>
@@ -242,7 +252,7 @@ $tingkatann = $_GET['tingkatan'];
 										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
 											aria-label="Close"></button>
 									</div>
-									<form method="POST" action="#"></form>
+									<form method="POST" action="hapusSiswa.php">
 									<div class="modal-body">Apakah anda yakin ingin menghapus data?</div>
 									<div class="modal-footer">
 										<button type="submit" class="btn btn-danger"
@@ -285,6 +295,7 @@ $tingkatann = $_GET['tingkatan'];
 	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/buttons.print.min.js"></script>
 	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/buttons.colVis.min.js"></script>
 	<script>
+		
 		$(document).ready(function () {
 			var table = $('#example').DataTable( {
 		scrollY: 300,
