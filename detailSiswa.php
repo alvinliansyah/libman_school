@@ -133,7 +133,7 @@ $tingkatann = $_REQUEST['tingkatan'];
 								<td><?php echo $row['nama_siswa']; ?></td>
 								<td><?php echo $row['password'];?></td>
 								<td><?php echo $row['notelp']; ?></td>
-								<td></td>
+								<td><?php echo $row['jenis_kelamin']; ?></td>
 								<td>
 								<div class="d-grid gap-2 d-md-flex justify-content-md">
 											<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditData"><i class='bx bx-edit icon bx-xs'></i>&nbsp;Edit</button>
@@ -180,7 +180,7 @@ $tingkatann = $_REQUEST['tingkatan'];
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Jenis Kelamin</label>
-											<select class="form-select" name="text-jekel">
+											<select class="form-select" name="text-jekel1">
 												<option></option>
 												<option value="L">L</option>
 												<option value="P">P</option>
