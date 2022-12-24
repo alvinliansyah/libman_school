@@ -22,7 +22,9 @@ $dataBuku = mysqli_query($koneksi, "SELECT * FROM data_buku WHERE jenis_buku = '
 </head>
 
 <body>
-
+<div class="loader-wrapper">
+	<span class="loader"><span class="loader-inner"></span></span>
+	</div>
 	<!-- SIDEBAR -->
 	<section id="sidebar">
 		<a href="#" class="brand">
@@ -332,6 +334,12 @@ $dataBuku = mysqli_query($koneksi, "SELECT * FROM data_buku WHERE jenis_buku = '
 	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/buttons.html5.min.js"></script>
 	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/buttons.print.min.js"></script>
 	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/buttons.colVis.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(window).on("load",function(){
+			$(".loader-wrapper").fadeOut("slow");
+		});
+	</script>
 	<script>
 		$(document).ready(function () {
 			var table = $('#example').DataTable( {

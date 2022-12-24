@@ -10,7 +10,9 @@
 	<title>Pelayanan Pelanggan - Libman School</title>
 </head>
 <body>
-	
+<div class="loader-wrapper">
+	<span class="loader"><span class="loader-inner"></span></span>
+	</div>	
 	<!-- SIDEBAR -->
 	<section id="sidebar">
 		<a href="#" class="brand">
@@ -89,15 +91,15 @@
 						<center>
 						<table class="table2">
 						<thead>
-							<th><i class='bx bx-globe icon'></i>&nbsp;&nbsp;Website</th>
-							<th><i class='bx bx-phone icon'></i>&nbsp;&nbsp;Telephone</th>
+							<th><i class='bx bxl-instagram icon'></i>&nbsp;&nbsp;Instagram</th>
+							<th><i class='bx bxl-whatsapp icon'></i>&nbsp;&nbsp;WhatsApp</th>
 							<th><i class='bx bx-envelope icon'></i>&nbsp;&nbsp;Email</th>
 						</thead>
 						<tbody>
 						<tr>
-							<td>www.libmanschool.com</td>
-							<td>+62 877 7243 3591</td>
-							<td>libmanschool@gmail.com</td>
+							<td>@ilhamikhwann</td>
+							<td>+62 856 4954 9458</td>
+							<td>ilhamikhwaan@gmail.com</td>
 						</tr>
 						</table>
 					</tbody>
@@ -121,5 +123,11 @@
 	<!-- NAVBAR -->
 
 	<script src="script.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(window).on("load",function(){
+			$(".loader-wrapper").fadeOut("slow");
+		});
+	</script>
 </body>
 </html>

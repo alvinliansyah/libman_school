@@ -35,7 +35,9 @@ while ($row = mysqli_fetch_array($dataSiswa, MYSQLI_ASSOC)) {
 	<title>Dashboard - Libman School</title>
 </head>
 <body>
-	
+<div class="loader-wrapper">
+	<span class="loader"><span class="loader-inner"></span></span>
+	</div>	
 	<!-- SIDEBAR -->
 	<section id="sidebar">
 		<a href="#" class="brand">
@@ -234,6 +236,12 @@ while ($row = mysqli_fetch_array($dataSiswa, MYSQLI_ASSOC)) {
 
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 	<script src="script.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(window).on("load",function(){
+			$(".loader-wrapper").fadeOut("slow");
+		});
+	</script>
 	<script>
 		const ctx = document.getElementById('doughnut').getContext('2d');
 		const myChart = new Chart(ctx, {

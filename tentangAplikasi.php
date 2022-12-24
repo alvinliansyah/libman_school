@@ -10,7 +10,9 @@
 	<title>Tentang Aplikasi - Libman School</title>
 </head>
 <body>
-	
+<div class="loader-wrapper">
+	<span class="loader"><span class="loader-inner"></span></span>
+	</div>	
 	<!-- SIDEBAR -->
 	<section id="sidebar">
 		<a href="#" class="brand">
@@ -104,5 +106,11 @@
 	<!-- NAVBAR -->
 
 	<script src="script.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(window).on("load",function(){
+			$(".loader-wrapper").fadeOut("slow");
+		});
+	</script>
 </body>
 </html>

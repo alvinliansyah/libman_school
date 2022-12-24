@@ -23,6 +23,9 @@ if(isset($_GET['pesan'])){
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
+<div class="loader-wrapper">
+	<span class="loader"><span class="loader-inner"></span></span>
+	</div>
   <!-- navgaition menu -->
   <nav>
     <div class="navbar">
@@ -141,16 +144,16 @@ if(isset($_GET['pesan'])){
    <center>
      <table class="table">
      <thead>
-       <th><i class='bx bx-globe icon'></i>&nbsp;&nbsp;Website</th>
-       <th><i class='bx bx-phone icon'></i>&nbsp;&nbsp;Telephone</th>
-       <th><i class='bx bx-envelope icon'></i>&nbsp;&nbsp;Email</th>
-     </thead>
-     <tbody>
-     <tr>
-       <td>www.libmanschool.com</td>
-       <td>+62 877 7243 3591</td>
-       <td>libmanschool@gmail.com</td>
-     </tr>
+							<th><i class='bx bxl-instagram icon'></i>&nbsp;&nbsp;Instagram</th>
+							<th><i class='bx bxl-whatsapp icon'></i>&nbsp;&nbsp;WhatsApp</th>
+							<th><i class='bx bx-envelope icon'></i>&nbsp;&nbsp;Email</th>
+						</thead>
+						<tbody>
+						<tr>
+							<td>@ilhamikhwann</td>
+							<td>+62 856 4954 9458</td>
+							<td>ilhamikhwaan@gmail.com</td>
+						</tr>
    </table>
  </tbody>
 </center>	
@@ -165,5 +168,11 @@ if(isset($_GET['pesan'])){
 </footer>
 
   <script src="script-login.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+		$(window).on("load",function(){
+			$(".loader-wrapper").fadeOut("slow");
+		});
+	</script>
 </body>
 </html>
