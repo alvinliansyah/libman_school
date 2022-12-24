@@ -88,6 +88,10 @@
 					</div>
 					</center></h4>
 						<div class="card-body">
+						<div class="input-group" style="width: 220px;left: 10px;">
+						<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+						<button type="button" class="btn btn-primary"><i class='bx bx-search icon'></i></button>
+						</div>
 						<div class="container">
 							<table id="example" class="table table-striped table-hover" style="width:100%">
 								<thead>
@@ -164,10 +168,12 @@
 	<script>
 	$(document).ready(function() {
 		var table = $('#example').DataTable( {
-		scrollY: 310,
+		scrollY: 330,
         scrollX: true,
         lengthChange: false,
-        buttons: [ 'colvis' ]
+        lengthChange: false,
+        bFilter: false,
+		bPaginate: false
 		
 		
     } );

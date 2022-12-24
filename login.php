@@ -73,14 +73,14 @@ if(isset($_GET['pesan'])){
                  <div class="login-form">
                    <header>Masuk</header>
                    <br/>
-               <p style="line-height:1px;">Masukan Username dan Password</p>
-               <p>untuk melanjutkan ke halaman berikutnya</p>
+               <p style="line-height:1px;">Masukkan Nama Admin dan</p>
+               <p>Password untuk melanjutkan ke halaman berikutnya</p>
                  <form method="post" action="cek_login.php">
                      <div  class="field input-field">
-                       <input type="text" class="form-control" style="height: 50px;" placeholder="Username" name = "user" required>
+                       <input type="text" class="form-control" style="height: 50px;" placeholder="Nama Admin" name ="user" required>
                      </div>
                      <div  class="field input-field">
-                       <input type="password" class="form-control" style="height: 50px;" placeholder="Password" name = "pass" required>
+                       <input type="password" class="form-control" style="height: 50px;" placeholder="Password" name ="pass" required>
                      </div>
                      <div class="text"><label for="flip">Lupa Password?</label></div>
                      <div class="button input-box">
@@ -92,18 +92,18 @@ if(isset($_GET['pesan'])){
                    <header>Lupa Password</header>
                    <br/>
                    <p>Silahkan masukkan Password baru anda</p>
-               <form action="#">
+               <form action="lupaPassword.php" method="POST">
                    <div class="field input-field">
-                       <input type="text" class="form-control" style="height: 50px;" placeholder="Username" required>
+                       <input type="text" class="form-control" style="height: 50px;" placeholder="Nama Admin" name="nama" required>
                      </div>
                      <div class="field input-field">
-                       <input type="password" class="form-control" style="height: 50px;" placeholder="Password" required>
+                       <input type="password" class="form-control" style="height: 50px;" placeholder="Password" name="password" required>
                      </div>
                      <div class="field input-field">
-                       <input type="password" class="form-control" style="height: 50px;" placeholder="Konfirmasi password" required>
+                       <input type="password" class="form-control" style="height: 50px;" placeholder="Konfirmasi password" name="konfirm-password" required>
                      </div>
                      <div class="button input-box">
-                       <input type="submit" value="Simpan">
+                       <input type="submit" value="Simpan" name="simpan">
                      </div>
                      <div class="text forgetPassword-text"><label for="flip">Kembali ke masuk</label></div>
                    </div>

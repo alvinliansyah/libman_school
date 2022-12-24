@@ -1,3 +1,8 @@
+<?php
+require_once 'koneksi.php';
+
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,6 +94,10 @@
 					</div>
 					</center></h4>
 						<div class="card-body">
+						<div class="input-group" style="width: 220px;left: 10px;">
+						<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+						<button type="button" class="btn btn-primary"><i class='bx bx-search icon'></i></button>
+						</div>
 						<div class="container">
 						<table id="example" class="table table-striped table-hover" style="width:100%">
 							<thead>
@@ -97,6 +106,7 @@
 									<th>NAMA SISWA</th>
 									<th>NIS</th>
 									<th>JUDUL BUKU</th>
+									<th>KODE BUKU</th>
 									<th>TGL PEMINJAMAN</th>
 									<th>TGL PENGEMBALIAN</th>
 									<th>NAMA ADMIN</th>
@@ -104,33 +114,32 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td>1</td>
-									<td>Budi Saputra</td>
-									<td>123456789</td>
-									<td>Agama</td>
-									<td>20/10/2022</td>
-									<td>27/10/2022</td>
-									<td>Megawati</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>Yulianto</td>
-									<td>123456790</td>
-									<td>Agama</td>
-									<td>20/10/2022</td>
-									<td>27/10/2022</td>
-									<td>Megawati</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>Andre Saputra</td>
-									<td>123456791</td>
-									<td>Agama</td>
-									<td>20/10/2022</td>
-									<td>27/10/2022</td>
-									<td>Megawati</td>
+								<?php						
+								$datapjm = mysqli_query($koneksi, "SELECT data_siswa.nama_siswa, data_siswa.NIS, data_buku.nama_buku, data_buku.kd_buku, peminjaman.tanggal_peminjaman, peminjaman.jadwal_pengembalian, data_admin.nama_admin FROM data_siswa JOIN peminjaman ON data_siswa.NIS=peminjaman.NIS JOIN data_buku ON data_buku.kd_buku=peminjaman.kd_buku JOIN data_admin ON data_admin.id_admin=peminjaman.id_admin");
+								$i=1;
+								while ($row = mysqli_fetch_array($datapjm, MYSQLI_ASSOC)) {
+									$namaS = $row['nama_siswa'];
+									$nis = $row['NIS'];
+									$namaB = $row['nama_buku'];
+									$kodeB = $row['kd_buku'];
+									$tglpjm = $row['tanggal_peminjaman'];
+									$tglkbl = $row['jadwal_pengembalian'];
+									$namaA = $row['nama_admin'];
+								?>
+									<td><?php echo $i?></td>
+									<td><?php echo $namaS?></td>
+									<td><?php echo $nis?></td>
+									<td><?php echo $namaB?></td>
+									<td><?php echo $kodeB?></td>
+									<td><?php echo $tglpjm?></td>
+									<td><?php echo $tglkbl?></td>
+									<td><?php echo $namaA?></td>
 								</tr>
 							</tbody>
+							<?php
+							$i++;	
+							}
+							?>
 						</table>
 						</div>
 						</div>
@@ -165,10 +174,12 @@
 	<script>
 	$(document).ready(function() {
 		var table = $('#example').DataTable( {
-		scrollY: 310,
+		scrollY: 330,
         scrollX: true,
         lengthChange: false,
-        buttons: ['colvis' ]
+        lengthChange: false,
+        bFilter: false,
+		bPaginate: false
 		
 		
     } );

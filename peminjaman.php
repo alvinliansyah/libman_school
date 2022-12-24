@@ -1,3 +1,8 @@
+<?php
+require_once 'koneksi.php';
+
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,29 +92,47 @@
 					</div>
 					</center></h4>
 						<div class="card-body">
+						<div class="input-group" style="width: 220px;left: 10px;">
+						<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+						<button type="button" class="btn btn-primary"><i class='bx bx-search icon'></i></button>
+						</div>
 						<div class="container">
 						<table id="example" class="table table-striped table-hover" style="width:100%">
 							<thead>
 								<tr>
+									<th>NO</th>
 									<th>KODE PEMINJAMAN</th>
-									<th>NAMA SISWA</th>
 									<th>NIS</th>
-									<th>JUDUL BUKU</th>
+									<th>KODE BUKU</th>
+									<th>JUMLAH</th>
 									<th>TGL PEMINJAMAN</th>
 									<th>TGL PENGEMBALIAN</th>
-									<th>NAMA ADMIN</th>
+									<th>ID ADMIN</th>
 									<th>AKSI</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>1</td>
-									<td>Budi Saputra</td>
-									<td>123456789</td>
-									<td>Agama</td>
-									<td>20/10/2022</td>
-									<td>27/10/2022</td>
-									<td>Megawati</td>
+								<?php						
+								$datapjm = mysqli_query($koneksi, "SELECT * FROM peminjaman");
+								$i=1;
+								while ($row = mysqli_fetch_array($datapjm, MYSQLI_ASSOC)) {
+									$kdpjm = $row['id_pinjam'];
+									$nis = $row['NIS'];
+									$kdbk = $row['kd_buku'];
+									$qty = $row['qty'];
+									$tglpjm = $row['tanggal_peminjaman'];
+									$tglkbl = $row['jadwal_pengembalian'];
+									$id = $row['id_admin'];
+								?>
+									<td><?php echo $i ?></td>
+									<td><?php echo $kdpjm ?></td>
+									<td><?php echo $nis ?></td>
+									<td><?php echo $kdbk ?></td>
+									<td><?php echo $qty ?></td>
+									<td><?php echo $tglpjm ?></td>
+									<td><?php echo $tglkbl ?></td>
+									<td><?php echo $id ?></td>
 									<td>
 									<div class="d-grid gap-2 d-md-flex justify-content-md">
 									<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditData"><i class='bx bx-edit icon bx-xs'>&nbsp;Edit</i></button>
@@ -117,8 +140,10 @@
 									</td>
 								</tr>
 							</tbody>
-							<tfoot>
-							</tfoot>
+							<?php
+							$i++;
+							}
+							?>
 						</table>
 						<!-- Awal Modal -->
 					<div class="modal fade" id="modalTambahTransaksi" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -130,7 +155,7 @@
 								<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
 									aria-label="Close"></button>
 							</div>
-							<form method="POST" action="#"></form>
+							<form method="POST" action="tambahPinjam.php">
 							<div class="modal-body">
 								<div class="mb-3">
 									<label class="form-label">Kode Peminjaman</label>
@@ -138,19 +163,19 @@
 										placeholder="Kode Peminjaman" required>
 								</div>
 								<div class="mb-3">
-									<label class="form-label">Nama Siswa</label>
-									<input type="text" class="form-control" name="text-namasiswa"
-										placeholder="Nama Siswa" required>
-								</div>
-								<div class="mb-3">
 									<label class="form-label">NIS</label>
 									<input type="number" class="form-control" name="number-nis"
 										placeholder="NIS" required>
 								</div>
 								<div class="mb-3">
-									<label class="form-label">Judul Buku</label>
-									<input type="text" class="form-control" name="text-judulbuku"
-										placeholder="Judul Buku" required>
+									<label class="form-label">Kode Buku</label>
+									<input type="text" class="form-control" name="text-kodebuku"
+										placeholder="Kode Buku" required>
+								</div>
+								<div class="mb-3">
+									<label class="form-label">Jumlah</label>
+									<input type="text" class="form-control" name="text-jumlah"
+										value=1 readonly>
 								</div>
 								<div class="mb-3">
 									<label class="form-label">TGL Peminjaman</label>
@@ -161,9 +186,9 @@
 									<input type="date" class="form-control" name="dt-pengembalian" required>
 								</div>
 								<div class="mb-3">
-									<label class="form-label">Nama Admin</label>
-									<input type="text" class="form-control" name="text-namalengkapadmin"
-										placeholder="Nama Admin" required>
+									<label class="form-label">Kode Admin</label>
+									<input type="text" class="form-control" name="text-kodeadmin"
+										placeholder="Kode Admin" required>
 								</div>
 
 							</div>
@@ -204,9 +229,9 @@
 										placeholder="NIS" required>
 								</div>
 								<div class="mb-3">
-									<label class="form-label">Judul Buku</label>
-									<input type="text" class="form-control" name="text-judulbuku"
-										placeholder="Judul Buku" required>
+									<label class="form-label">Kode Buku</label>
+									<input type="text" class="form-control" name="text-kodebuku"
+										placeholder="Kode Buku" required>
 								</div>
 								<div class="mb-3">
 									<label class="form-label">TGL Peminjaman</label>
@@ -217,9 +242,9 @@
 									<input type="date" class="form-control" name="dt-pengembalian" required>
 								</div>
 								<div class="mb-3">
-									<label class="form-label">Nama Admin</label>
-									<input type="text" class="form-control" name="text-namalengkapadmin"
-										placeholder="Nama Admin" required>
+									<label class="form-label">Kode Admin</label>
+									<input type="text" class="form-control" name="text-kodeapadmin"
+										placeholder="Kode Admin" required>
 								</div>
 
 							</div>
@@ -266,10 +291,12 @@
 	<script>
 	$(document).ready(function() {
 		var table = $('#example').DataTable( {
-		scrollY: 310,
+		scrollY: 300,
         scrollX: true,
         lengthChange: false,
-        buttons: ['colvis' ]
+        lengthChange: false,
+        bFilter: false,
+		bPaginate: false
 		
 		
     } );

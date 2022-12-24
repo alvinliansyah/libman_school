@@ -13,10 +13,10 @@ if (isset($_POST['button-submittambahdata1'])) {
   $tambah=mysqli_query($koneksi, "INSERT INTO data_siswa(NIS, nama_siswa, data_siswa.password, tingkatan, kelas, jenis_kelamin, notelp) 
   VALUES ('$nis','$nama','$pass','$tingkatann','$kelass','$JK','$nomer')");
   if($tambah){
-		echo "<script>alert('Berhasil menambahkan');
+		echo "<script>alert('Data berhasil ditambahkan');
 		document.location='detailSiswa.php?kelas=$kelass&tingkatan=$tingkatann'</script>";
 	}else {
-		echo "<script>alert('Gagal menambahkan');
+		echo "<script>alert('Data gagal ditambahkan');
 		document.location='detailSiswa.php?kelas=$kelass&tingkatan=$tingkatann'</script>";
 	}
 }

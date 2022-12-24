@@ -1,3 +1,8 @@
+<?php
+require_once 'koneksi.php';
+
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,37 +90,49 @@
 					</div>
 					</center></h4>
 						<div class="card-body">
+						<div class="input-group" style="width: 220px;left: 10px;">
+						<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+						<button type="button" class="btn btn-primary"><i class='bx bx-search icon'></i></button>
+						</div>
 						<div class="container">
 						<table id="example" class="table table-striped table-hover" style="width:100%">
 							<thead>
 								<tr>
+									<th>NO</th>
 									<th>KODE PEMINJAMAN</th>
-									<th>NAMA SISWA</th>
 									<th>NIS</th>
-									<th>JUDUL BUKU</th>
+									<th>KODE BUKU</th>
+									<th>JUMLAH</th>
 									<th>TGL PEMINJAMAN</th>
-									<th>NAMA ADMIN</th>
+									<th>ID ADMIN</th>
 									<th>AKSI</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>1</td>
-									<td>Budi Saputra</td>
-									<td>123456789</td>
-									<td>Agama</td>
-									<td>20/10/2022</td>
-									<td>Megawati</td>
+								<?php						
+								$datapjm = mysqli_query($koneksi, "SELECT DISTINCT peminjaman.id_pinjam, peminjaman.tanggal_peminjaman, peminjaman.qty, peminjaman.NIS, peminjaman.kd_buku, peminjaman.id_admin FROM peminjaman JOIN data_buku ON peminjaman.kd_buku=data_buku.kd_buku WHERE data_buku.jumlah = 0");
+								$i=1;
+								while ($row = mysqli_fetch_array($datapjm, MYSQLI_ASSOC)) {
+									$kdpjm = $row['id_pinjam'];
+									$nis = $row['NIS'];
+									$kdbk = $row['kd_buku'];
+									$qty = $row['qty'];
+									$tglpjm = $row['tanggal_peminjaman'];
+									$id = $row['id_admin'];
+								?>
+									<td><?php echo $i ?></td>
+									<td><?php echo $kdpjm ?></td>
+									<td><?php echo $nis ?></td>
+									<td><?php echo $kdbk ?></td>
+									<td><?php echo $qty ?></td>
+									<td><?php echo $tglpjm ?></td>
+									<td><?php echo $id ?></td>
 									<td>
-											<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalSelesaiData" style= "color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-check-square icon bx-xs'>&nbsp;Selesai</i></button>	
+											<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalSelesaiData<?=$i?>" style= "color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-check-square icon bx-xs'>&nbsp;Selesai</i></button>	
 									</td>
-								</tr>
-							</tbody>
-							<tfoot>
-							</tfoot>
-						</table>
 				<!-- Awal Modal Selesai Data -->
-				<div class="modal fade" id="modalSelesaiData" data-bs-backdrop="static" data-bs-keyboard="false"
+				<div class="modal fade" id="modalSelesaiData<?=$i?>" data-bs-backdrop="static" data-bs-keyboard="false"
 							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
@@ -124,7 +141,7 @@
 										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
 											aria-label="Close"></button>
 									</div>
-									<form method="POST" action="#"></form>
+									<form method="POST" action="tambahKembali.php">
 									<div class="modal-body">
 								<div class="mb-3">
 									<label class="form-label">Kode Pengembalian</label>
@@ -134,31 +151,31 @@
 								<div class="mb-3">
 									<label class="form-label">Kode Peminjaman</label>
 									<input type="text" class="form-control" name="text-kodepeminjaman"
-										placeholder="Kode Peminjaman" required>
-								</div>
-								<div class="mb-3">
-									<label class="form-label">Nama Siswa</label>
-									<input type="text" class="form-control" name="text-namalengkapsiswa"
-										placeholder="Nama Siswa" required>
+										value="<?=$kdpjm?>" readonly>
 								</div>
 								<div class="mb-3">
 									<label class="form-label">NIS</label>
 									<input type="number" class="form-control" name="number-nis"
-										placeholder="NIS" required>
+										value="<?=$nis?>" readonly>
 								</div>
 								<div class="mb-3">
-									<label class="form-label">Judul Buku</label>
-									<input type="text" class="form-control" name="text-judulbuku"
-										placeholder="Judul Buku" required>
+									<label class="form-label">Kode Buku</label>
+									<input type="text" class="form-control" name="text-kodebuku"
+										value="<?=$kdbk?>" readonly>
+								</div>
+								<div class="mb-3">
+									<label class="form-label">Jumlah</label>
+									<input type="text" class="form-control" name="text-jumlah"
+										value=1 readonly>
 								</div>
 								<div class="mb-3">
 									<label class="form-label">TGL Peminjaman</label>
-									<input type="date" class="form-control" name="dt-peminjaman" required>
+									<input type="date" class="form-control" name="dt-peminjaman" value="<?=$tglpjm?>" readonly>
 								</div>
 								<div class="mb-3">
-									<label class="form-label">Nama Admin</label>
-									<input type="text" class="form-control" name="text-namalengkapadmin"
-										placeholder="Nama Admin" required>
+									<label class="form-label">ID Admin</label>
+									<input type="text" class="form-control" name="text-kodeadmin"
+										value="<?=$id?>" readonly required>
 								</div>
 
 							</div>
@@ -170,6 +187,13 @@
 								</div>
 							</div>
 						</div>
+						</tr>
+						<?php
+							$i++;	
+							}
+						?>
+							</tbody>
+						</table>
 						<!-- Akhir Modal -->
 						</div>
 						</div>
@@ -204,10 +228,12 @@
 	<script>
 	$(document).ready(function() {
 		var table = $('#example').DataTable( {
-		scrollY: 310,
+		scrollY: 330,
         scrollX: true,
         lengthChange: false,
-        buttons: ['colvis' ]
+        lengthChange: false,
+        bFilter: false,
+		bPaginate: false
 		
 		
     } );

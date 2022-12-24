@@ -2,15 +2,20 @@
 require_once 'koneksi.php';
 
 session_start();
+if(isset($_POST['button-simpan'])) {
+	$id = $_POST['text-id'];
+	$nama = $_POST['text-namalengkapadmin'];
+	$password = $_POST['password'];
+	$image = $_POST['file-fotoprofile'];
 
-if (isset($_POST['button-simpan'])) {
-$id = $_POST['text-kodeadmin'];
-$nama = $_POST['text-namalengkapadmin'];
-$password = $_POST['password'];
-$image = $_POST['file-fotoprofile'];
-    mysqli_query($koneksi,"INSERT INTO data_admin VALUES ('$id','$nama','$password','$image')");
-    header('location:admin.php');
-   
+    $tambah=mysqli_query($koneksi,"INSERT INTO data_admin (id_admin, nama_admin, password, gambar) VALUES ('$id','$nama','$password','$image')");
+	if($tambah){
+		echo "<script>alert('Berhasil menambahkan data Admin');
+		document.location='admin.php'</script>";
+	}else {
+		echo "<script>alert('Gagal menambahkan data Admin');
+		document.location='admin.php'</script>";
+	}
 }
 
 ?>
@@ -106,11 +111,16 @@ $image = $_POST['file-fotoprofile'];
 						</ul>
 					</div>
 					</center></h4>
-						<div class="card-body">	
+						<div class="card-body">
+						<div class="input-group" style="width: 220px;left: 10px;">
+						<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+						<button type="button" class="btn btn-primary"><i class='bx bx-search icon'></i></button>
+						</div>	
 						<div class="container">
 						<table id="example" class="table table-striped table-hover" style="width:100%">
 							<thead>
 								<tr>
+									<th>NO</th>
 									<th>KODE ADMIN</th>
 									<th>NAMA ADMIN</th>
 									<th>PASSWORD</th>
@@ -119,19 +129,21 @@ $image = $_POST['file-fotoprofile'];
 							</thead>
 							<tbody>
 								<?php
-								include 'koneksi.php';
-
 								$dataAdmin = mysqli_query($koneksi, "select * from data_admin");
 								$i=1;
 								while ($row = mysqli_fetch_array($dataAdmin, MYSQLI_ASSOC)) {
 								?>
 								<tr>
+									<td><?php echo $i?></td>
 									<td><?php echo $row['id_admin']; ?></td>
 									<td><?php echo $row['nama_admin']; ?></td>
 									<td><?php echo $row['password']; ?></td>
-									<td><?php echo $row['gambar']; ?></td>
+									<td><?php echo $row['gambar'];?></td>
 								</tr>
-								<?php } ?>
+								<?php 
+								$i++;
+								} 
+								?>
 							</tbody>
 							<tfoot>
 							</tfoot>
@@ -147,11 +159,15 @@ $image = $_POST['file-fotoprofile'];
 											aria-label="Close"></button>
 									</div>
 									<form method="POST" action="admin.php">
+										<?php
+										$idAdmin=mysqli_query($koneksi, "SELECT MAX(id_admin) as id from data_admin");
+										while ($row = mysqli_fetch_array($idAdmin, MYSQLI_ASSOC)) {
+										?>
 									<div class="modal-body">
 										<div class="mb-3">
-											<label class="form-label">Kode Admin</label>
-											<input type="text" class="form-control" name="text-kodeadmin"
-												placeholder="Kode Admin" required>
+											<label class="form-label">ID Admin</label>
+											<input type="text" class="form-control" name="text-id" 
+												value="<?php echo $row["id"]+1?>" readonly>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Nama Admin</label>
@@ -165,7 +181,7 @@ $image = $_POST['file-fotoprofile'];
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Foto Profile</label>
-											<input type="file" class="form-control" name="file-fotoprofile" required>
+											<input id="file-fotoprofile" type="file" class="form-control" accept="image/*" name="file-fotoprofile" required>
 										</div>
 
 									</div>
@@ -177,6 +193,7 @@ $image = $_POST['file-fotoprofile'];
 								</div>
 							</div>
 						</div>
+						<?php }?>
 						<!-- Akhir Modal -->
 						</div>
 						</div>
@@ -211,10 +228,12 @@ $image = $_POST['file-fotoprofile'];
 	<script>
 		$(document).ready(function () {
 			var table = $('#example').DataTable( {
-		scrollY: 310,
+		scrollY: 330,
         scrollX: true,
         lengthChange: false,
-        buttons: ['colvis' ]
+        lengthChange: false,
+        bFilter: false,
+		bPaginate: false
 		
 		
     } );
@@ -222,6 +241,23 @@ $image = $_POST['file-fotoprofile'];
 			table.buttons().container()
 				.appendTo('#example_wrapper .col-md-6:eq(0)');
 		});
+
+		const file_fotoprofile = document.getElementById('file-fotoprofile');
+
+		file_fotoprofile.onchange = () => {
+			const [image_fotoprofile] = file_fotoprofile.files
+			if (image_fotoprofile.size > 2000000) {
+				if(image_fotoprofile){
+				alert('ukuran file maksimal 2mb');
+				file_fotoprofile.value = '';
+				return false;	
+			} else if(image_fotoprofile.type != 'image/jpeg' && image_fotoprofile.type != 'image/png' && image_fotoprofile.type != 'image/jpg') {
+				alert('type file harus .jpg .png .jpeg');
+					imginp_rental.value = '';
+					return false;
+			} 
+		}
+		}
 	</script>
 </body>
 

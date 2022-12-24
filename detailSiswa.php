@@ -3,8 +3,8 @@ require_once 'koneksi.php';
 
 session_start();
 
-$kelass = $_REQUEST['kelas'];
-$tingkatann = $_REQUEST['tingkatan'];
+$kelass = $_GET['kelas'];
+$tingkatann = $_GET['tingkatan'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,6 +106,10 @@ $tingkatann = $_REQUEST['tingkatan'];
 					</div>
 					</center></h4>
 						<div class="card-body">
+						<div class="input-group" style="width: 220px;left: 10px;">
+						<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+						<button type="button" class="btn btn-primary"><i class='bx bx-search icon'></i></button>
+						</div>
 						<div class="container">
 						<table id="example" class="table table-striped table-hover" style="width:100%">
 							<thead>
@@ -126,26 +130,25 @@ $tingkatann = $_REQUEST['tingkatan'];
 								$dataAdmin = mysqli_query($koneksi, "select * from data_siswa where tingkatan = '$tingkatann' and kelas ='$kelass' ORDER BY nama_siswa ASC");
 								$i=1;
 								while ($row = mysqli_fetch_array($dataAdmin, MYSQLI_ASSOC)) {
+									$NIS = $row['NIS'];
+									$nama = $row['nama_siswa'];
+									$pass = $row['password'];
+									$telp = $row['notelp'];
+									$jeniskelamin = $row['jenis_kelamin'];
 								?>
 								<td style="width: 10px;px; text-align: center;"><input type="checkbox" name="stud_delete_id[]" value="<?php echo $i?>"></td>
-								<td><?php echo $i++?></td>
-								<td><?php echo $row['NIS']; ?></td>
-								<td><?php echo $row['nama_siswa']; ?></td>
-								<td><?php echo $row['password'];?></td>
-								<td><?php echo $row['notelp']; ?></td>
-								<td><?php echo $row['jenis_kelamin']; ?></td>
+								<td><?php echo $i?></td>
+								<td><?php echo $NIS ?></td>
+								<td><?php echo $nama?></td>
+								<td><?php echo $pass?></td>
+								<td><?php echo $telp?></td>
+								<td><?php echo $jeniskelamin?></td>
 								<td>
 								<div class="d-grid gap-2 d-md-flex justify-content-md">
-											<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditData"><i class='bx bx-edit icon bx-xs'></i>&nbsp;Edit</button>
-											<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusData"><i class='bx bx-trash icon bx-xs'></i>&nbsp;Hapus</button>
+											<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditData<?= $i ?>"><i class='bx bx-edit icon bx-xs'></i>&nbsp;Edit</button>
+											<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusData<?= $i ?>"><i class='bx bx-trash icon bx-xs'></i>&nbsp;Hapus</button>
 								</div>
-										</td>	
-								</tr>
-								<?php } ?>
-							</tbody>
-							<tfoot>
-							</tfoot>
-						</table>
+										</td>
 						<!-- Awal Modal Tambah Data -->
 						<div class="modal fade" id="modalTambahData" data-bs-backdrop="static" data-bs-keyboard="false"
 							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -194,7 +197,6 @@ $tingkatann = $_REQUEST['tingkatan'];
 											<input type="hidden" class="form-control" name="tingkatan1"
 												value="<?php echo $tingkatann?>">
 										</div>
-
 									</div>
 									<div class="modal-footer">
 										<button type="submit" class="btn btn-primary"
@@ -208,7 +210,7 @@ $tingkatann = $_REQUEST['tingkatan'];
 						</div>
 						<!-- Akhir Modal -->
 						<!-- Awal Modal Edit Data -->
-						<div class="modal fade" id="modalEditData" data-bs-backdrop="static" data-bs-keyboard="false"
+						<div class="modal fade" id="modalEditData<?= $i ?>" data-bs-backdrop="static" data-bs-keyboard="false"
 							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
@@ -217,40 +219,48 @@ $tingkatann = $_REQUEST['tingkatan'];
 										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
 											aria-label="Close"></button>
 									</div>
-									<form method="POST" action="#"></form>
+									<form method="POST" action="editSiswa.php">
 									<div class="modal-body">
 										<div class="mb-3">
 											<label class="form-label">NIS</label>
 											<input type="number" class="form-control" name="number-nis"
-												placeholder="NIS" required>
+												value="<?= $NIS?>" readonly>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Nama Siswa</label>
 											<input type="text" class="form-control" name="text-namasiswa"
-												placeholder="Nama Siswa" required>
+												value="<?= $nama?>" placeholder="Nama Siswa" required>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Password</label>
 											<input type="password" class="form-control" name="password"
-												placeholder="Password" required>
+											value="<?= $pass?>" placeholder="Password" required>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">No Telepon</label>
 											<input type="number" class="form-control" name="number-noteltepon"
-												placeholder="No Telepon" required>
+											value="<?= $telp?>" placeholder="No Telepon" required>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Jenis Kelamin</label>
 											<select class="form-select" name="text-jekel">
-												<option></option>
-												<option value="L">L</option>
-												<option value="P">P</option>
+												<option value="" <?php if($jeniskelamin == null) { ?> selected="selected"<?php } ?>></option>
+												<option value="L" <?php if($jeniskelamin == 'L') { ?> selected="selected"<?php } ?>>L</option>
+												<option value="P" <?php if($jeniskelamin == 'P') { ?> selected="selected"<?php } ?>>P</option>
 											</select>
+										</div>
+										<div class="mb-3">
+											<input type="hidden" class="form-control" name="kelas"
+												value="<?php echo $kelass?>">
+										</div>
+										<div class="mb-3">
+											<input type="hidden" class="form-control" name="tingkatan"
+												value="<?php echo $tingkatann?>">
 										</div>
 									</div>
 									<div class="modal-footer">
 										<button type="submit" class="btn btn-primary"
-											name="button-submittambahdata">Simpan</button>
+											name="button-editdata">Simpan</button>
 										<button type="button" class="btn btn-secondary"
 											data-bs-dismiss="modal">Keluar</button>
 									</div>
@@ -260,7 +270,7 @@ $tingkatann = $_REQUEST['tingkatan'];
 						</div>
 						<!-- Akhir Modal -->
 						<!-- Awal Modal Hapus Data -->
-						<div class="modal fade" id="modalHapusData" data-bs-backdrop="static" data-bs-keyboard="false"
+						<div class="modal fade" id="modalHapusData<?= $i ?>" data-bs-backdrop="static" data-bs-keyboard="false"
 							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
@@ -271,6 +281,18 @@ $tingkatann = $_REQUEST['tingkatan'];
 									</div>
 									<form method="POST" action="hapusSiswa.php">
 									<div class="modal-body">Apakah anda yakin ingin menghapus data?</div>
+									<div class="mb-3">
+											<input type="hidden" class="form-control" name="NIS3"
+											value="<?=$NIS?>">
+										</div>
+									<div class="mb-3">
+											<input type="hidden" class="form-control" name="kelas3"
+												value="<?php echo $kelass?>">
+										</div>
+									<div class="mb-3">
+											<input type="hidden" class="form-control" name="tingkatan3"
+												value="<?php echo $tingkatann?>">
+										</div>
 									<div class="modal-footer">
 										<button type="submit" class="btn btn-danger"
 											name="button-submithapusdata">Hapus</button>
@@ -282,6 +304,12 @@ $tingkatann = $_REQUEST['tingkatan'];
 						<!-- Akhir Modal -->
 						</div>
 						</div>
+						</tr>
+								<?php 
+									$i++;
+								} ?>
+							</tbody>
+						</table>
 			</div>
 			<br/>
 			<footer>
@@ -315,10 +343,12 @@ $tingkatann = $_REQUEST['tingkatan'];
 		
 		$(document).ready(function () {
 			var table = $('#example').DataTable( {
-		scrollY: 300,
+		scrollY: 320,
         scrollX: true,
         lengthChange: false,
-        buttons: ['colvis' ]
+        lengthChange: false,
+        bFilter: false,
+		bPaginate: false
 		
 		
     } );

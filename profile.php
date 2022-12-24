@@ -97,10 +97,6 @@
 						<div class="field input-field">
 							<input type="text" class="form-control" style="height: 50px;" name = "namaadmin" placeholder="Nama Admin" required>
 						</div>
-						<label class="form-label">Username</label>
-						<div class="field input-field">
-							<input type="text" class="form-control" style="height: 50px;" name = "user" placeholder="Username" required>
-						</div>
 						<label class="form-label">Password</label>
 						<div class="field input-field">
 							<input type="password" class="form-control" style="height: 50px;" name = "pass" placeholder="Password" required>
@@ -127,11 +123,6 @@
 											<label class="form-label">Nama Lengkap Admin</label>
 											<input type="text" class="form-control" name="text-namalengkapadmin"
 												placeholder="Nama Lengkap Admin" required>
-										</div>
-										<div class="mb-3">
-											<label class="form-label">Username</label>
-											<input type="text" class="form-control" name="text-username"
-												placeholder="Username" required>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Password</label>

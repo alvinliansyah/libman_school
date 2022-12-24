@@ -3,7 +3,7 @@
 // $username = "root";
 // $password = "";
 // $db = "akademik";
-$koneksi = mysqli_connect("localhost", "root", "", "libmandatabase");
+$koneksi = mysqli_connect("localhost", "root", "", "libmandb");
 
 if(mysqli_connect_errno()){
   echo "Koneksi Gagal : " . mysqli_connect_error();

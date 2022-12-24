@@ -1,3 +1,28 @@
+<?php
+require_once 'koneksi.php';
+
+session_start();
+
+$dataBuku = mysqli_query($koneksi, "SELECT COUNT(kd_buku) as total FROM data_buku");
+while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
+	$total = $row['total'];
+};
+
+$dataBukuPinjam = mysqli_query($koneksi, "SELECT COUNT(kd_buku) as total FROM data_buku WHERE jumlah=0");
+while ($row = mysqli_fetch_array($dataBukuPinjam, MYSQLI_ASSOC)) {
+	$jumlah = $row['total'];
+};
+
+$tersedia = mysqli_query($koneksi, "SELECT COUNT(kd_buku) as total FROM data_buku WHERE jumlah=1");
+while ($row = mysqli_fetch_array($tersedia, MYSQLI_ASSOC)) {
+	$ada = $row['total'];
+};
+
+$dataSiswa = mysqli_query($koneksi, "SELECT COUNT(NIS) as keseluruhan FROM data_siswa");
+while ($row = mysqli_fetch_array($dataSiswa, MYSQLI_ASSOC)) {
+	$keseluruhan = $row['keseluruhan'];
+};
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,8 +98,8 @@
 				<div class="card shadow">
 					<div class="head">
 						<div>
-							<h2>1500</h2>
-							<p>Jumlah Buku Di Perpustakaan</p>
+							<h2><?php echo $total?></h2>
+							<p>Jumlah Buku Keseluruhan</p>
 						</div>
 					</div>
 					<span class="progress" data-value="40%"></span>
@@ -83,7 +108,7 @@
 				<div class="card shadow">
 					<div class="head">
 						<div>
-							<h2>600</h2>
+							<h2><?php echo $ada?></h2>
 							<p>Jumlah Buku Tersedia Di Perpustakaan</p>
 						</div>
 					</div>
@@ -93,7 +118,7 @@
 				<div class="card shadow">
 					<div class="head">
 						<div>
-							<h2>900</h2>
+							<h2><?php echo $jumlah?></h2>
 							<p>Jumlah Buku Sedang Proses Peminjaman</p>
 						</div>
 					</div>
@@ -103,7 +128,7 @@
 				<div class="card shadow">
 					<div class="head">
 						<div>
-							<h2>900</h2>
+							<h2><?php echo $keseluruhan?></h2>
 							<p>Total Siswa</p>
 						</div>
 					</div>
@@ -217,7 +242,7 @@
 				labels: ['Jumlah Buku Tersedia Di Perpustakaan', 'Jumlah Buku Sedang Proses Peminjaman'],
 				datasets: [{
 					label: 'Chart Buku',
-					data: [600, 900],
+					data: [<?=$ada?>, <?=$jumlah?>],
 					backgroundColor: [
 						'rgba(255, 139, 3, 1)',
 						'rgba(255, 76, 29, 1)'

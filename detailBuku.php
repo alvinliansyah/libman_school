@@ -1,13 +1,10 @@
 <?php
-include 'koneksi.php';
-//include 'tambahBuku.php';
+require_once 'koneksi.php';
 
-$kd = $_GET['id'];
-$dataBuku = mysqli_query($koneksi, "SELECT * FROM data_buku WHERE kd_buku = $kd");
-$i=1;
-while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
-	$jenisbuku = $row['jenis_buku'];
-};
+session_start();
+
+$jenis = $_GET['jenis'];
+$dataBuku = mysqli_query($koneksi, "SELECT * FROM data_buku WHERE jenis_buku = '$jenis'");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,7 +80,7 @@ while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
 			<div class="card float-end shadow" style="height: 3.5rem; width: auto; top: 10px;">
 			<div class="card-header text-bg-primary" style="padding: 4px"></div>
 			<div class="card-body">
-				<center><p class="card-title" style="font-family: 'Open Sans', sans-serif; font-weight: 1000; font-size: 17px; line-height: 14px;"><?php echo $jenisbuku?></p></center>
+				<center><p class="card-title" style="font-family: 'Open Sans', sans-serif; font-weight: 1000; font-size: 17px; line-height: 14px;"><?php echo $jenis ?></p></center>
 			</div>
 			</div>
 			</h1>
@@ -109,6 +106,10 @@ while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
 					</div>
 					</center></h4>
 						<div class="card-body">
+						<div class="input-group" style="width: 220px;left: 10px;">
+						<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+						<button type="button" class="btn btn-primary"><i class='bx bx-search icon'></i></button>
+						</div>
 						<div class="container">
 						<table id="example" class="table table-striped table-hover" style="width:100%">
 							<thead>
@@ -116,37 +117,36 @@ while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
 									<th>NO</th>
 									<th>KODE BUKU</th>
 									<th>JUDUL</th>
-									<th>FOTO COVER BUKU</th>
 									<th>SEMESTER</th>
 									<th>TINGKATAN</th>
+									<th>JUMLAH</th>
 									<th>AKSI</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
 								<?php						
-								$dataBuku = mysqli_query($koneksi, "SELECT buku_paket.kd_paket, buku_paket.nama_mapel, buku_paket.foto_cover, buku_paket.semester, buku_paket.tingkatan FROM buku_paket WHERE kd_buku = $kd");
+								$dataBuku = mysqli_query($koneksi, "SELECT kd_buku, nama_buku, semester, tingkatan, jumlah FROM data_buku WHERE jenis_buku = '$jenis'");
 								$i=1;
 								while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
+									$kd = $row['kd_buku'];
+									$nama = $row['nama_buku'];
+									$semester = $row['semester'];
+									$tingkatan = $row['tingkatan'];
+									$jumlah = $row['jumlah'];
 								?>
-									<td><?php echo $i++?></td>
-									<td><?php echo $row['kd_paket']; ?></td>
-									<td><?php echo $row['nama_mapel']; ?></td>
-									<td><?php echo $row['foto_cover'];?></td>
-									<td><?php echo $row['semester']; ?></td>
-									<td><?php echo $row['tingkatan']; ?></td>
+									<td><?php echo $i?></td>
+									<td><?php echo $kd ?></td>
+									<td><?php echo $nama ?></td>
+									<td><?php echo $semester ?></td>
+									<td><?php echo $tingkatan ?></td>
+									<td><?php echo $jumlah ?></td>
 									<td>
 									<div class="d-grid gap-2 d-md-flex justify-content-md">
-											<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditData"><i class='bx bx-edit icon bx-xs'>&nbsp;Edit</i></button>
-											<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusData"><i class='bx bx-trash icon bx-xs'></i>&nbsp;Hapus</button>
+											<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditData<?= $i ?>"><i class='bx bx-edit icon bx-xs'>&nbsp;Edit</i></button>
+											<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusData<?= $i ?>"><i class='bx bx-trash icon bx-xs'></i>&nbsp;Hapus</button>
 								</div>
 										</td>
-								</tr>
-								<?php } ?>
-							</tbody>
-							<tfoot>
-							</tfoot>
-						</table>
 						<!-- Awal Modal Tambah Data -->
 						<div class="modal fade" id="modalTambahData" data-bs-backdrop="static" data-bs-keyboard="false"
 							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -157,7 +157,7 @@ while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
 										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
 											aria-label="Close"></button>
 									</div>
-									<form method="POST" action="tambahBuku.php"></form>
+									<form method="POST" action="tambahBuku.php">
 									<div class="modal-body">
 										<div class="mb-3">
 											<label class="form-label">Kode Buku</label>
@@ -170,15 +170,11 @@ while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
 												placeholder="Judul" required>
 										</div>
 										<div class="mb-3">
-											<label class="form-label">Foto Cover Buku</label>
-											<input type="file" class="form-control" name="file-fotocoverbuku" required>
-										</div>
-										<div class="mb-3">
 											<label class="form-label">Semester</label>
 											<select class="form-select" name="text-semester">
 												<option></option>
-												<option value="Semester Ganjil">1</option>
-												<option value="Semester Genap">2</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
 											</select>
 										</div>
 										<div class="mb-3">
@@ -191,21 +187,14 @@ while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
 											</select>
 										</div>
 										<div class="mb-3">
-											<label class="form-label">Peminjaman</label>
-											<input type="number" class="form-control" name="number-peminjaman"
-												placeholder="Peminjaman" required>
-										</div>
-										<div class="mb-3">
-											<label class="form-label">Pengembalian</label>
-											<input type="number" class="form-control" name="number-pengembalian"
-												placeholder="Pengembalian" required>
-										</div>
-										<div class="mb-3">
 											<label class="form-label">Jumlah</label>
-											<input type="number" class="form-control" name="number-jumlah"
-												placeholder="Jumlah" required>
+											<input type="number" class="form-control" name="text-jumlah"
+												value=1 readonly>
 										</div>
-
+										<div class="mb-3">
+											<input type="hidden" class="form-control" name="text-jenis"
+												value="<?php echo $jenis?>" required>
+										</div>
 									</div>
 									<div class="modal-footer">
 										<button type="submit" class="btn btn-primary"
@@ -219,7 +208,7 @@ while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
 						</div>
 						<!-- Akhir Modal -->
 						<!-- Awal Modal Edit Data -->
-						<div class="modal fade" id="modalEditData" data-bs-backdrop="static" data-bs-keyboard="false"
+						<div class="modal fade" id="modalEditData<?= $i ?>" data-bs-backdrop="static" data-bs-keyboard="false"
 							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
@@ -228,55 +217,43 @@ while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
 										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
 											aria-label="Close"></button>
 									</div>
-									<form method="POST" action="#"></form>
+									<form method="POST" action="editBuku.php">
 									<div class="modal-body">
 										<div class="mb-3">
 											<label class="form-label">Kode Buku</label>
 											<input type="text" class="form-control" name="text-kodebuku"
-												placeholder="Kode Buku" required>
+												value="<?=$kd?>" readonly>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Judul</label>
 											<input type="text" class="form-control" name="text-judul"
-												placeholder="Judul" required>
-										</div>
-										<div class="mb-3">
-											<label class="form-label">Foto Cover Buku</label>
-											<input type="file" class="form-control" name="file-fotocoverbuku" required>
+												value="<?=$nama?>" placeholder="Judul" required>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Semester</label>
 											<select class="form-select" name="text-semester">
-												<option></option>
-												<option value="Semester Ganjil">Semester Ganjil</option>
-												<option value="Semester Genap">Semester Genap</option>
+												<option value="" <?php if($semester == null) { ?> selected="selected"<?php } ?>></option>
+												<option value="1" <?php if($semester == '1') { ?> selected="selected"<?php } ?>>1</option>
+												<option value="2" <?php if($semester == '2') { ?> selected="selected"<?php } ?>>2</option>
 											</select>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Tingkatan</label>
 											<select class="form-select" name="text-Tingkatan">
-												<option></option>
-												<option value="VII">VII</option>
-												<option value="VIII">VIII</option>
-												<option value="IX">IX</option>
+												<option value="VII" <?php if($tingkatan == 'VII') { ?> selected="selected"<?php } ?>>VII</option>
+												<option value="VIII" <?php if($tingkatan == 'VIII') { ?> selected="selected"<?php } ?>>VIII</option>
+												<option value="IX" <?php if($tingkatan == 'IX') { ?> selected="selected"<?php } ?>>IX</option>
 											</select>
 										</div>
 										<div class="mb-3">
-											<label class="form-label">Peminjaman</label>
-											<input type="number" class="form-control" name="number-peminjaman"
-												placeholder="Peminjaman" required>
-										</div>
-										<div class="mb-3">
-											<label class="form-label">Pengembalian</label>
-											<input type="number" class="form-control" name="number-pengembalian"
-												placeholder="Pengembalian" required>
-										</div>
-										<div class="mb-3">
 											<label class="form-label">Jumlah</label>
-											<input type="number" class="form-control" name="number-jumlah"
-												placeholder="Jumlah" required>
+											<input type="number" class="form-control" name="text-jumlah"
+												value=1 readonly>
 										</div>
-
+										<div class="mb-3">
+											<input type="hidden" class="form-control" name="text-jenis"
+												value="<?php echo $jenis?>" required>
+										</div>
 									</div>
 									<div class="modal-footer">
 										<button type="submit" class="btn btn-primary"
@@ -290,7 +267,7 @@ while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
 						</div>
 						<!-- Akhir Modal -->
 						<!-- Awal Modal Hapus Data -->
-						<div class="modal fade" id="modalHapusData" data-bs-backdrop="static" data-bs-keyboard="false"
+						<div class="modal fade" id="modalHapusData<?= $i ?>" data-bs-backdrop="static" data-bs-keyboard="false"
 							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
@@ -299,11 +276,19 @@ while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
 										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
 											aria-label="Close"></button>
 									</div>
-									<form method="POST" action="#"></form>
+									<form method="POST" action="hapusBuku.php">
 									<div class="modal-body">Apakah anda yakin ingin menghapus data?</div>
+									<div class="mb-3">
+											<input type="hidden" class="form-control" name="text-kodebuku"
+												value="<?=$kd?>" required>
+										</div>
+									<div class="mb-3">
+											<input type="hidden" class="form-control" name="text-jenis"
+												value="<?php echo $jenis?>" required>
+										</div>
 									<div class="modal-footer">
 										<button type="submit" class="btn btn-danger"
-											name="button-submithapusdata">Hapus</button>
+											name="button-hapusdata">Hapus</button>
 									</div>
 									</form>
 								</div>
@@ -312,6 +297,12 @@ while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
 						<!-- Akhir Modal -->
 						</div>
 						</div>
+						</tr>
+							<?php 
+							$i++;
+							} ?>
+							</tbody>
+						</table>
 			</div>
 			<br/>
 			<footer>
@@ -344,10 +335,12 @@ while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
 	<script>
 		$(document).ready(function () {
 			var table = $('#example').DataTable( {
-		scrollY: 300,
+		scrollY: 320,
         scrollX: true,
         lengthChange: false,
-        buttons: ['colvis' ]
+        lengthChange: false,
+        bFilter: false,
+		bPaginate: false
 		
 		
     } );
