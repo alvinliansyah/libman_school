@@ -87,25 +87,10 @@ if(!isset($_SESSION['id_admin'])){
 			</ul>
 			
 			<div class="card shadow">
-			<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Data Admin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<strong><button type="button" class="btn btn-outline-light btn-sm float-end"  style=" position: relative; top: 1.5px; left: -42px;"><a href="#" data-bs-toggle="modal" data-bs-target="#modalTambahData" style= "font-size: 14.5px; color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-add-to-queue icon'></i>&nbsp;Tambah Data</a></strong></button>
-						<a class="float-end" style="font-size: 28px; color:white; text-decoration: none; font-weight: normal; color: white; position: relative; top: -2px; left: 111px;">|</a>
-						<div class="dropdown float-end">
-						<button class="btn dropdown border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="position: absolute;left:110px; color: white; top: -3px;">
-						<i class='bx bx-dots-vertical-rounded icon' style="font-size: 30px;"></i>
-						</button>
-						<ul class="dropdown-menu">
-						<li><a class="dropdown-item"  href="#">Import Excel</a></li>
-						<li><a class="dropdown-item"  href="#">Export Excel</a></li>
-						<li><a class="dropdown-item" href="#">Export PDF</a></li>
-						</ul>
-					</div>
+			<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Data Admin
+					<strong><button type="button" class="btn btn-outline-light btn-sm float-end"><a href="#" data-bs-toggle="modal" data-bs-target="#modalTambahData" style= "font-size: 14.5px; color:white; text-decoration: none; font-weight: normal;"><i class='bx bx-add-to-queue icon'></i>&nbsp;Tambah Data</a></strong></button>
 					</center></h4>
 						<div class="card-body">
-						<div class="input-group" style="width: 220px;left: 10px;">
-						<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-						<button type="button" class="btn btn-primary"><i class='bx bx-search icon'></i></button>
-						</div>	
 						<div class="container">
 						<table id="example" class="table table-striped table-hover" style="width:100%">
 							<thead>
@@ -222,9 +207,9 @@ if(!isset($_SESSION['id_admin'])){
 		scrollY: 330,
         scrollX: true,
         lengthChange: false,
-        lengthChange: false,
-        bFilter: false,
-		bPaginate: false
+		buttons: [
+            'colvis', 'excel', 'pdf', 'print'
+        ]
 		
 		
     } );

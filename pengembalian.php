@@ -85,21 +85,8 @@ if(!isset($_SESSION['id_admin'])){
 			</ul>
 		<div class="card shadow">
 					<h4 class="card-header text-bg-primary mb-3 fw-semibold"><center>Transaksi Pengembalian
-					<div class="dropdown float-end">
-						<button class="btn dropdown border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="left: 20px; color: white; top: -3px;">
-						<i class='bx bx-dots-vertical-rounded icon' style="font-size: 30px;"></i>
-						</button>
-						<ul class="dropdown-menu">
-						<li><a class="dropdown-item"  href="#">Export Excel</a></li>
-						<li><a class="dropdown-item" href="#">Export PDF</a></li>
-						</ul>
-					</div>
 					</center></h4>
 						<div class="card-body">
-						<div class="input-group" style="width: 220px;left: 10px;">
-						<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-						<button type="button" class="btn btn-primary"><i class='bx bx-search icon'></i></button>
-						</div>
 						<div class="container">
 						<table id="example" class="table table-striped table-hover" style="width:100%">
 							<thead>
@@ -243,9 +230,9 @@ if(!isset($_SESSION['id_admin'])){
 		scrollY: 330,
         scrollX: true,
         lengthChange: false,
-        lengthChange: false,
-        bFilter: false,
-		bPaginate: false
+		buttons: [
+            'colvis', 'excel', 'pdf', 'print'
+        ]
 		
 		
     } );
