@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['id_admin'])){
+	$_SESSION['msg'] = "Anda Harus Login Dulu";
+	header('Location:login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['id_admin'])){
+	$_SESSION['msg'] = "Anda Harus Login Dulu";
+	header('Location:login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -111,7 +118,7 @@
 								<?php
 								include 'koneksi.php';
 
-								$dataAdmin = mysqli_query($koneksi, "SELECT DISTINCT kelas, tingkatan, COUNT(nama_siswa) AS total FROM data_siswa GROUP BY kelas, tingkatan;");
+								$dataAdmin = mysqli_query($koneksi, "SELECT DISTINCT kelas, tingkatan, COUNT(nama_siswa) AS total FROM data_siswa GROUP BY kelas, tingkatan ORDER BY tingkatan ASC, kelas ASC;");
 								$i=1;
 								while ($row = mysqli_fetch_array($dataAdmin, MYSQLI_ASSOC)) {
 								?>
@@ -156,6 +163,7 @@
 
 
 	<script src="script.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="DataTables/DataTables-1.12.1/js/jquery.dataTables.min.js"></script>
@@ -168,7 +176,6 @@
 	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/buttons.html5.min.js"></script>
 	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/buttons.print.min.js"></script>
 	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/buttons.colVis.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script>
 		$(window).on("load",function(){
 			$(".loader-wrapper").fadeOut("slow");

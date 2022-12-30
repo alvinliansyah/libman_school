@@ -4,5 +4,6 @@ session_start();
 // menghapus semua session
 session_destroy();
 // mengalihkan halaman sambil mengirim pesan logout
-header("location:login.php?pesan=logout");
+echo "<script>alert('Anda telah berhasil logout');
+document.location='login.php'</script>";
 ?>

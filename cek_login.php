@@ -2,7 +2,7 @@
 // mengaktifkan session php
 session_start();
 // menghubungkan dengan koneksi
-include 'koneksi.php';
+require('koneksi.php');
 // menangkap data yang dikirim dari form
 $username = $_POST['user'];
 $password = $_POST['pass'];
@@ -11,11 +11,14 @@ $data = mysqli_query($koneksi,"select * from data_admin where nama_admin='$usern
 // menghitung jumlah data yang ditemukan
 $cek = mysqli_num_rows($data);
 if($cek > 0){
+while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {
+$_SESSION['id_admin'] = $row['id_admin'];
 $_SESSION['username'] = $username;
 $_SESSION['status'] = "login";
 header("location:dashboard.php");
 }
-else{
-header("location:login.php?pesan=gagal");
+} else{
+    echo "<script>alert('Login gagal! username dan password salah!');
+    document.location='login.php'</script>";
 }
 ?>

@@ -1,21 +1,9 @@
 <?php
 require_once 'koneksi.php';
-
 session_start();
-if(isset($_POST['button-simpan'])) {
-	$id = $_POST['text-id'];
-	$nama = $_POST['text-namalengkapadmin'];
-	$password = $_POST['password'];
-	$image = $_POST['file-fotoprofile'];
-
-    $tambah=mysqli_query($koneksi,"INSERT INTO data_admin (id_admin, nama_admin, password, gambar) VALUES ('$id','$nama','$password','$image')");
-	if($tambah){
-		echo "<script>alert('Berhasil menambahkan data Admin');
-		document.location='admin.php'</script>";
-	}else {
-		echo "<script>alert('Gagal menambahkan data Admin');
-		document.location='admin.php'</script>";
-	}
+if(!isset($_SESSION['id_admin'])){
+	$_SESSION['msg'] = "Anda Harus Login Dulu";
+	header('Location:login.php');
 }
 
 ?>
@@ -160,7 +148,7 @@ if(isset($_POST['button-simpan'])) {
 										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
 											aria-label="Close"></button>
 									</div>
-									<form method="POST" action="admin.php">
+									<form method="POST" action="tambahAdmin.php">
 										<?php
 										$idAdmin=mysqli_query($koneksi, "SELECT MAX(id_admin) as id from data_admin");
 										while ($row = mysqli_fetch_array($idAdmin, MYSQLI_ASSOC)) {
@@ -181,11 +169,6 @@ if(isset($_POST['button-simpan'])) {
 											<input type="password" class="form-control" name="password"
 												placeholder="Password" required>
 										</div>
-										<div class="mb-3">
-											<label class="form-label">Foto Profile</label>
-											<input id="file-fotoprofile" type="file" class="form-control" accept="image/*" name="file-fotoprofile" required>
-										</div>
-
 									</div>
 									<div class="modal-footer">
 										<button type="submit" class="btn btn-primary" name="button-simpan">Simpan</button>
@@ -215,6 +198,7 @@ if(isset($_POST['button-simpan'])) {
 	<!-- NAVBAR -->
 
 	<script src="script.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="DataTables/DataTables-1.12.1/js/jquery.dataTables.min.js"></script>
@@ -227,7 +211,6 @@ if(isset($_POST['button-simpan'])) {
 	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/buttons.html5.min.js"></script>
 	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/buttons.print.min.js"></script>
 	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/buttons.colVis.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script>
 		$(window).on("load",function(){
 			$(".loader-wrapper").fadeOut("slow");
@@ -250,22 +233,6 @@ if(isset($_POST['button-simpan'])) {
 				.appendTo('#example_wrapper .col-md-6:eq(0)');
 		});
 
-		const file_fotoprofile = document.getElementById('file-fotoprofile');
-
-		file_fotoprofile.onchange = () => {
-			const [image_fotoprofile] = file_fotoprofile.files
-			if (image_fotoprofile.size > 2000000) {
-				if(image_fotoprofile){
-				alert('ukuran file maksimal 2mb');
-				file_fotoprofile.value = '';
-				return false;	
-			} else if(image_fotoprofile.type != 'image/jpeg' && image_fotoprofile.type != 'image/png' && image_fotoprofile.type != 'image/jpg') {
-				alert('type file harus .jpg .png .jpeg');
-					imginp_rental.value = '';
-					return false;
-			} 
-		}
-		}
 	</script>
 </body>
 

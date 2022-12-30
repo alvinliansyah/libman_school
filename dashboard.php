@@ -2,6 +2,10 @@
 require_once 'koneksi.php';
 
 session_start();
+if(!isset($_SESSION['id_admin'])){
+	$_SESSION['msg'] = "Anda Harus Login Dulu";
+	header('Location:login.php');
+}
 
 $dataBuku = mysqli_query($koneksi, "SELECT COUNT(kd_buku) as total FROM data_buku");
 while ($row = mysqli_fetch_array($dataBuku, MYSQLI_ASSOC)) {
@@ -22,6 +26,8 @@ $dataSiswa = mysqli_query($koneksi, "SELECT COUNT(NIS) as keseluruhan FROM data_
 while ($row = mysqli_fetch_array($dataSiswa, MYSQLI_ASSOC)) {
 	$keseluruhan = $row['keseluruhan'];
 };
+$persentaseTersedia = ($ada/$total * 100);
+$persentasePinjam = ($jumlah/$total * 100);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -104,7 +110,7 @@ while ($row = mysqli_fetch_array($dataSiswa, MYSQLI_ASSOC)) {
 							<p>Jumlah Buku Keseluruhan</p>
 						</div>
 					</div>
-					<span class="progress" data-value="40%"></span>
+					<span class="progress" data-value="100%"></span>
 					<span class="label">bulan</span>
 				</div>
 				<div class="card shadow">
@@ -114,7 +120,7 @@ while ($row = mysqli_fetch_array($dataSiswa, MYSQLI_ASSOC)) {
 							<p>Jumlah Buku Tersedia Di Perpustakaan</p>
 						</div>
 					</div>
-					<span class="progress" data-value="60%"></span>
+					<span class="progress" data-value="<?php echo $persentaseTersedia."%"?>"></span>
 					<span class="label">bulan</span>
 				</div>
 				<div class="card shadow">
@@ -124,7 +130,7 @@ while ($row = mysqli_fetch_array($dataSiswa, MYSQLI_ASSOC)) {
 							<p>Jumlah Buku Sedang Proses Peminjaman</p>
 						</div>
 					</div>
-					<span class="progress" data-value="30%"></span>
+					<span class="progress" data-value="<?php echo $persentasePinjam."%"?>"></span>
 					<span class="label">bulan</span>
 				</div>
 				<div class="card shadow">
@@ -134,7 +140,7 @@ while ($row = mysqli_fetch_array($dataSiswa, MYSQLI_ASSOC)) {
 							<p>Total Siswa</p>
 						</div>
 					</div>
-					<span class="progress" data-value="90%"></span>
+					<span class="progress" data-value="100%"></span>
 					<span class="label">tahun</span>
 				</div>
 			</div>
@@ -158,55 +164,37 @@ while ($row = mysqli_fetch_array($dataSiswa, MYSQLI_ASSOC)) {
 					</center></h4>
 						<div class="card-body">
 						<div class="table-wrapper-scroll-y my-custom-scrollbar">
+							<?php
+							$datatelat = mysqli_query($koneksi, "SELECT data_siswa.nama_siswa, peminjaman.jadwal_pengembalian, data_buku.nama_buku FROM peminjaman JOIN data_siswa ON peminjaman.NIS = data_siswa.NIS JOIN data_buku ON data_buku.kd_buku = peminjaman.kd_buku WHERE peminjaman.jadwal_pengembalian < now()");
+							while ($row = mysqli_fetch_array($datatelat, MYSQLI_ASSOC)) {
+								$namaS= $row['nama_siswa'];
+								$jadwal= $row['jadwal_pengembalian'];
+								$namaB= $row['nama_buku'];
+								
+							?>
 						<table class="table table-bordered table-striped mb-0">
 						<tbody>
 							<tr>
 							<td>
-							<span style="color:black; text-decoration: none; font-weight: 600; font-size: 16px;">Rudi<br/><span class="badge text-bg-danger p-3 bg-opacity-25 text-body" style="text-decoration: none; font-weight: 300; font-size: 14px;">Status : Harus dikembalikan sebelum (02/12/2022)</span></span>
+							<span style="color:black; text-decoration: none; font-weight: 600; font-size: 16px;"><?php echo $namaS?><br/><span class="badge text-bg-danger p-3 bg-opacity-25 text-body" style="text-decoration: none; font-weight: 300; font-size: 14px;">Status : Buku <?php echo $namaB?> Harus dikembalikan sebelum (<?php echo $jadwal?>)</span></span>
 							</td>
 							</tr>
+							<?php
+							};
+							$datakurang = mysqli_query($koneksi, "SELECT data_siswa.nama_siswa, peminjaman.jadwal_pengembalian, data_buku.nama_buku FROM peminjaman JOIN data_siswa ON peminjaman.NIS = data_siswa.NIS JOIN data_buku ON data_buku.kd_buku = peminjaman.kd_buku WHERE peminjaman.jadwal_pengembalian = date_add(curdate(), interval 2 day)");
+							while ($row = mysqli_fetch_array($datakurang, MYSQLI_ASSOC)) {
+								$namaS1= $row['nama_siswa'];
+								$jadwal1= $row['jadwal_pengembalian'];
+								$namaB1= $row['nama_buku'];
+							?>
 							<tr>
 							<td>
-							<span style="color:black; text-decoration: none; font-weight: 600; font-size: 16px;">Agus<br/><span class="badge text-bg-danger p-3 bg-opacity-25 text-body" style="text-decoration: none; font-weight: 300; font-size: 14px;">Status : Harus dikembalikan sebelum (02/12/2022)</span></span>
+							<span style="color:black; text-decoration: none; font-weight: 600; font-size: 16px;"><?php echo $namaS1?><br/><span class="badge text-bg-warning p-3 bg-opacity-25 text-body" style="text-decoration: none; font-weight: 300; font-size: 14px;">Status : Buku <?php echo $namaB1?> Harus dikembalikan sebelum (<?php echo $jadwal1?>)</span></span>
 							</td>
 							</tr>
-							<tr>
-							<td>
-							<span style="color:black; text-decoration: none; font-weight: 600; font-size: 16px;">Kemal<br/><span class="badge text-bg-danger p-3 bg-opacity-25 text-body" style="text-decoration: none; font-weight: 300; font-size: 14px;">Status : Harus dikembalikan sebelum (02/12/2022)</span></span>
-							</td>
-							</tr>
-							<tr>
-							<td>
-							<span style="color:black; text-decoration: none; font-weight: 600; font-size: 16px;">Rani<br/><span class="badge text-bg-warning p-3 bg-opacity-25 text-body" style="text-decoration: none; font-weight: 300; font-size: 14px;">Status : Harus dikembalikan sebelum (10/12/2022)</span></span>
-							</td>
-							</tr>
-							<tr>
-							<td>
-							<span style="color:black; text-decoration: none; font-weight: 600; font-size: 16px;">Agil<br/><span class="badge text-bg-warning p-3 bg-opacity-25 text-body" style="text-decoration: none; font-weight: 300; font-size: 14px;">Status : Harus dikembalikan sebelum (10/12/2022)</span></span>
-							</td>
-							</tr>
-							<tr>
-							<td>
-							<span style="color:black; text-decoration: none; font-weight: 600; font-size: 16px;">Ali<br/><span class="badge text-bg-warning p-3 bg-opacity-25 text-body" style="text-decoration: none; font-weight: 300; font-size: 14px;">Status : Harus dikembalikan sebelum (10/12/2022)</span></span>
-							</td>
-							</tr>
-							<tr>
-							<td>
-							<span style="color:black; text-decoration: none; font-weight: 600; font-size: 16px;">Raka<br/><span class="badge text-bg-success p-3 bg-opacity-25 text-body" style="text-decoration: none; font-weight: 300; font-size: 14px;">Status : Harus dikembalikan sebelum (23/12/2022)</span></span>
-							</td>
-							</tr>
-							<tr>
-							<td>
-							<span style="color:black; text-decoration: none; font-weight: 600; font-size: 16px;">Raihan<br/><span class="badge text-bg-success p-3 bg-opacity-25 text-body" style="text-decoration: none; font-weight: 300; font-size: 14px;">Status : Harus dikembalikan sebelum (23/12/2022)</span></span>
-							</td>
-							</tr>
-							<tr>
-							<td>
-							<span style="color:black; text-decoration: none; font-weight: 600; font-size: 16px;">Tama<br/><span class="badge text-bg-success p-3 bg-opacity-25 text-body" style="text-decoration: none; font-weight: 300; font-size: 14px;">Status : Harus dikembalikan sebelum (23/12/2022)</span></span>
-							</td>
-							</tr>
-							
-
+							<?php
+							}
+							?>
 						</tbody>
 						</table>
 
@@ -233,10 +221,9 @@ while ($row = mysqli_fetch_array($dataSiswa, MYSQLI_ASSOC)) {
 		<!-- MAIN -->
 	</section>
 	<!-- NAVBAR -->
-
-	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 	<script src="script.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 	<script>
 		$(window).on("load",function(){
 			$(".loader-wrapper").fadeOut("slow");

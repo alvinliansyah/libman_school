@@ -2,6 +2,11 @@
 require_once 'koneksi.php';
 
 session_start();
+if(!isset($_SESSION['id_admin'])){
+	$_SESSION['msg'] = "Anda Harus Login Dulu";
+	header('Location:login.php');
+}
+$kode=$_SESSION['id_admin'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -181,16 +186,16 @@ session_start();
 								</div>
 								<div class="mb-3">
 									<label class="form-label">TGL Peminjaman</label>
-									<input type="date" class="form-control" name="dt-peminjaman" required>
+									<input type="date" id="demo" class="form-control" name="dt-peminjaman" required>
 								</div>
 								<div class="mb-3">
 									<label class="form-label">TGL Pengembalian</label>
-									<input type="date" class="form-control" name="dt-pengembalian" required>
+									<input type="date" id="demo2" class="form-control" name="dt-pengembalian" required>
 								</div>
 								<div class="mb-3">
 									<label class="form-label">Kode Admin</label>
 									<input type="text" class="form-control" name="text-kodeadmin"
-										placeholder="Kode Admin" required>
+										placeholder="Kode Admin" value="<?= $kode?>" readonly>
 								</div>
 
 							</div>
@@ -237,11 +242,11 @@ session_start();
 								</div>
 								<div class="mb-3">
 									<label class="form-label">TGL Peminjaman</label>
-									<input type="date" class="form-control" name="dt-peminjaman" required>
+									<input type="date" id="demo" class="form-control" name="dt-peminjaman" required>
 								</div>
 								<div class="mb-3">
 									<label class="form-label">TGL Pengembalian</label>
-									<input type="date" class="form-control" name="dt-pengembalian" required>
+									<input type="date" id="demo2" class="form-control" name="dt-pengembalian" required>
 								</div>
 								<div class="mb-3">
 									<label class="form-label">Kode Admin</label>
@@ -278,6 +283,7 @@ session_start();
 
 	
 	<script src="script.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="DataTables/DataTables-1.12.1/js/jquery.dataTables.min.js"></script>
@@ -290,7 +296,6 @@ session_start();
 	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/buttons.html5.min.js"></script>
 	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/buttons.print.min.js"></script>
 	<script type="text/javascript" src="DataTables/Buttons-2.2.3/js/buttons.colVis.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script>
 		$(window).on("load",function(){
 			$(".loader-wrapper").fadeOut("slow");
