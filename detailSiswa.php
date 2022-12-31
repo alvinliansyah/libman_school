@@ -9,6 +9,12 @@ if(!isset($_SESSION['id_admin'])){
 
 $kelass = $_GET['kelas'];
 $tingkatann = $_GET['tingkatan'];
+
+$data = mysqli_query($koneksi, "SELECT * FROM data_admin WHERE id_admin=$_SESSION[id_admin]");
+
+while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {
+	$img = $row['gambar'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +78,7 @@ $tingkatann = $_GET['tingkatan'];
 			<a style="color:white; text-decoration: none; font-weight: 600; font-size: 18px; position: absolute; top: 18px; right: 65px;">|</a>
 			&nbsp
 			<div class="profile">
-				<img src="img/default-avatar.png" alt="">
+				<img src="<?php echo $img?>" alt="">
 				<ul class="profile-link">
 					<li><a href="profile.php"><i class='bx bx-user icon'></i> Profile</a></li>
 				</ul>

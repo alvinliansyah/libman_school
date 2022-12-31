@@ -13,6 +13,7 @@ while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {
 	$kode = $row['id_admin'];
 	$nama = $row['nama_admin'];
 	$pass = $row['password'];
+	$img = $row['gambar'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,7 +74,7 @@ while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {
 			<a style="color:white; text-decoration: none; font-weight: 600; font-size: 18px; position: absolute; top: 18px; right: 65px;">|</a>
 			&nbsp
 			<div class="profile">
-				<img src="img/default-avatar.png" alt="">
+				<img src="<?php echo $img?>" alt="">
 				<ul class="profile-link">
 				<li><a href="#" class="active"><i class='bx bx-user icon'></i> Profile</a></li>
 				</ul>
@@ -104,7 +105,7 @@ while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {
 						<div class="card-body">
 						<div class="profile-form">
 						<form action="#">
-						<center><div><img src="img/default-avatar.png" alt="" class="img-profile"></div></center>
+						<center><div><img src="<?php echo $img?>" alt="" class="img-profile"></div></center>
 						<br/>
 						<div>
 						<label class="form-label">Kode Admin</label>
@@ -130,7 +131,7 @@ while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {
 										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
 											aria-label="Close"></button>
 									</div>
-									<form method="POST" action="editAkun.php"></form>
+									<form method="POST" action="editAkun.php" enctype="multipart/form-data">
 									<div class="modal-body">
 										<div class="mb-3">
 											<label class="form-label">Kode Admin</label>

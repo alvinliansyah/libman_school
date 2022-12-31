@@ -7,6 +7,12 @@ if(!isset($_SESSION['id_admin'])){
 	header('Location:login.php');
 }
 $kode=$_SESSION['id_admin'];
+
+$data = mysqli_query($koneksi, "SELECT * FROM data_admin WHERE id_admin=$_SESSION[id_admin]");
+
+while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {
+	$img = $row['gambar'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +74,7 @@ $kode=$_SESSION['id_admin'];
 			<a style="color:white; text-decoration: none; font-weight: 600; font-size: 18px; position: absolute; top: 18px; right: 65px;">|</a>
 			&nbsp
 			<div class="profile">
-				<img src="img/default-avatar.png" alt="">
+				<img src="<?php echo $img ?>" alt="">
 				<ul class="profile-link">
 					<li><a href="profile.php"><i class='bx bx-user icon'></i> Profile</a></li>
 				</ul>
@@ -131,13 +137,6 @@ $kode=$_SESSION['id_admin'];
 									<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditData"><i class='bx bx-edit icon bx-xs'>&nbsp;Edit</i></button>
 									</div>
 									</td>
-								</tr>
-							</tbody>
-							<?php
-							$i++;
-							}
-							?>
-						</table>
 						<!-- Awal Modal -->
 					<div class="modal fade" id="modalTambahTransaksi" data-bs-backdrop="static" data-bs-keyboard="false"
 					tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -149,11 +148,15 @@ $kode=$_SESSION['id_admin'];
 									aria-label="Close"></button>
 							</div>
 							<form method="POST" action="tambahPinjam.php">
+							<?php
+										$idAdmin=mysqli_query($koneksi, "SELECT MAX(id_pinjam) as id from peminjaman");
+										while ($row = mysqli_fetch_array($idAdmin, MYSQLI_ASSOC)) {
+							?>
 							<div class="modal-body">
 								<div class="mb-3">
 									<label class="form-label">Kode Peminjaman</label>
 									<input type="text" class="form-control" name="text-kodepeminjaman"
-										placeholder="Kode Peminjaman" required>
+										placeholder="Kode Peminjaman" value="<?php echo $row["id"]+1?>" readonly>
 								</div>
 								<div class="mb-3">
 									<label class="form-label">NIS</label>
@@ -189,6 +192,9 @@ $kode=$_SESSION['id_admin'];
 								<button type="submit" class="btn btn-primary" name="button-simpan">Simpan</button>
 								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
 							</div>
+							<?php
+										}
+							?>
 							</form>
 						</div>
 					</div>
@@ -204,42 +210,41 @@ $kode=$_SESSION['id_admin'];
 										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
 											aria-label="Close"></button>
 									</div>
-									<form method="POST" action="#"></form>
+									<form method="POST" action="editPinjam.php">
 									<div class="modal-body">
 								<div class="mb-3">
 									<label class="form-label">Kode Peminjaman</label>
 									<input type="text" class="form-control" name="text-kodepeminjaman"
-										placeholder="Kode Peminjaman" required>
-								</div>
-								<div class="mb-3">
-									<label class="form-label">Nama Siswa</label>
-									<input type="text" class="form-control" name="text-namalengkapsiswa"
-										placeholder="Nama Siswa" required>
+										placeholder="Kode Peminjaman" value="<?= $kdpjm?>" readonly>
 								</div>
 								<div class="mb-3">
 									<label class="form-label">NIS</label>
 									<input type="number" class="form-control" name="number-nis"
-										placeholder="NIS" required>
+										placeholder="NIS" value="<?= $nis?>" required>
 								</div>
 								<div class="mb-3">
 									<label class="form-label">Kode Buku</label>
 									<input type="text" class="form-control" name="text-kodebuku"
-										placeholder="Kode Buku" required>
+										placeholder="Kode Buku" value="<?= $kdbk?>" required>
+								</div>
+								<div class="mb-3">
+									<label class="form-label">Jumlah</label>
+									<input type="text" class="form-control" name="text-jumlah"
+										placeholder="Nama Siswa" value=1 readonly>
 								</div>
 								<div class="mb-3">
 									<label class="form-label">TGL Peminjaman</label>
-									<input type="date" id="demo" class="form-control" name="dt-peminjaman" required>
+									<input type="date" id="demo" class="form-control" name="dt-peminjaman" value="<?= $tglpjm?>" required>
 								</div>
 								<div class="mb-3">
 									<label class="form-label">TGL Pengembalian</label>
-									<input type="date" id="demo2" class="form-control" name="dt-pengembalian" required>
+									<input type="date" id="demo2" class="form-control" name="dt-pengembalian" value="<?= $tglkbl?>" required>
 								</div>
 								<div class="mb-3">
 									<label class="form-label">Kode Admin</label>
 									<input type="text" class="form-control" name="text-kodeapadmin"
-										placeholder="Kode Admin" required>
+										placeholder="Kode Admin" value="<?= $kode?>" readonly>
 								</div>
-
 							</div>
 							<div class="modal-footer">
 								<button type="submit" class="btn btn-primary" name="button-simpan">Simpan</button>
@@ -250,6 +255,13 @@ $kode=$_SESSION['id_admin'];
 							</div>
 						</div>
 						<!-- Akhir Modal -->
+						</tr>
+							</tbody>
+							<?php
+							$i++;
+							}
+							?>
+						</table>
 						</div>
 						</div>
 			</div>

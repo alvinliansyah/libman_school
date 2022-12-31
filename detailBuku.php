@@ -9,6 +9,12 @@ if(!isset($_SESSION['id_admin'])){
 
 $jenis = $_GET['jenis'];
 $dataBuku = mysqli_query($koneksi, "SELECT * FROM data_buku WHERE jenis_buku = '$jenis'");
+
+$data = mysqli_query($koneksi, "SELECT * FROM data_admin WHERE id_admin=$_SESSION[id_admin]");
+
+while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {
+	$img = $row['gambar'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +78,7 @@ $dataBuku = mysqli_query($koneksi, "SELECT * FROM data_buku WHERE jenis_buku = '
 			<a style="color:white; text-decoration: none; font-weight: 600; font-size: 18px; position: absolute; top: 18px; right: 65px;">|</a>
 			&nbsp
 			<div class="profile">
-				<img src="img/default-avatar.png" alt="">
+				<img src="<?php echo $img?>" alt="">
 				<ul class="profile-link">
 					<li><a href="profile.php"><i class='bx bx-user icon'></i> Profile</a></li>
 				</ul>
@@ -125,6 +131,7 @@ $dataBuku = mysqli_query($koneksi, "SELECT * FROM data_buku WHERE jenis_buku = '
 									$semester = $row['semester'];
 									$tingkatan = $row['tingkatan'];
 									$jumlah = $row['jumlah'];
+									$img = $row['jumlah'];
 								?>
 									<td><?php echo $i?></td>
 									<td><?php echo $kd ?></td>
@@ -148,7 +155,7 @@ $dataBuku = mysqli_query($koneksi, "SELECT * FROM data_buku WHERE jenis_buku = '
 										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
 											aria-label="Close"></button>
 									</div>
-									<form method="POST" action="tambahBuku.php">
+									<form method="POST" action="tambahBuku.php" enctype="multipart/form-data">
 									<div class="modal-body">
 										<div class="mb-3">
 											<label class="form-label">Kode Buku</label>
@@ -185,6 +192,10 @@ $dataBuku = mysqli_query($koneksi, "SELECT * FROM data_buku WHERE jenis_buku = '
 										<div class="mb-3">
 											<input type="hidden" class="form-control" name="text-jenis"
 												value="<?php echo $jenis?>" required>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Foto Buku</label>
+											<input id="file-fotobuku" accept="image/*" type="file" class="form-control" name="file-fotobuku" required>
 										</div>
 									</div>
 									<div class="modal-footer">
@@ -345,6 +356,24 @@ $dataBuku = mysqli_query($koneksi, "SELECT * FROM data_buku WHERE jenis_buku = '
 			table.buttons().container()
 				.appendTo('#example_wrapper .col-md-6:eq(0)');
 		});
+	</script>
+	<script>
+	const file_fotoprofile = document.getElementById('file-fotobuku');
+
+	file_fotoprofile.onchange = () => {
+	const [image_fotoprofile] = file_fotoprofile.files
+	if (image_fotoprofile.size > 2000000) {
+		if(image_fotoprofile){
+		alert('ukuran file maksimal 2mb');
+		file_fotoprofile.value = '';
+		return false;	
+	} else if(image_fotoprofile.type != 'image/jpeg' && image_fotoprofile.type != 'image/png' && image_fotoprofile.type != 'image/jpg') {
+		alert('type file harus .jpg .png .jpeg');
+			imginp_rental.value = '';
+			return false;
+	} 
+	}
+	}
 	</script>
 </body>
 
