@@ -140,11 +140,17 @@ while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {
 											aria-label="Close"></button>
 									</div>
 									<form method="POST" action="tambahKembali.php">
+									<?php
+										$idAdmin=mysqli_query($koneksi, "SELECT MAX(id_kembali) as id from pengembalian");
+										while ($row = mysqli_fetch_array($idAdmin, MYSQLI_ASSOC)) {
+									?>
 									<div class="modal-body">
 								<div class="mb-3">
 									<label class="form-label">Kode Pengembalian</label>
 									<input type="text" class="form-control" name="text-kodepengembalian"
-										placeholder="Kode Pengembalian" required>
+										placeholder="Kode Pengembalian" value="<?php if($row["id"] == null){
+											echo 1;
+										}else{ echo $row["id"]+1;}?>" readonly>
 								</div>
 								<div class="mb-3">
 									<label class="form-label">Kode Peminjaman</label>
@@ -175,7 +181,9 @@ while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {
 									<input type="text" class="form-control" name="text-kodeadmin"
 										value="<?=$id?>" readonly required>
 								</div>
-
+											<?php
+										}
+											?>
 							</div>
 							<div class="modal-footer">
 								<button type="submit" class="btn btn-success" name="button-selesai">Selesai</button>

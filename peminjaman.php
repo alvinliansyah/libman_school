@@ -156,11 +156,13 @@ while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {
 								<div class="mb-3">
 									<label class="form-label">Kode Peminjaman</label>
 									<input type="text" class="form-control" name="text-kodepeminjaman"
-										placeholder="Kode Peminjaman" value="<?php echo $row["id"]+1?>" readonly>
+										placeholder="Kode Peminjaman" value="<?php if($row["id"] == null){
+											echo 1;
+										}else{ echo $row["id"]+1;}?>" readonly>
 								</div>
 								<div class="mb-3">
 									<label class="form-label">NIS</label>
-									<input type="number" class="form-control" name="number-nis"
+									<input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4" class="form-control" name="number-nis"
 										placeholder="NIS" required>
 								</div>
 								<div class="mb-3">
@@ -219,7 +221,7 @@ while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {
 								</div>
 								<div class="mb-3">
 									<label class="form-label">NIS</label>
-									<input type="number" class="form-control" name="number-nis"
+									<input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4" class="form-control" name="number-nis"
 										placeholder="NIS" value="<?= $nis?>" required>
 								</div>
 								<div class="mb-3">

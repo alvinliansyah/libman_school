@@ -159,7 +159,7 @@ while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {
 									<div class="modal-body">
 										<div class="mb-3">
 											<label class="form-label">NIS</label>
-											<input type="number" class="form-control" name="number-nis1"
+											<input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4" class="form-control" name="number-nis1"
 												placeholder="NIS" required>
 										</div>
 										<div class="mb-3">
@@ -174,7 +174,7 @@ while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {
 										</div>
 										<div class="mb-3">
 											<label class="form-label">No Telepon</label>
-											<input type="number" class="form-control" name="number-noteltepon1"
+											<input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="13" class="form-control" name="number-noteltepon1"
 												placeholder="No Telepon" required>
 										</div>
 										<div class="mb-3">
@@ -234,7 +234,7 @@ while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {
 										</div>
 										<div class="mb-3">
 											<label class="form-label">No Telepon</label>
-											<input type="number" class="form-control" name="number-noteltepon"
+											<input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="13" class="form-control" name="number-noteltepon"
 											value="<?= $telp?>" placeholder="No Telepon" required>
 										</div>
 										<div class="mb-3">
